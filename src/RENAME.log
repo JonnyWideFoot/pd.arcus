@@ -1,0 +1,52 @@
+
+Collection of proposed renamings in PD/pd which should be implemented in one big batch
+such as to cause minimal disruption to existing scripts. They ought to be well thought 
+through to avoid future renaming sessions.
+Generally, since class names are now exposed to the python interface namings 
+used on the 'outside' should be short, concise and intuitive. THis applies to class names and
+class members in the case of paramerers.
+
+
+
+From          -->      To              [Comment]
+
+
+
+Proposed Class/Variable Renamings (externally visible, i.e class names)
+-----------------------------------------------------------------------------
+
+
+
+
+
+Proposed Class/Variable Renamings (externally invisible, i.e. certain variables)
+-----------------------------------------------------------------------------
+
+
+
+
+
+Done Renamings
+-----------------------------------------------------------------------------
+
+LocalReplicaExchangeDynamics    -->   LocalREMD              [the old one was just awkwardly too long]
+HarmonicStaticContraint		-->   CartesianRestraint     [these are really restraints not contraints 
+TorsionalContraint		-->   TorsionalRestraint      which allow no deviation at all ]
+InternalHarmonicRestraint	-->   InternalRestraint 
+
+Protein()                       -->   NewProtein()         
+ProteinHelix()                  -->   NewProteinHelix()	
+Molecule()                      -->   NewMolecule()		
+ProteinPDB()                    -->   NewProteinPDB()		
+ProteinPDBModel()               -->   NewProteinPDBModel() 
+
+ParticleSystem                  -->   Workspace
+ForcefieldParameterSet		-->   FFParamSet
+SASA::freq_sasa                 -->   update_sasa
+SysSpec                         -->   System
+SysMolecule                     -->   Molecule
+
+MOOK_Particle                   -->   Particle
+MOOK_ParticleDynamics :         -->   SnapShotAtom
+MOOK_PhaseSpacePoint :          -->   Snapshot
+

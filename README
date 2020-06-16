@@ -1,0 +1,32 @@
+PD 0.5 Beta Version. Written and maintained by M.Tyka, Jon Rea
+(c) University of Bristol, UK 2003-2007
+
+INSTALLATION 
+See doc/installation/install.html for detailed information on installation
+and/or compilation of the code.
+
+DOCUMENTATION
+See doc/index.html for more detailed documenation and tutorials
+
+
+DIRECTORY STRUCTURE
+
+doc/   Documentation
+src/   Source Code and GNU Makefile
+bin/   Binaries (for source distributions only after compilation)
+lib/   Forcefield and other run-time libraries
+vc/    Visual C (MS VisualStudio 2005) project files for Windows
+
+
+Disclaimer:
+
+* THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND ANY
+* EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+* WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+* DISCLAIMED. IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE FOR ANY
+* DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+* (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+* LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+* ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+* (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+* SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.

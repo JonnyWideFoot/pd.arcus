@@ -1,0 +1,999 @@
+## PD_ROTAMER_FORMAT v1.0
+NAMING ALT
+
+BEGIN ALA
+SCOPE_START CONST
+PROB   1.00000
+ATOM      0 N    ALA     0      -0.676  -1.294   0.000                          
+ATOM      1 CA   ALA     0       0.000   0.000   0.000                          
+ATOM      2 CB   ALA     0      -0.508   0.792   1.217                          
+END   ALA
+
+BEGIN ARG
+SCOPE_START CONST
+PROB   1.00000
+ATOM      0 N    ARG     0      -0.676  -1.294   0.000                          
+ATOM      1 CA   ARG     0       0.000   0.000   0.000                          
+ATOM      2 CB   ARG     0      -0.477   0.803   1.241                          
+ATOM      3 CG   ARG     0      -1.966   1.239   1.204                          
+ATOM      4 CD   ARG     0      -2.399   1.960   2.487                          
+ATOM      5 NE   ARG     0      -3.830   2.334   2.352                          
+ATOM      6 CZ   ARG     0      -4.549   2.973   3.265                          
+ATOM      7 NH1  ARG     0      -4.089   3.367   4.416                          
+ATOM      8 NH2  ARG     0      -5.781   3.216   2.988                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM      9 N    ARG     1      -0.676  -1.294   0.000                          
+ATOM     10 CA   ARG     1       0.000   0.000   0.000                          
+ATOM     11 CB   ARG     1      -0.477   0.803   1.241                          
+ATOM     12 CG   ARG     1       0.041   2.264   1.313                          
+ATOM     13 CD   ARG     1      -0.435   2.994   2.576                          
+ATOM     14 NE   ARG     1       0.111   4.375   2.550                          
+ATOM     15 CZ   ARG     1      -0.091   5.300   3.479                          
+ATOM     16 NH1  ARG     1      -0.799   5.119   4.554                          
+ATOM     17 NH2  ARG     1       0.454   6.451   3.298                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     18 N    ARG     2      -0.676  -1.294   0.000                          
+ATOM     19 CA   ARG     2       0.000   0.000   0.000                          
+ATOM     20 CB   ARG     2      -0.477   0.803   1.241                          
+ATOM     21 CG   ARG     2       0.212   0.413   2.576                          
+ATOM     22 CD   ARG     2      -0.220   1.309   3.744                          
+ATOM     23 NE   ARG     2       0.491   0.858   4.967                          
+ATOM     24 CZ   ARG     2       0.368   1.397   6.172                          
+ATOM     25 NH1  ARG     2      -0.405   2.405   6.450                          
+ATOM     26 NH2  ARG     2       1.063   0.885   7.125                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     27 N    ARG     3      -0.676  -1.294   0.000                          
+ATOM     28 CA   ARG     3       0.000   0.000   0.000                          
+ATOM     29 CB   ARG     3      -0.477   0.803   1.241                          
+ATOM     30 CG   ARG     3      -1.970   1.227   1.211                          
+ATOM     31 CD   ARG     3      -2.244   2.339   0.191                          
+ATOM     32 NE   ARG     3      -3.691   2.671   0.239                          
+ATOM     33 CZ   ARG     3      -4.296   3.588  -0.504                          
+ATOM     34 NH1  ARG     3      -3.696   4.327  -1.390                          
+ATOM     35 NH2  ARG     3      -5.560   3.752  -0.332                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     36 N    ARG     4      -0.676  -1.294   0.000                          
+ATOM     37 CA   ARG     4       0.000   0.000   0.000                          
+ATOM     38 CB   ARG     4      -0.477   0.803   1.241                          
+ATOM     39 CG   ARG     4       0.185   2.195   1.414                          
+ATOM     40 CD   ARG     4      -0.262   3.196   0.341                          
+ATOM     41 NE   ARG     4       0.424   4.489   0.592                          
+ATOM     42 CZ   ARG     4       0.283   5.590  -0.133                          
+ATOM     43 NH1  ARG     4      -0.490   5.688  -1.175                          
+ATOM     44 NH2  ARG     4       0.957   6.625   0.222                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     45 N    ARG     5      -0.676  -1.294   0.000                          
+ATOM     46 CA   ARG     5       0.000   0.000   0.000                          
+ATOM     47 CB   ARG     5      -0.477   0.803   1.241                          
+ATOM     48 CG   ARG     5      -0.248   0.097   2.604                          
+ATOM     49 CD   ARG     5       1.178   0.292   3.135                          
+ATOM     50 NE   ARG     5       1.295  -0.417   4.434                          
+ATOM     51 CZ   ARG     5       2.384  -0.469   5.188                          
+ATOM     52 NH1  ARG     5       3.512   0.105   4.889                          
+ATOM     53 NH2  ARG     5       2.315  -1.134   6.287                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     54 N    ARG     6      -0.676  -1.294   0.000                          
+ATOM     55 CA   ARG     6       0.000   0.000   0.000                          
+ATOM     56 CB   ARG     6      -0.477   0.803   1.241                          
+ATOM     57 CG   ARG     6      -1.889   1.432   1.109                          
+ATOM     58 CD   ARG     6      -2.961   0.400   0.733                          
+ATOM     59 NE   ARG     6      -4.267   1.098   0.632                          
+ATOM     60 CZ   ARG     6      -5.424   0.526   0.325                          
+ATOM     61 NH1  ARG     6      -5.572  -0.741   0.073                          
+ATOM     62 NH2  ARG     6      -6.464   1.281   0.275                          
+END   ARG
+
+BEGIN ASN
+SCOPE_START CONST
+PROB   1.00000
+ATOM      0 N    ASN     0      -0.676  -1.294   0.000                          
+ATOM      1 CA   ASN     0       0.000   0.000   0.000                          
+ATOM      2 CB   ASN     0      -0.461   0.806   1.249                          
+ATOM      3 CG   ASN     0      -1.918   1.279   1.270                          
+ATOM      4 OD1  ASN     0      -2.495   1.658   0.262                          
+ATOM      5 ND2  ASN     0      -2.557   1.301   2.410                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM      6 N    ASN     1      -0.676  -1.294   0.000                          
+ATOM      7 CA   ASN     1       0.000   0.000   0.000                          
+ATOM      8 CB   ASN     1      -0.461   0.806   1.249                          
+ATOM      9 CG   ASN     1       0.086   2.229   1.398                          
+ATOM     10 OD1  ASN     1       0.831   2.731   0.570                          
+ATOM     11 ND2  ASN     1      -0.238   2.920   2.458                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     12 N    ASN     2      -0.676  -1.294   0.000                          
+ATOM     13 CA   ASN     2       0.000   0.000   0.000                          
+ATOM     14 CB   ASN     2      -0.461   0.806   1.249                          
+ATOM     15 CG   ASN     2      -1.925   1.257   1.282                          
+ATOM     16 OD1  ASN     2      -2.652   1.041   2.240                          
+ATOM     17 ND2  ASN     2      -2.417   1.873   0.241                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     18 N    ASN     3      -0.676  -1.294   0.000                          
+ATOM     19 CA   ASN     3       0.000   0.000   0.000                          
+ATOM     20 CB   ASN     3      -0.461   0.806   1.249                          
+ATOM     21 CG   ASN     3      -0.100   0.226   2.621                          
+ATOM     22 OD1  ASN     3       0.412  -0.876   2.749                          
+ATOM     23 ND2  ASN     3      -0.371   0.926   3.691                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     24 N    ASN     4      -0.676  -1.294   0.000                          
+ATOM     25 CA   ASN     4       0.000   0.000   0.000                          
+ATOM     26 CB   ASN     4      -0.461   0.806   1.249                          
+ATOM     27 CG   ASN     4       0.044   2.247   1.372                          
+ATOM     28 OD1  ASN     4       0.110   2.826   2.446                          
+ATOM     29 ND2  ASN     4       0.395   2.885   0.287                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     30 N    ASN     5      -0.676  -1.294   0.000                          
+ATOM     31 CA   ASN     5       0.000   0.000   0.000                          
+ATOM     32 CB   ASN     5      -0.461   0.806   1.249                          
+ATOM     33 CG   ASN     5      -0.106   0.223   2.621                          
+ATOM     34 OD1  ASN     5       1.039  -0.075   2.926                          
+ATOM     35 ND2  ASN     5      -1.065   0.017   3.484                          
+END   ASN
+
+BEGIN ASP
+SCOPE_START CONST
+PROB   1.00000
+ATOM      0 N    ASP     0      -0.676  -1.294   0.000                          
+ATOM      1 CA   ASP     0       0.000   0.000   0.000                          
+ATOM      2 CB   ASP     0      -0.489   0.800   1.235                          
+ATOM      3 CG   ASP     0      -1.953   1.263   1.220                          
+ATOM      4 OD1  ASP     0      -2.583   1.450   0.189                          
+ATOM      5 OD2  ASP     0      -2.474   1.417   2.474                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM      6 N    ASP     1      -0.676  -1.294   0.000                          
+ATOM      7 CA   ASP     1       0.000   0.000   0.000                          
+ATOM      8 CB   ASP     1      -0.489   0.800   1.235                          
+ATOM      9 CG   ASP     1      -0.103   2.285   1.291                          
+ATOM     10 OD1  ASP     1       0.496   2.853   0.389                          
+ATOM     11 OD2  ASP     1      -0.522   2.899   2.438                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     12 N    ASP     2      -0.676  -1.294   0.000                          
+ATOM     13 CA   ASP     2       0.000   0.000   0.000                          
+ATOM     14 CB   ASP     2      -0.489   0.800   1.235                          
+ATOM     15 CG   ASP     2      -0.153   0.214   2.614                          
+ATOM     16 OD1  ASP     2       0.505  -0.806   2.762                          
+ATOM     17 OD2  ASP     2      -0.645   0.966   3.644                          
+END   ASP
+
+BEGIN CYS
+SCOPE_START CONST
+PROB   1.00000
+ATOM      0 N    CYS     0      -0.676  -1.294   0.000                          
+ATOM      1 CA   CYS     0       0.000   0.000   0.000                          
+ATOM      2 CB   CYS     0      -0.501   0.794   1.223                          
+ATOM      3 SG   CYS     0      -2.260   1.173   1.062                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM      4 N    CYS     1      -0.676  -1.294   0.000                          
+ATOM      5 CA   CYS     1       0.000   0.000   0.000                          
+ATOM      6 CB   CYS     1      -0.501   0.794   1.223                          
+ATOM      7 SG   CYS     1       0.282   2.421   1.293                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM      8 N    CYS     2      -0.676  -1.294   0.000                          
+ATOM      9 CA   CYS     2       0.000   0.000   0.000                          
+ATOM     10 CB   CYS     2      -0.501   0.794   1.223                          
+ATOM     11 SG   CYS     2      -0.038  -0.037   2.759                          
+END   CYS
+
+BEGIN CYX
+SCOPE_START CONST
+PROB   1.00000
+ATOM      0 N    CYX     0      -0.676  -1.294   0.000                          
+ATOM      1 CA   CYX     0       0.000   0.000   0.000                          
+ATOM      2 CB   CYX     0      -0.501   0.794   1.223                          
+ATOM      3 SG   CYX     0      -2.260   1.173   1.062                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM      4 N    CYX     1      -0.676  -1.294   0.000                          
+ATOM      5 CA   CYX     1       0.000   0.000   0.000                          
+ATOM      6 CB   CYX     1      -0.501   0.794   1.223                          
+ATOM      7 SG   CYX     1       0.282   2.421   1.293                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM      8 N    CYX     2      -0.676  -1.294   0.000                          
+ATOM      9 CA   CYX     2       0.000   0.000   0.000                          
+ATOM     10 CB   CYX     2      -0.501   0.794   1.223                          
+ATOM     11 SG   CYX     2      -0.038  -0.037   2.759                          
+END   CYX
+
+BEGIN GLN
+SCOPE_START CONST
+PROB   1.00000
+ATOM      0 N    GLN     0      -0.676  -1.294   0.000                          
+ATOM      1 CA   GLN     0       0.000   0.000   0.000                          
+ATOM      2 CB   GLN     0      -0.464   0.799   1.237                          
+ATOM      3 CG   GLN     0      -1.965   1.239   1.253                          
+ATOM      4 CD   GLN     0      -2.490   2.065   2.433                          
+ATOM      5 OE1  GLN     0      -3.655   2.428   2.481                          
+ATOM      6 NE2  GLN     0      -1.679   2.415   3.398                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM      7 N    GLN     1      -0.676  -1.294   0.000                          
+ATOM      8 CA   GLN     1       0.000   0.000   0.000                          
+ATOM      9 CB   GLN     1      -0.464   0.799   1.237                          
+ATOM     10 CG   GLN     1      -1.965   1.239   1.253                          
+ATOM     11 CD   GLN     1      -2.490   2.065   2.433                          
+ATOM     12 OE1  GLN     1      -2.013   3.156   2.701                          
+ATOM     13 NE2  GLN     1      -3.449   1.592   3.187                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     14 N    GLN     2      -0.676  -1.294   0.000                          
+ATOM     15 CA   GLN     2       0.000   0.000   0.000                          
+ATOM     16 CB   GLN     2      -0.464   0.799   1.237                          
+ATOM     17 CG   GLN     2      -1.965   1.239   1.253                          
+ATOM     18 CD   GLN     2      -2.490   2.065   2.433                          
+ATOM     19 OE1  GLN     2      -2.451   1.632   3.573                          
+ATOM     20 NE2  GLN     2      -3.014   3.246   2.222                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     21 N    GLN     3      -0.676  -1.294   0.000                          
+ATOM     22 CA   GLN     3       0.000   0.000   0.000                          
+ATOM     23 CB   GLN     3      -0.464   0.799   1.237                          
+ATOM     24 CG   GLN     3       0.054   2.271   1.344                          
+ATOM     25 CD   GLN     3      -0.322   3.109   2.572                          
+ATOM     26 OE1  GLN     3       0.063   4.262   2.691                          
+ATOM     27 NE2  GLN     3      -1.046   2.582   3.526                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     28 N    GLN     4      -0.676  -1.294   0.000                          
+ATOM     29 CA   GLN     4       0.000   0.000   0.000                          
+ATOM     30 CB   GLN     4      -0.464   0.799   1.237                          
+ATOM     31 CG   GLN     4       0.054   2.271   1.344                          
+ATOM     32 CD   GLN     4      -0.322   3.109   2.572                          
+ATOM     33 OE1  GLN     4      -0.003   2.758   3.697                          
+ATOM     34 NE2  GLN     4      -1.017   4.208   2.425                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     35 N    GLN     5      -0.676  -1.294   0.000                          
+ATOM     36 CA   GLN     5       0.000   0.000   0.000                          
+ATOM     37 CB   GLN     5      -0.464   0.799   1.237                          
+ATOM     38 CG   GLN     5       0.054   2.271   1.344                          
+ATOM     39 CD   GLN     5      -0.322   3.109   2.572                          
+ATOM     40 OE1  GLN     5      -1.489   3.342   2.843                          
+ATOM     41 NE2  GLN     5       0.617   3.609   3.335                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     42 N    GLN     6      -0.676  -1.294   0.000                          
+ATOM     43 CA   GLN     6       0.000   0.000   0.000                          
+ATOM     44 CB   GLN     6      -0.464   0.799   1.237                          
+ATOM     45 CG   GLN     6      -2.001   1.071   1.347                          
+ATOM     46 CD   GLN     6      -2.685   1.937   0.282                          
+ATOM     47 OE1  GLN     6      -2.195   2.994  -0.082                          
+ATOM     48 NE2  GLN     6      -3.826   1.558  -0.234                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     49 N    GLN     7      -0.676  -1.294   0.000                          
+ATOM     50 CA   GLN     7       0.000   0.000   0.000                          
+ATOM     51 CB   GLN     7      -0.464   0.799   1.237                          
+ATOM     52 CG   GLN     7       0.145   2.230   1.405                          
+ATOM     53 CD   GLN     7      -0.224   3.323   0.394                          
+ATOM     54 OE1  GLN     7      -1.284   3.291  -0.210                          
+ATOM     55 NE2  GLN     7       0.614   4.297   0.149                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     56 N    GLN     8      -0.676  -1.294   0.000                          
+ATOM     57 CA   GLN     8       0.000   0.000   0.000                          
+ATOM     58 CB   GLN     8      -0.464   0.799   1.237                          
+ATOM     59 CG   GLN     8       0.049   0.286   2.624                          
+ATOM     60 CD   GLN     8      -0.618   0.801   3.905                          
+ATOM     61 OE1  GLN     8      -0.246   0.425   5.005                          
+ATOM     62 NE2  GLN     8      -1.619   1.640   3.829                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     63 N    GLN     9      -0.676  -1.294   0.000                          
+ATOM     64 CA   GLN     9       0.000   0.000   0.000                          
+ATOM     65 CB   GLN     9      -0.464   0.799   1.237                          
+ATOM     66 CG   GLN     9       0.049   0.286   2.624                          
+ATOM     67 CD   GLN     9      -0.618   0.801   3.905                          
+ATOM     68 OE1  GLN     9      -1.807   0.625   4.112                          
+ATOM     69 NE2  GLN     9       0.086   1.465   4.787                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     70 N    GLN    10      -0.676  -1.294   0.000                          
+ATOM     71 CA   GLN    10       0.000   0.000   0.000                          
+ATOM     72 CB   GLN    10      -0.464   0.799   1.237                          
+ATOM     73 CG   GLN    10       0.049   0.286   2.624                          
+ATOM     74 CD   GLN    10      -0.618   0.801   3.905                          
+ATOM     75 OE1  GLN    10      -0.622   1.991   4.179                          
+ATOM     76 NE2  GLN    10      -1.172  -0.042   4.738                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     77 N    GLN    11      -0.676  -1.294   0.000                          
+ATOM     78 CA   GLN    11       0.000   0.000   0.000                          
+ATOM     79 CB   GLN    11      -0.464   0.799   1.237                          
+ATOM     80 CG   GLN    11      -2.011   0.917   1.443                          
+ATOM     81 CD   GLN    11      -2.759   2.102   0.820                          
+ATOM     82 OE1  GLN    11      -3.975   2.098   0.719                          
+ATOM     83 NE2  GLN    11      -2.090   3.130   0.362                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     84 N    GLN    12      -0.676  -1.294   0.000                          
+ATOM     85 CA   GLN    12       0.000   0.000   0.000                          
+ATOM     86 CB   GLN    12      -0.464   0.799   1.237                          
+ATOM     87 CG   GLN    12       0.365   2.080   1.584                          
+ATOM     88 CD   GLN    12       0.258   3.309   0.672                          
+ATOM     89 OE1  GLN    12       0.804   4.360   0.964                          
+ATOM     90 NE2  GLN    12      -0.450   3.247  -0.428                          
+END   GLN
+
+BEGIN GLU
+SCOPE_START CONST
+PROB   1.00000
+ATOM      0 N    GLU     0      -0.676  -1.294   0.000                          
+ATOM      1 CA   GLU     0       0.000   0.000   0.000                          
+ATOM      2 CB   GLU     0      -0.475   0.803   1.243                          
+ATOM      3 CG   GLU     0      -1.954   1.314   1.245                          
+ATOM      4 CD   GLU     0      -2.428   2.163   2.427                          
+ATOM      5 OE1  GLU     0      -1.779   2.292   3.456                          
+ATOM      6 OE2  GLU     0      -3.635   2.759   2.224                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM      7 N    GLU     1      -0.676  -1.294   0.000                          
+ATOM      8 CA   GLU     1       0.000   0.000   0.000                          
+ATOM      9 CB   GLU     1      -0.475   0.803   1.243                          
+ATOM     10 CG   GLU     1       0.056   2.267   1.397                          
+ATOM     11 CD   GLU     1      -0.478   3.116   2.552                          
+ATOM     12 OE1  GLU     1      -1.385   2.747   3.286                          
+ATOM     13 OE2  GLU     1       0.149   4.318   2.686                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     14 N    GLU     2      -0.676  -1.294   0.000                          
+ATOM     15 CA   GLU     2       0.000   0.000   0.000                          
+ATOM     16 CB   GLU     2      -0.475   0.803   1.243                          
+ATOM     17 CG   GLU     2      -1.984   1.210   1.300                          
+ATOM     18 CD   GLU     2      -2.491   2.261   0.309                          
+ATOM     19 OE1  GLU     2      -1.801   3.191  -0.086                          
+ATOM     20 OE2  GLU     2      -3.779   2.063  -0.088                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     21 N    GLU     3      -0.676  -1.294   0.000                          
+ATOM     22 CA   GLU     3       0.000   0.000   0.000                          
+ATOM     23 CB   GLU     3      -0.475   0.803   1.243                          
+ATOM     24 CG   GLU     3      -2.015   1.024   1.409                          
+ATOM     25 CD   GLU     3      -2.865  -0.143   1.918                          
+ATOM     26 OE1  GLU     3      -2.411  -1.047   2.607                          
+ATOM     27 OE2  GLU     3      -4.170  -0.079   1.533                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     28 N    GLU     4      -0.676  -1.294   0.000                          
+ATOM     29 CA   GLU     4       0.000   0.000   0.000                          
+ATOM     30 CB   GLU     4      -0.475   0.803   1.243                          
+ATOM     31 CG   GLU     4      -0.002   0.299   2.647                          
+ATOM     32 CD   GLU     4      -0.475   1.058   3.889                          
+ATOM     33 OE1  GLU     4      -1.295   1.965   3.842                          
+ATOM     34 OE2  GLU     4       0.102   0.629   5.046                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     35 N    GLU     5      -0.676  -1.294   0.000                          
+ATOM     36 CA   GLU     5       0.000   0.000   0.000                          
+ATOM     37 CB   GLU     5      -0.475   0.803   1.243                          
+ATOM     38 CG   GLU     5       0.006   2.287   1.364                          
+ATOM     39 CD   GLU     5      -0.573   3.320   0.395                          
+ATOM     40 OE1  GLU     5      -1.560   3.106  -0.296                          
+ATOM     41 OE2  GLU     5       0.113   4.497   0.374                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     42 N    GLU     6      -0.676  -1.294   0.000                          
+ATOM     43 CA   GLU     6       0.000   0.000   0.000                          
+ATOM     44 CB   GLU     6      -0.475   0.803   1.243                          
+ATOM     45 CG   GLU     6      -0.141   0.209   2.651                          
+ATOM     46 CD   GLU     6      -1.033  -0.907   3.199                          
+ATOM     47 OE1  GLU     6      -1.799  -1.553   2.496                          
+ATOM     48 OE2  GLU     6      -0.893  -1.114   4.538                          
+END   GLU
+
+BEGIN GLY
+SCOPE_START CONST
+PROB   1.00000
+ATOM      0 N    GLY     0      -0.676  -1.294   0.000                          
+ATOM      1 CA   GLY     0       0.000   0.000   0.000                          
+ATOM      2 C    GLY     0       1.500  -0.174   0.000                          
+END   GLY
+
+BEGIN HIS
+SCOPE_START CONST
+PROB   1.00000
+ATOM      0 N    HIS     0      -0.676  -1.294   0.000                          
+ATOM      1 CA   HIS     0       0.000   0.000   0.000                          
+ATOM      2 CB   HIS     0      -0.455   0.726   1.277                          
+ATOM      3 CG   HIS     0      -1.932   0.992   1.286                          
+ATOM      4 ND1  HIS     0      -2.590   1.961   0.533                          
+ATOM      5 CE1  HIS     0      -3.857   1.742   0.932                          
+ATOM      6 NE2  HIS     0      -4.079   0.761   1.849                          
+ATOM      7 CD2  HIS     0      -2.818   0.273   2.076                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM      8 N    HIS     1      -0.676  -1.294   0.000                          
+ATOM      9 CA   HIS     1       0.000   0.000   0.000                          
+ATOM     10 CB   HIS     1      -0.455   0.726   1.277                          
+ATOM     11 CG   HIS     1       0.076   2.128   1.355                          
+ATOM     12 ND1  HIS     1       1.301   2.506   1.899                          
+ATOM     13 CE1  HIS     1       1.241   3.836   1.696                          
+ATOM     14 NE2  HIS     1       0.129   4.344   1.100                          
+ATOM     15 CD2  HIS     1      -0.629   3.224   0.878                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     16 N    HIS     2      -0.676  -1.294   0.000                          
+ATOM     17 CA   HIS     2       0.000   0.000   0.000                          
+ATOM     18 CB   HIS     2      -0.455   0.726   1.277                          
+ATOM     19 CG   HIS     2      -1.895   1.141   1.214                          
+ATOM     20 ND1  HIS     2      -2.972   0.431   1.741                          
+ATOM     21 CE1  HIS     2      -3.980   1.256   1.401                          
+ATOM     22 NE2  HIS     2      -3.675   2.394   0.720                          
+ATOM     23 CD2  HIS     2      -2.312   2.315   0.601                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     24 N    HIS     3      -0.676  -1.294   0.000                          
+ATOM     25 CA   HIS     3       0.000   0.000   0.000                          
+ATOM     26 CB   HIS     3      -0.455   0.726   1.277                          
+ATOM     27 CG   HIS     3       0.066   0.069   2.522                          
+ATOM     28 ND1  HIS     3      -0.475  -1.058   3.136                          
+ATOM     29 CE1  HIS     3       0.378  -1.188   4.170                          
+ATOM     30 NE2  HIS     3       1.383  -0.280   4.290                          
+ATOM     31 CD2  HIS     3       1.176   0.539   3.210                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     32 N    HIS     4      -0.676  -1.294   0.000                          
+ATOM     33 CA   HIS     4       0.000   0.000   0.000                          
+ATOM     34 CB   HIS     4      -0.455   0.726   1.277                          
+ATOM     35 CG   HIS     4       0.117   2.110   1.380                          
+ATOM     36 ND1  HIS     4      -0.552   3.292   1.071                          
+ATOM     37 CE1  HIS     4       0.418   4.184   1.349                          
+ATOM     38 NE2  HIS     4       1.617   3.712   1.786                          
+ATOM     39 CD2  HIS     4       1.414   2.356   1.806                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     40 N    HIS     5      -0.676  -1.294   0.000                          
+ATOM     41 CA   HIS     5       0.000   0.000   0.000                          
+ATOM     42 CB   HIS     5      -0.455   0.726   1.277                          
+ATOM     43 CG   HIS     5      -0.361  -0.148   2.494                          
+ATOM     44 ND1  HIS     5       0.773  -0.328   3.282                          
+ATOM     45 CE1  HIS     5       0.281  -1.183   4.199                          
+ATOM     46 NE2  HIS     5      -1.018  -1.571   4.083                          
+ATOM     47 CD2  HIS     5      -1.433  -0.891   2.968                          
+END   HIS
+
+BEGIN HIP
+SCOPE_START CONST
+PROB   1.00000
+ATOM      0 N    HIP     0      -0.676  -1.294   0.000                          
+ATOM      1 CA   HIP     0       0.000   0.000   0.000                          
+ATOM      2 CB   HIP     0      -0.455   0.726   1.277                          
+ATOM      3 CG   HIP     0      -1.932   0.992   1.286                          
+ATOM      4 ND1  HIP     0      -2.590   1.961   0.533                          
+ATOM      5 CE1  HIP     0      -3.857   1.742   0.932                          
+ATOM      6 NE2  HIP     0      -4.079   0.761   1.849                          
+ATOM      7 CD2  HIP     0      -2.818   0.273   2.076                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM      8 N    HIP     1      -0.676  -1.294   0.000                          
+ATOM      9 CA   HIP     1       0.000   0.000   0.000                          
+ATOM     10 CB   HIP     1      -0.455   0.726   1.277                          
+ATOM     11 CG   HIP     1       0.076   2.128   1.355                          
+ATOM     12 ND1  HIP     1       1.301   2.506   1.899                          
+ATOM     13 CE1  HIP     1       1.241   3.836   1.696                          
+ATOM     14 NE2  HIP     1       0.129   4.344   1.100                          
+ATOM     15 CD2  HIP     1      -0.629   3.224   0.878                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     16 N    HIP     2      -0.676  -1.294   0.000                          
+ATOM     17 CA   HIP     2       0.000   0.000   0.000                          
+ATOM     18 CB   HIP     2      -0.455   0.726   1.277                          
+ATOM     19 CG   HIP     2      -1.895   1.141   1.214                          
+ATOM     20 ND1  HIP     2      -2.972   0.431   1.741                          
+ATOM     21 CE1  HIP     2      -3.980   1.256   1.401                          
+ATOM     22 NE2  HIP     2      -3.675   2.394   0.720                          
+ATOM     23 CD2  HIP     2      -2.312   2.315   0.601                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     24 N    HIP     3      -0.676  -1.294   0.000                          
+ATOM     25 CA   HIP     3       0.000   0.000   0.000                          
+ATOM     26 CB   HIP     3      -0.455   0.726   1.277                          
+ATOM     27 CG   HIP     3       0.066   0.069   2.522                          
+ATOM     28 ND1  HIP     3      -0.475  -1.058   3.136                          
+ATOM     29 CE1  HIP     3       0.378  -1.188   4.170                          
+ATOM     30 NE2  HIP     3       1.383  -0.280   4.290                          
+ATOM     31 CD2  HIP     3       1.176   0.539   3.210                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     32 N    HIP     4      -0.676  -1.294   0.000                          
+ATOM     33 CA   HIP     4       0.000   0.000   0.000                          
+ATOM     34 CB   HIP     4      -0.455   0.726   1.277                          
+ATOM     35 CG   HIP     4       0.117   2.110   1.380                          
+ATOM     36 ND1  HIP     4      -0.552   3.292   1.071                          
+ATOM     37 CE1  HIP     4       0.418   4.184   1.349                          
+ATOM     38 NE2  HIP     4       1.617   3.712   1.786                          
+ATOM     39 CD2  HIP     4       1.414   2.356   1.806                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     40 N    HIP     5      -0.676  -1.294   0.000                          
+ATOM     41 CA   HIP     5       0.000   0.000   0.000                          
+ATOM     42 CB   HIP     5      -0.455   0.726   1.277                          
+ATOM     43 CG   HIP     5      -0.361  -0.148   2.494                          
+ATOM     44 ND1  HIP     5       0.773  -0.328   3.282                          
+ATOM     45 CE1  HIP     5       0.281  -1.183   4.199                          
+ATOM     46 NE2  HIP     5      -1.018  -1.571   4.083                          
+ATOM     47 CD2  HIP     5      -1.433  -0.891   2.968                          
+END   HIP
+
+BEGIN ILE
+SCOPE_START CONST
+PROB   1.00000
+ATOM      0 N    ILE     0      -0.676  -1.294   0.000                          
+ATOM      1 CA   ILE     0       0.000   0.000   0.000                          
+ATOM      2 CB   ILE     0      -0.506   0.745   1.302                          
+ATOM      3 CG2  ILE     0       0.216   2.108   1.538                          
+ATOM      4 CG1  ILE     0      -2.047   0.997   1.350                          
+ATOM      5 CD1  ILE     0      -2.610   1.470   2.706                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM      6 N    ILE     1      -0.676  -1.294   0.000                          
+ATOM      7 CA   ILE     1       0.000   0.000   0.000                          
+ATOM      8 CB   ILE     1      -0.506   0.745   1.302                          
+ATOM      9 CG2  ILE     1       0.192   2.122   1.521                          
+ATOM     10 CG1  ILE     1      -2.051   0.969   1.364                          
+ATOM     11 CD1  ILE     1      -2.643   1.891   0.278                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     12 N    ILE     2      -0.676  -1.294   0.000                          
+ATOM     13 CA   ILE     2       0.000   0.000   0.000                          
+ATOM     14 CB   ILE     2      -0.506   0.745   1.302                          
+ATOM     15 CG2  ILE     2      -2.043   1.012   1.286                          
+ATOM     16 CG1  ILE     2      -0.153   0.026   2.643                          
+ATOM     17 CD1  ILE     2      -0.275   0.884   3.919                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     18 N    ILE     3      -0.676  -1.294   0.000                          
+ATOM     19 CA   ILE     3       0.000   0.000   0.000                          
+ATOM     20 CB   ILE     3      -0.506   0.745   1.302                          
+ATOM     21 CG2  ILE     3       0.024   0.093   2.616                          
+ATOM     22 CG1  ILE     3      -0.176   2.271   1.349                          
+ATOM     23 CD1  ILE     3      -0.930   3.090   2.417                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     24 N    ILE     4      -0.676  -1.294   0.000                          
+ATOM     25 CA   ILE     4       0.000   0.000   0.000                          
+ATOM     26 CB   ILE     4      -0.506   0.745   1.302                          
+ATOM     27 CG2  ILE     4      -0.148  -0.019   2.614                          
+ATOM     28 CG1  ILE     4      -0.006   2.218   1.446                          
+ATOM     29 CD1  ILE     4      -0.640   3.242   0.483                          
+END   ILE
+
+BEGIN LEU
+SCOPE_START CONST
+PROB   1.00000
+ATOM      0 N    LEU     0      -0.676  -1.294   0.000                          
+ATOM      1 CA   LEU     0       0.000   0.000   0.000                          
+ATOM      2 CB   LEU     0      -0.474   0.733   1.287                          
+ATOM      3 CG   LEU     0      -1.975   1.116   1.399                          
+ATOM      4 CD1  LEU     0      -2.260   1.737   2.774                          
+ATOM      5 CD2  LEU     0      -2.426   2.081   0.291                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM      6 N    LEU     1      -0.676  -1.294   0.000                          
+ATOM      7 CA   LEU     1       0.000   0.000   0.000                          
+ATOM      8 CB   LEU     1      -0.474   0.733   1.287                          
+ATOM      9 CG   LEU     1       0.016   2.187   1.522                          
+ATOM     10 CD1  LEU     1      -0.506   3.107   0.410                          
+ATOM     11 CD2  LEU     1      -0.405   2.741   2.893                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     12 N    LEU     2      -0.676  -1.294   0.000                          
+ATOM     13 CA   LEU     2       0.000   0.000   0.000                          
+ATOM     14 CB   LEU     2      -0.474   0.733   1.287                          
+ATOM     15 CG   LEU     2      -0.207   2.259   1.399                          
+ATOM     16 CD1  LEU     2      -0.994   2.846   2.579                          
+ATOM     17 CD2  LEU     2       1.286   2.591   1.556                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     18 N    LEU     3      -0.676  -1.294   0.000                          
+ATOM     19 CA   LEU     3       0.000   0.000   0.000                          
+ATOM     20 CB   LEU     3      -0.474   0.733   1.287                          
+ATOM     21 CG   LEU     3      -0.526  -0.075   2.612                          
+ATOM     22 CD1  LEU     3       0.873  -0.597   2.967                          
+ATOM     23 CD2  LEU     3      -1.086   0.745   3.786                          
+END   LEU
+
+BEGIN LYS
+SCOPE_START CONST
+PROB   1.00000
+ATOM      0 N    LYS     0      -0.676  -1.294   0.000                          
+ATOM      1 CA   LYS     0       0.000   0.000   0.000                          
+ATOM      2 CB   LYS     0      -0.474   0.732   1.285                          
+ATOM      3 CG   LYS     0      -1.966   1.149   1.241                          
+ATOM      4 CD   LYS     0      -2.459   1.908   2.476                          
+ATOM      5 CE   LYS     0      -3.943   2.256   2.297                          
+ATOM      6 NZ   LYS     0      -4.421   2.986   3.484                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM      7 N    LYS     1      -0.676  -1.294   0.000                          
+ATOM      8 CA   LYS     1       0.000   0.000   0.000                          
+ATOM      9 CB   LYS     1      -0.474   0.732   1.285                          
+ATOM     10 CG   LYS     1      -0.009   2.208   1.360                          
+ATOM     11 CD   LYS     1      -0.552   2.994   2.557                          
+ATOM     12 CE   LYS     1      -0.014   4.430   2.505                          
+ATOM     13 NZ   LYS     1      -0.534   5.190   3.655                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     14 N    LYS     2      -0.676  -1.294   0.000                          
+ATOM     15 CA   LYS     2       0.000   0.000   0.000                          
+ATOM     16 CB   LYS     2      -0.474   0.732   1.285                          
+ATOM     17 CG   LYS     2      -2.011   0.913   1.359                          
+ATOM     18 CD   LYS     2      -2.577   1.999   0.439                          
+ATOM     19 CE   LYS     2      -4.099   2.068   0.615                          
+ATOM     20 NZ   LYS     2      -4.648   3.112  -0.269                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     21 N    LYS     3      -0.676  -1.294   0.000                          
+ATOM     22 CA   LYS     3       0.000   0.000   0.000                          
+ATOM     23 CB   LYS     3      -0.474   0.732   1.285                          
+ATOM     24 CG   LYS     3       0.267   2.068   1.542                          
+ATOM     25 CD   LYS     3      -0.294   3.273   0.780                          
+ATOM     26 CE   LYS     3       0.531   4.519   1.128                          
+ATOM     27 NZ   LYS     3      -0.006   5.681   0.397                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     28 N    LYS     4      -0.676  -1.294   0.000                          
+ATOM     29 CA   LYS     4       0.000   0.000   0.000                          
+ATOM     30 CB   LYS     4      -0.474   0.732   1.285                          
+ATOM     31 CG   LYS     4       0.108   0.131   2.588                          
+ATOM     32 CD   LYS     4      -0.443   0.738   3.881                          
+ATOM     33 CE   LYS     4       0.218   0.052   5.084                          
+ATOM     34 NZ   LYS     4      -0.311   0.634   6.331                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     35 N    LYS     5      -0.676  -1.294   0.000                          
+ATOM     36 CA   LYS     5       0.000   0.000   0.000                          
+ATOM     37 CB   LYS     5      -0.474   0.732   1.285                          
+ATOM     38 CG   LYS     5       0.066   2.179   1.404                          
+ATOM     39 CD   LYS     5       1.588   2.290   1.535                          
+ATOM     40 CE   LYS     5       1.980   3.769   1.644                          
+ATOM     41 NZ   LYS     5       3.444   3.880   1.770                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     42 N    LYS     6      -0.676  -1.294   0.000                          
+ATOM     43 CA   LYS     6       0.000   0.000   0.000                          
+ATOM     44 CB   LYS     6      -0.474   0.732   1.285                          
+ATOM     45 CG   LYS     6      -1.519   1.843   1.011                          
+ATOM     46 CD   LYS     6      -2.925   1.337   0.680                          
+ATOM     47 CE   LYS     6      -3.849   2.537   0.433                          
+ATOM     48 NZ   LYS     6      -5.205   2.054   0.114                          
+END   LYS
+
+BEGIN MET
+SCOPE_START CONST
+PROB   1.00000
+ATOM      0 N    MET     0      -0.676  -1.294   0.000                          
+ATOM      1 CA   MET     0       0.000   0.000   0.000                          
+ATOM      2 CB   MET     0      -0.473   0.732   1.286                          
+ATOM      3 CG   MET     0      -1.976   1.080   1.348                          
+ATOM      4 SD   MET     0      -2.359   2.349   0.130                          
+ATOM      5 CE   MET     0      -1.661   3.765   0.991                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM      6 N    MET     1      -0.676  -1.294   0.000                          
+ATOM      7 CA   MET     1       0.000   0.000   0.000                          
+ATOM      8 CB   MET     1      -0.473   0.732   1.286                          
+ATOM      9 CG   MET     1      -1.877   1.371   1.219                          
+ATOM     10 SD   MET     1      -2.195   2.302   2.726                          
+ATOM     11 CE   MET     1      -3.848   2.891   2.331                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     12 N    MET     2      -0.676  -1.294   0.000                          
+ATOM     13 CA   MET     2       0.000   0.000   0.000                          
+ATOM     14 CB   MET     2      -0.473   0.732   1.286                          
+ATOM     15 CG   MET     2      -1.877   1.371   1.219                          
+ATOM     16 SD   MET     2      -2.195   2.302   2.726                          
+ATOM     17 CE   MET     2      -0.836   3.473   2.608                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     18 N    MET     3      -0.676  -1.294   0.000                          
+ATOM     19 CA   MET     3       0.000   0.000   0.000                          
+ATOM     20 CB   MET     3      -0.473   0.732   1.286                          
+ATOM     21 CG   MET     3      -1.877   1.371   1.219                          
+ATOM     22 SD   MET     3      -2.195   2.302   2.726                          
+ATOM     23 CE   MET     3      -2.044   0.956   3.908                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     24 N    MET     4      -0.676  -1.294   0.000                          
+ATOM     25 CA   MET     4       0.000   0.000   0.000                          
+ATOM     26 CB   MET     4      -0.473   0.732   1.286                          
+ATOM     27 CG   MET     4       0.134   2.131   1.525                          
+ATOM     28 SD   MET     4      -0.545   2.840   3.035                          
+ATOM     29 CE   MET     4       0.339   4.406   3.015                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     30 N    MET     5      -0.676  -1.294   0.000                          
+ATOM     31 CA   MET     5       0.000   0.000   0.000                          
+ATOM     32 CB   MET     5      -0.473   0.732   1.286                          
+ATOM     33 CG   MET     5       0.134   2.131   1.525                          
+ATOM     34 SD   MET     5      -0.545   2.840   3.035                          
+ATOM     35 CE   MET     5       0.006   1.579   4.192                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     36 N    MET     6      -0.676  -1.294   0.000                          
+ATOM     37 CA   MET     6       0.000   0.000   0.000                          
+ATOM     38 CB   MET     6      -0.473   0.732   1.286                          
+ATOM     39 CG   MET     6       0.134   2.131   1.525                          
+ATOM     40 SD   MET     6      -0.545   2.840   3.035                          
+ATOM     41 CE   MET     6      -2.281   2.849   2.568                          
+END   MET
+
+BEGIN PHE
+SCOPE_START CONST
+PROB   1.00000
+ATOM      0 N    PHE     0      -0.676  -1.294   0.000                          
+ATOM      1 CA   PHE     0       0.000   0.000   0.000                          
+ATOM      2 CB   PHE     0      -0.421   0.738   1.307                          
+ATOM      3 CG   PHE     0      -1.899   1.141   1.418                          
+ATOM      4 CD1  PHE     0      -2.800   0.293   2.072                          
+ATOM      5 CE1  PHE     0      -4.155   0.605   2.112                          
+ATOM      6 CZ   PHE     0      -4.616   1.775   1.514                          
+ATOM      7 CE2  PHE     0      -3.722   2.631   0.872                          
+ATOM      8 CD2  PHE     0      -2.367   2.315   0.822                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM      9 N    PHE     1      -0.676  -1.294   0.000                          
+ATOM     10 CA   PHE     1       0.000   0.000   0.000                          
+ATOM     11 CB   PHE     1      -0.421   0.738   1.307                          
+ATOM     12 CG   PHE     1       0.161   2.144   1.516                          
+ATOM     13 CD1  PHE     1      -0.400   3.233   0.838                          
+ATOM     14 CE1  PHE     1       0.165   4.498   0.953                          
+ATOM     15 CZ   PHE     1       1.283   4.689   1.761                          
+ATOM     16 CE2  PHE     1       1.840   3.612   2.449                          
+ATOM     17 CD2  PHE     1       1.282   2.342   2.326                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     18 N    PHE     2      -0.676  -1.294   0.000                          
+ATOM     19 CA   PHE     2       0.000   0.000   0.000                          
+ATOM     20 CB   PHE     2      -0.421   0.738   1.307                          
+ATOM     21 CG   PHE     2       0.054   0.113   2.628                          
+ATOM     22 CD1  PHE     2       1.277   0.510   3.181                          
+ATOM     23 CE1  PHE     2       1.759  -0.103   4.333                          
+ATOM     24 CZ   PHE     2       1.013  -1.104   4.950                          
+ATOM     25 CE2  PHE     2      -0.211  -1.496   4.412                          
+ATOM     26 CD2  PHE     2      -0.690  -0.891   3.253                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     27 N    PHE     3      -0.676  -1.294   0.000                          
+ATOM     28 CA   PHE     3       0.000   0.000   0.000                          
+ATOM     29 CB   PHE     3      -0.421   0.738   1.307                          
+ATOM     30 CG   PHE     3      -1.865   1.259   1.363                          
+ATOM     31 CD1  PHE     3      -2.714   1.063   0.268                          
+ATOM     32 CE1  PHE     3      -3.998   1.598   0.270                          
+ATOM     33 CZ   PHE     3      -4.448   2.318   1.375                          
+ATOM     34 CE2  PHE     3      -3.612   2.506   2.474                          
+ATOM     35 CD2  PHE     3      -2.323   1.980   2.468                          
+END   PHE
+
+BEGIN PRO
+SCOPE_START CONST
+PROB   1.00000
+ATOM      0 N    PRO     0      -0.676  -1.294   0.000                          
+ATOM      1 CA   PRO     0       0.000   0.000   0.000                          
+ATOM      2 CB   PRO     0      -0.521   0.720   1.252                          
+ATOM      3 CG   PRO     0      -0.803  -0.423   2.238                          
+ATOM      4 CD   PRO     0      -1.355  -1.534   1.341                          
+END   PRO
+
+BEGIN SER
+SCOPE_START CONST
+PROB   1.00000
+ATOM      0 N    SER     0      -0.676  -1.294   0.000                          
+ATOM      1 CA   SER     0       0.000   0.000   0.000                          
+ATOM      2 CB   SER     0      -0.489   0.729   1.276                          
+ATOM      3 OG   SER     0      -0.082   0.074   2.482                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM      4 N    SER     1      -0.676  -1.294   0.000                          
+ATOM      5 CA   SER     1       0.000   0.000   0.000                          
+ATOM      6 CB   SER     1      -0.489   0.729   1.276                          
+ATOM      7 OG   SER     1      -1.864   1.121   1.201                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM      8 N    SER     2      -0.676  -1.294   0.000                          
+ATOM      9 CA   SER     2       0.000   0.000   0.000                          
+ATOM     10 CB   SER     2      -0.489   0.729   1.276                          
+ATOM     11 OG   SER     2       0.018   2.064   1.383                          
+END   SER
+
+BEGIN THR
+SCOPE_START CONST
+PROB   1.00000
+ATOM      0 N    THR     0      -0.676  -1.294   0.000                          
+ATOM      1 CA   THR     0       0.000   0.000   0.000                          
+ATOM      2 CB   THR     0      -0.471   0.739   1.298                          
+ATOM      3 CG2  THR     0      -0.099   0.071   2.639                          
+ATOM      4 OG1  THR     0       0.109   2.035   1.372                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM      5 N    THR     1      -0.676  -1.294   0.000                          
+ATOM      6 CA   THR     1       0.000   0.000   0.000                          
+ATOM      7 CB   THR     1      -0.471   0.739   1.298                          
+ATOM      8 CG2  THR     1      -1.943   1.203   1.324                          
+ATOM      9 OG1  THR     1      -0.346  -0.113   2.429                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     10 N    THR     2      -0.676  -1.294   0.000                          
+ATOM     11 CA   THR     2       0.000   0.000   0.000                          
+ATOM     12 CB   THR     2      -0.471   0.739   1.298                          
+ATOM     13 CG2  THR     2      -0.095   2.232   1.410                          
+ATOM     14 OG1  THR     2      -1.890   0.721   1.394                          
+END   THR
+
+BEGIN TRP
+SCOPE_START CONST
+PROB   1.00000
+ATOM      0 N    TRP     0      -0.676  -1.294   0.000                          
+ATOM      1 CA   TRP     0       0.000   0.000   0.000                          
+ATOM      2 CB   TRP     0      -0.445   0.734   1.295                          
+ATOM      3 CG   TRP     0      -1.904   1.200   1.299                          
+ATOM      4 CD1  TRP     0      -2.974   0.545   1.944                          
+ATOM      5 NE1  TRP     0      -4.203   1.184   1.688                          
+ATOM      6 CE2  TRP     0      -3.860   2.245   0.865                          
+ATOM      7 CZ2  TRP     0      -4.691   3.223   0.275                          
+ATOM      8 CH2  TRP     0      -4.110   4.198  -0.540                          
+ATOM      9 CZ3  TRP     0      -2.729   4.209  -0.786                          
+ATOM     10 CE3  TRP     0      -1.889   3.250  -0.220                          
+ATOM     11 CD2  TRP     0      -2.464   2.263   0.622                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     12 N    TRP     1      -0.676  -1.294   0.000                          
+ATOM     13 CA   TRP     1       0.000   0.000   0.000                          
+ATOM     14 CB   TRP     1      -0.445   0.734   1.295                          
+ATOM     15 CG   TRP     1       0.005   0.066   2.598                          
+ATOM     16 CD1  TRP     1      -0.710  -0.924   3.304                          
+ATOM     17 NE1  TRP     1      -0.065  -1.271   4.506                          
+ATOM     18 CE2  TRP     1       1.062  -0.465   4.524                          
+ATOM     19 CZ2  TRP     1       2.075  -0.367   5.502                          
+ATOM     20 CH2  TRP     1       3.118   0.542   5.304                          
+ATOM     21 CZ3  TRP     1       3.162   1.356   4.163                          
+ATOM     22 CE3  TRP     1       2.169   1.282   3.186                          
+ATOM     23 CD2  TRP     1       1.113   0.353   3.368                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     24 N    TRP     2      -0.676  -1.294   0.000                          
+ATOM     25 CA   TRP     2       0.000   0.000   0.000                          
+ATOM     26 CB   TRP     2      -0.445   0.734   1.295                          
+ATOM     27 CG   TRP     2       0.112   2.153   1.452                          
+ATOM     28 CD1  TRP     2       1.270   2.506   2.174                          
+ATOM     29 NE1  TRP     2       1.464   3.901   2.193                          
+ATOM     30 CE2  TRP     2       0.391   4.395   1.468                          
+ATOM     31 CZ2  TRP     2       0.053   5.734   1.173                          
+ATOM     32 CH2  TRP     2      -1.102   5.989   0.428                          
+ATOM     33 CZ3  TRP     2      -1.925   4.943  -0.013                          
+ATOM     34 CE3  TRP     2      -1.616   3.613   0.271                          
+ATOM     35 CD2  TRP     2      -0.438   3.339   1.014                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     36 N    TRP     3      -0.676  -1.294   0.000                          
+ATOM     37 CA   TRP     3       0.000   0.000   0.000                          
+ATOM     38 CB   TRP     3      -0.445   0.734   1.295                          
+ATOM     39 CG   TRP     3       0.154   2.132   1.478                          
+ATOM     40 CD1  TRP     3      -0.388   3.331   0.970                          
+ATOM     41 NE1  TRP     3       0.445   4.433   1.243                          
+ATOM     42 CE2  TRP     3       1.516   3.879   1.926                          
+ATOM     43 CZ2  TRP     3       2.673   4.508   2.435                          
+ATOM     44 CH2  TRP     3       3.635   3.728   3.082                          
+ATOM     45 CZ3  TRP     3       3.471   2.342   3.220                          
+ATOM     46 CE3  TRP     3       2.339   1.697   2.720                          
+ATOM     47 CD2  TRP     3       1.348   2.480   2.073                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     48 N    TRP     4      -0.676  -1.294   0.000                          
+ATOM     49 CA   TRP     4       0.000   0.000   0.000                          
+ATOM     50 CB   TRP     4      -0.445   0.734   1.295                          
+ATOM     51 CG   TRP     4      -1.883   1.261   1.272                          
+ATOM     52 CD1  TRP     4      -2.290   2.519   0.782                          
+ATOM     53 NE1  TRP     4      -3.668   2.732   0.980                          
+ATOM     54 CE2  TRP     4      -4.096   1.573   1.609                          
+ATOM     55 CZ2  TRP     4      -5.387   1.230   2.066                          
+ATOM     56 CH2  TRP     4      -5.573  -0.005   2.693                          
+ATOM     57 CZ3  TRP     4      -4.502  -0.892   2.880                          
+ATOM     58 CE3  TRP     4      -3.217  -0.572   2.443                          
+ATOM     59 CD2  TRP     4      -3.017   0.673   1.792                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     60 N    TRP     5      -0.676  -1.294   0.000                          
+ATOM     61 CA   TRP     5       0.000   0.000   0.000                          
+ATOM     62 CB   TRP     5      -0.445   0.734   1.295                          
+ATOM     63 CG   TRP     5      -0.049   0.033   2.598                          
+ATOM     64 CD1  TRP     5       0.886   0.513   3.539                          
+ATOM     65 NE1  TRP     5       1.085  -0.406   4.587                          
+ATOM     66 CE2  TRP     5       0.251  -1.465   4.264                          
+ATOM     67 CZ2  TRP     5       0.048  -2.684   4.947                          
+ATOM     68 CH2  TRP     5      -0.844  -3.616   4.411                          
+ATOM     69 CZ3  TRP     5      -1.523  -3.363   3.211                          
+ATOM     70 CE3  TRP     5      -1.334  -2.169   2.514                          
+ATOM     71 CD2  TRP     5      -0.442  -1.207   3.055                          
+END   TRP
+
+BEGIN TYR
+SCOPE_START CONST
+PROB   1.00000
+ATOM      0 N    TYR     0      -0.676  -1.294   0.000                          
+ATOM      1 CA   TYR     0       0.000   0.000   0.000                          
+ATOM      2 CB   TYR     0      -0.398   0.737   1.312                          
+ATOM      3 CG   TYR     0      -1.867   1.152   1.449                          
+ATOM      4 CD1  TYR     0      -2.772   0.351   2.152                          
+ATOM      5 CE1  TYR     0      -4.120   0.700   2.204                          
+ATOM      6 CZ   TYR     0      -4.568   1.845   1.553                          
+ATOM      7 OH   TYR     0      -5.891   2.185   1.610                          
+ATOM      8 CE2  TYR     0      -3.673   2.646   0.849                          
+ATOM      9 CD2  TYR     0      -2.326   2.300   0.795                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     10 N    TYR     1      -0.676  -1.294   0.000                          
+ATOM     11 CA   TYR     1       0.000   0.000   0.000                          
+ATOM     12 CB   TYR     1      -0.398   0.737   1.312                          
+ATOM     13 CG   TYR     1       0.197   2.135   1.523                          
+ATOM     14 CD1  TYR     1      -0.245   3.221   0.762                          
+ATOM     15 CE1  TYR     1       0.356   4.468   0.911                          
+ATOM     16 CZ   TYR     1       1.401   4.634   1.815                          
+ATOM     17 OH   TYR     1       1.987   5.861   1.959                          
+ATOM     18 CE2  TYR     1       1.849   3.556   2.573                          
+ATOM     19 CD2  TYR     1       1.249   2.308   2.428                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     20 N    TYR     2      -0.676  -1.294   0.000                          
+ATOM     21 CA   TYR     2       0.000   0.000   0.000                          
+ATOM     22 CB   TYR     2      -0.398   0.737   1.312                          
+ATOM     23 CG   TYR     2       0.035   0.083   2.628                          
+ATOM     24 CD1  TYR     2       1.277   0.380   3.198                          
+ATOM     25 CE1  TYR     2       1.691  -0.278   4.354                          
+ATOM     26 CZ   TYR     2       0.870  -1.237   4.941                          
+ATOM     27 OH   TYR     2       1.279  -1.879   6.076                          
+ATOM     28 CE2  TYR     2      -0.366  -1.541   4.376                          
+ATOM     29 CD2  TYR     2      -0.783  -0.884   3.222                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     30 N    TYR     3      -0.676  -1.294   0.000                          
+ATOM     31 CA   TYR     3       0.000   0.000   0.000                          
+ATOM     32 CB   TYR     3      -0.398   0.737   1.312                          
+ATOM     33 CG   TYR     3      -1.864   1.167   1.442                          
+ATOM     34 CD1  TYR     3      -2.775   0.917   0.411                          
+ATOM     35 CE1  TYR     3      -4.085   1.379   0.509                          
+ATOM     36 CZ   TYR     3      -4.488   2.096   1.633                          
+ATOM     37 OH   TYR     3      -5.775   2.545   1.726                          
+ATOM     38 CE2  TYR     3      -3.585   2.351   2.661                          
+ATOM     39 CD2  TYR     3      -2.276   1.889   2.566                          
+END   TYR
+
+BEGIN VAL
+SCOPE_START CONST
+PROB   1.00000
+ATOM      0 N    VAL     0      -0.676  -1.294   0.000                          
+ATOM      1 CA   VAL     0       0.000   0.000   0.000                          
+ATOM      2 CB   VAL     0      -0.479   0.745   1.308                          
+ATOM      3 CG1  VAL     0       0.219   2.097   1.627                          
+ATOM      4 CG2  VAL     0      -1.996   1.053   1.335                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM      5 N    VAL     1      -0.676  -1.294   0.000                          
+ATOM      6 CA   VAL     1       0.000   0.000   0.000                          
+ATOM      7 CB   VAL     1      -0.479   0.745   1.308                          
+ATOM      8 CG1  VAL     1      -1.995   1.077   1.396                          
+ATOM      9 CG2  VAL     1      -0.151  -0.012   2.618                          
+SCOPE_START CONST
+PROB   1.00000
+ATOM     10 N    VAL     2      -0.676  -1.294   0.000                          
+ATOM     11 CA   VAL     2       0.000   0.000   0.000                          
+ATOM     12 CB   VAL     2      -0.479   0.745   1.308                          
+ATOM     13 CG1  VAL     2       0.026   0.163   2.658                          
+ATOM     14 CG2  VAL     2      -0.107   2.247   1.347                          
+END   VAL
+
+## PD_END_FILE

@@ -1,0 +1,285 @@
+Review CalcQat stuff for restraints - is this actually useful ?
+
+memuse()  is non consistent and broken in places. Either remove compeltely 
+(my preference) or consistentify.
+CAn we globaly overload the new operator to count all the calls to new ?
+probaly not. 
+
+
+CHECK: Is the vdw parameters for HO atomtype in amber03aa wrong ???
+CHECK: Is the vdw parameters for N3 atomtype in amber03aa wrong ???
+
+CHECK charmm22.ff - examples/building/proteinhelix still throws errors !
+
+Add make install hook to print a message about setting the PD_PARAM_PATH
+
+====================
+Unify UNITS !
+
+Time:  PicoSeconds
+InvTime:  PicoSeconds-1
+Distance:  Angstrom
+Mass:      AMU ?
+Angle:      Radians
+Charge:   ElectronicCharge
+Energy:   kcal/mol
+
+What about a series of functions:
+
+ Units.cm( centimeter ), Units.Angstrom( angstroms )
+ Units.nm( .. ) which return every thing in standard 
+
+ Units.kcal( kcal/mol )
+ Units.Joules ( 
+
+ or 
+
+ Units.Length.cm ( centimeter )
+
+ Units.Energy.Joules( joules )
+
+====== Python BackCalling ======
+
+Can we subclass in python ? That would be Ueber awesum!
+
+Monitors ?
+
+MonteCarlo acceptance criterion ?
+
+
+===== IO =======
+
+
+
+PDB_In
+	PDB_In is unintuitive - it doesnt load anything ! you ahve to do 
+	sim.load first - fix somehow
+	Wrappers ?
+
+	sim.load() should load (ar attempt to) EVERYHTING - and complain if it cant.
+	users can set filters to enable the auto-cleaning of PDBs
+	Warning messages should point the user to these functions
+	the default filter should be "everything" - but a real everything, not just
+	all classes, so that you can read in an arbitrary thing in a PDB provided it
+	is defined in the ffps.
+	
+	Default class for non-classed molecules
+	File particle should be marked as taken when recognised. -> avoid multipl eimports.
+	also warn about non-imported, unrecognised stuff. Advise user.
+	
+	
+	Infile --> too PDB specific, move stuff out into the PDB_In
+
+	Tutorial on how to make a new Inputfile, e.g. PSF	
+
+
+	--> Trajectory player through workspace ...
+	work in progress - a working version is now in place but rough edges remain, esp. the setting
+	of periodic box changes is a little dirty/unfisnished.
+
+	way to "save/load" a workspace/system
+	PSF based setup/saving 
+	Review & Document File Import, teach Mike and create a PSF importer
+
+
+=======================
+
+FileIn/Import .. etc.. TopologyIn/Import  
+ 	improove In vs Import etc..
+ 	
+
+Trajectory:
+	Trajectory/CoordinateSet loader/player through workspace ...
+	way to "save/load" a workspace/system consistently through PSP/MIME/XTC/TRR/TRA 
+	
+
+====== Python =========
+
+	print/cprint issue - syncronise python/C stream flushing
+	stdout hooks ?
+
+===== Workspace/System design ======
+
+Workspace #1:
+	Workspace should have a private =operator
+	
+Workspace #2: 
+	WorkspaceCreator whci just clones and makes a new workspace.
+
+Workspace #3:
+	
+	complete workspace ---> system updateing of positions
+	
+System #1:  
+	Make solvating the system a SystemOperator.
+
+
+AtomParamter/Particle Hiarchy - 
+	split hiarchchy into 
+	
+	ParticleBase (= current Particle - cov arrays)
+		\-- Particle (adds cov arrays)
+		\-- AtomTypeParamter
+		        \-- AtomParamter 
+		        
+	Particle.epot is a similar issue
+
+	BUG: AtomPamameter parent strings are not set	
+	
+Bondorder manager
+
+	change back the bondorder class to store **both** sides of the diagonal strip
+	**including** the 0 in the middle... 
+	
+===== Error Handling/ Printing ====== 
+
+Exceptions:
+	replace remaining "return -1" error handling with "throw()" error handling
+	Things still use the old error return int. 
+	  - e.g. OutputTrajecotry.
+
+Global verbosity system 
+
+	- Loki - singleton ?
+	- Arbitrary file handle siphening/stream siphening
+	- OutputLevel will have to be a member of Object - and that almost everything should derive from object
+	- Object/ClonableObject ??
+	- Printf will be member function of Object
+	
+===== Satelite Modules =======
+
+Proposal to create the 'Audition' and 'Experimental' satelite modules. The 
+first to contain code that has been deemed desirable for PD to have, but is alpha-quality.
+The 'experimenral' satelite module would contain algorithms which are completely unproven.
+
+Proposal to move modules from the folder mods to the folder satelites to detinguish between
+the two. Developers may add modules to /mods, but not /satelites.
+Notsure:
+
+	requirements checks - a mechanism such that each component
+	(object) makes sure it is happy with the current setup.
+	-- I think, related to this, that MoleculeBase needs some 
+	sort of "ive been modified" serial number so that clients know, 
+	and dont have to detect that their MoleculeBase has changed.
+
+
+
+====== Forcefield =======
+
+
+SECTION
+	get rid of SECTION - repalce with CUSTOM PROPERTY service
+
+====== Renamings / Cosmetics =========
+
+
+Namespaces: 
+	stuff to move into namespace
+	namespace Core {
+		System, Workspace, Primitives, etcc. 
+	}
+Renamings / Convetnions:
+	- Private members - many still dont obey the m_BlahBlob convention 
+	- Rename old stuff in FFPS
+
+
+	
+======= Other things ===========
+
+	thread safety ?
+	MPI ? How does it fit in ?
+	
+
+======= 
+
+----------------- Pickers -----------------
+	Pick_AND Pick_NOT etc are excellent, but...
+	I have a function which needs a PickResidueBase and I have two deriving classes. I want to use a Pick_AND - i cant, becuase Pick_AND
+	is an AtomPicker NOT a ResiduePicker.
+
+	Solution - make copies of Pick_AND, NOT, OR etc for  PickResidueBase called PickRes_AND etc. But then what if we then have a new base class for another subset of pickers? We would have to duplicate all of them again!!
+
+
+
+-------------------------------------------------------------------------
+--------------------<  DONE  >-------------------------------------------
+
+Cleaned error reporting in ffps reader.
+
+DONE RENAMINGS:
+
+	External:
+
+	- All forcefields should migrate to FF_Xxxxx_YYZZ
+	- All out output trajectories should be OutTra_XXXX (including PDB_Out and Traj_Out )
+	Internal:
+
+	nAtoms()  !
+- Old "TRA" --> Bristol Trajecotry Format (btf)
+Renamings:
+
+BondedForcefield --> FF_Bonded
+CustomForcefield --> FF_Custom
+
+Merge PickedMinimise vs Minimise
+
+CHARMM 
+	CHARMM reader - for import of Charmm and OPLS definitions from 
+	the standard charmm distribution
+Forcefields
+	Other forcefields:
+	AMBER older versions
+	CHARMM 
+	OPLS
+	Gromos
+	TIPXX, SPC wter models	
+
+ PD_LIB_PATH --> PD_PARAM_PATH
+
+Build system - configure/autoconf/automake
+Installer into python lib directory
+
+Actually us the WorkSpace operator class as a base for everything that
+takes a Workspace reference. Unify how to get to the stored pointer
+(getWSpace() ) or just wspace() maybe (i prefer that)
+
+forcefields should initialize with wspace - this will make the setup 
+function less important and makes things much easier when setting up
+picked forcefields in particular.
+
+ff.info() shouldnt be const - it must call setup()
+although if we get rid of setup (see point above) then this problem 
+goes away .. :D
+
+do that atom.xyz fix (such that molecule::atom[] points to wspace.cur in workspace)
+
+RotatableBondlist should be a Null class by default - it takes a long time to set up,
+probably lots of memory and is hardly ever used.
+
+Integrated Maths:dvector into SWIG/Python environment
+
+Forcefield "LIB" path environment variable
+
+fix long-range bondorder (sparse) in the new neighborlists !
+
+Gromacs outtra, xtc, and other formats such that g_tools can be utilised and interfaced with
+
+fix module generation - this will important for removing half backed
+crap and experimental research-specific stuff into modules!. Compiling all
+these modules will involve the build system stuff (see above);
+
+Fixed virial
+
+Fixed physical constants
+
+
+
+
+======== FUTURE =========
+---- Jons BIG todo list
+1) Port the ProSup structure superimposition code to PD
+3) Improved sequence alignment ->
+   we still dont use that Blosum Matrix - not hard to implement. 
+   Implement local squence alignment algorthms too? Multiple alignment? 
+   Or simply importers to obtain data from externam ClustalW etc. alignment engines in FASTA format etc.
+4) DSSP / STRIDE port to allow structural annotation

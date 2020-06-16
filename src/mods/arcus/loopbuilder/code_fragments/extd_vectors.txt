@@ -1,0 +1,18 @@
+	// the use of extanded vecors
+	if( m_ExtVectors )
+	{
+		int numVect = m_ExtVectors->GetVectorCount();
+		ExtendedVector *vect;
+		fvector ** const psVectAr = m_LoopDefinition->GetBackbonePos();
+		const fvector * const psVect = psVectAr[0];
+		for( int i = 0; i < numVect; i++ )
+		{
+			vect = (*m_ExtVectors)[i];
+			vect->SetV1From( psVect );
+			vect->SetV2From( psVect );
+			vect->v1X += (real)(i+1) + (5.0f / (real)(i+1));
+			vect->v1Y += (real)(i+1) + (5.0f / (real)(i+1));
+			vect->v1Z += (real)(i+1);
+			vect->colourCode = i;
+		}
+	}

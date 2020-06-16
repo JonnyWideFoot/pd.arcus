@@ -1,0 +1,24 @@
+	int atNum = 0, molNum = 0;
+	printf("\n\n");
+	//PSTools::PrintDebugOrigin(atNum,molNum);
+	PSTools::PrintDebugAxis(atNum,molNum);
+
+	PSTools::PrintDebugAtomLine(atNum++,'C',molNum,&m_NTerminalAnchor.atom1Cache);
+	PSTools::PrintDebugAtomLine(atNum++,'C',molNum,&m_NTerminalAnchor.atom2Cache);
+	PSTools::PrintDebugAtomLine(atNum++,'C',molNum,&m_NTerminalAnchor.atom3Cache);
+	PSTools::PrintDebugAtomLine(atNum++,'C',molNum,&m_NTerminalAnchor.atom4Cache);
+	PSTools::PrintDebugAtomLine(atNum++,'C',molNum,&m_CTerminalAnchor.atom1Cache);
+	PSTools::PrintDebugAtomLine(atNum++,'C',molNum,&m_CTerminalAnchor.atom2Cache);
+	PSTools::PrintDebugAtomLine(atNum++,'C',molNum,&m_CTerminalAnchor.atom3Cache);
+	PSTools::PrintDebugAtomLine(atNum++,'C',molNum,&m_CTerminalAnchor.atom4Cache);
+
+	printf("\n\n");
+
+	PSTools::PrintDebugAtomLine(atNum++,'C',molNum,&vN3C2);
+	PSTools::PrintDebugAtomLine(atNum++,'C',molNum,&vN2C2);
+	PSTools::PrintDebugAtomLine(atNum++,'C',molNum,&vN3C3);
+	PSTools::PrintDebugAtomLine(atNum++,'C',molNum,&vN2C3);
+	printf("\n\n");
+
+	PSTools::PrintDebugAtomLine(atNum++,'C',molNum,&nP1);
+	PSTools::PrintDebugAtomLine(atNum++,'C',molNum,&nP2);

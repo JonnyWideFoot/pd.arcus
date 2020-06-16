@@ -1,0 +1,1677 @@
+INFO     Forcefield:  BUDE, partially derived from amber03aa.ff
+IDENT    BUDE
+
+
+# HYDROPHOB defines the Hydrophobic potential (Desolvation potential)
+# which is used during the steric calculation
+CUSTOMPROPERTY HYDROPHOB
+
+# ELECTYPE defines the type of electrostatic energy:
+# (!! NB These letters are case sensitive !!)
+#     N = none
+#     F if it is a formal charge. e.g. for Lysine NH3+ terminus
+#     D if it is a partial, dipole induced charge. e.g. for backbone amide hydrogens
+#     E if it is a group capable of being either a donor or an acceptor (eg -OH)
+CUSTOMPROPERTY ELECTYPE
+
+# HARDNESS
+CUSTOMPROPERTY HARDNESS
+
+# DISTNPNP = Non-polar - non-polar distance
+CUSTOMPROPERTY DISTNPNP
+
+# DISTNPP = Non-polar - polar distance
+CUSTOMPROPERTY DISTNPP
+
+# RADSCAL = Radius scaling
+CUSTOMPROPERTY RADSCAL
+
+
+#Atom Types
+#
+# Groups .---<atom>----. .-----vdw-------. .--elec--. 
+# Type         (Z) AtMass  Radius Epsilon Charge 
+TYPE C          6   12.01  1.4200  0.0000  0.0000
+TYPE N          7   14.01  1.4200  0.0000  0.3333
+TYPE O          8   16.00  1.4200  0.0000 -0.3333
+TYPE CT         6   12.01  1.4200  0.0000  0.0000
+TYPE CL         6   12.01  1.8500  0.0000  0.0000
+
+#Sidechain Types
+
+#Phe
+TYPE CF         6   12.01  1.6400  0.0000  0.0000
+#Trp
+TYPE CW         6   12.01  1.5900  0.0000  0.0000
+TYPE NW         7   14.01  1.5900  0.0000  0.3333
+#Tyr
+TYPE CY         6   12.01  1.5900  0.0000  0.0000
+
+#Ser, Thr and Tyr
+TYPE OH         8   16.00  1.5100  0.0000  0.3333
+
+#His
+TYPE CH         6   12.01  1.5500  0.0000  0.0000
+TYPE NH         7   14.01  1.5500  0.0000  0.2000
+
+#Asn and Gln (partial charges)
+TYPE OP         8   16.00  1.5100  0.0000 -0.3333
+TYPE NP         7   14.01  1.5100  0.0000  0.3333
+
+#Asp and Glu (formal charges)
+TYPE OF         8   16.00  1.4500  0.0000 -0.5000
+ 
+#Lys and Arg
+TYPE NF         7   14.01  1.5700  0.0000  0.3333
+
+
+TYPE S         16   32.06  1.8300  0.0000  0.0000
+TYPE SH        16   32.06  1.7900  0.0000 -0.0000
+
+TYPE EP         0    0.00  0.0000  0.0000  0.0000
+
+
+
+HYDROPHOB C          0.0000 
+HYDROPHOB N          0.0000 
+HYDROPHOB O          0.0000 
+HYDROPHOB CT         0.0000 
+HYDROPHOB CL        -0.6250 
+HYDROPHOB CF        -0.5190 
+HYDROPHOB CW        -0.3633 
+HYDROPHOB NW        -0.3633 
+HYDROPHOB CY        -0.2906 
+HYDROPHOB OH         1.7875 
+HYDROPHOB CH         0.0983 
+HYDROPHOB NH         0.0983 
+HYDROPHOB OP         0.9808 
+HYDROPHOB NP         0.9808 
+HYDROPHOB OF         1.0867 
+HYDROPHOB NF         1.3758 
+HYDROPHOB S          0.8925 
+HYDROPHOB SH         0.8325 
+HYDROPHOB EP         0.0000 
+
+ELECTYPE  C         N
+ELECTYPE  N         D
+ELECTYPE  O         D
+ELECTYPE  CT        N
+ELECTYPE  CL        N
+ELECTYPE  CF        N
+ELECTYPE  CW        N
+ELECTYPE  NW        D
+ELECTYPE  CY        N
+ELECTYPE  OH        E
+ELECTYPE  CH        N
+ELECTYPE  NH        E
+ELECTYPE  OP        D
+ELECTYPE  NP        D
+ELECTYPE  OF        F
+ELECTYPE  NF        F
+ELECTYPE  S         N
+ELECTYPE  SH        N
+ELECTYPE  EP        N
+
+HARDNESS  C         15.0000
+HARDNESS  N         15.0000
+HARDNESS  O         15.0000
+HARDNESS  CT        15.0000
+HARDNESS  CL        15.0000
+HARDNESS  CF        15.0000
+HARDNESS  CW        15.0000
+HARDNESS  NW        15.0000
+HARDNESS  CY        15.0000
+HARDNESS  OH        15.0000
+HARDNESS  CH        15.0000
+HARDNESS  NH        15.0000
+HARDNESS  OP        15.0000
+HARDNESS  NP        15.0000
+HARDNESS  OF        15.0000
+HARDNESS  NF        15.0000
+HARDNESS  S         15.0000
+HARDNESS  SH        15.0000
+HARDNESS  EP        15.0000
+
+DISTNPNP  C          8.0000
+DISTNPNP  N          8.0000
+DISTNPNP  O          8.0000
+DISTNPNP  CT         8.0000
+DISTNPNP  CL         8.0000
+DISTNPNP  CF         8.0000
+DISTNPNP  CW         8.0000
+DISTNPNP  NW         8.0000
+DISTNPNP  CY         8.0000
+DISTNPNP  OH         8.0000
+DISTNPNP  CH         8.0000
+DISTNPNP  NH         8.0000
+DISTNPNP  OP         8.0000
+DISTNPNP  NP         8.0000
+DISTNPNP  OF         8.0000
+DISTNPNP  NF         8.0000
+DISTNPNP  S          8.0000
+DISTNPNP  SH         8.0000
+DISTNPNP  EP         8.0000
+
+DISTNPP   C          2.0000
+DISTNPP   N          2.0000
+DISTNPP   O          2.0000
+DISTNPP   CT         2.0000
+DISTNPP   CL         2.0000
+DISTNPP   CF         2.0000
+DISTNPP   CW         2.0000
+DISTNPP   NW         2.0000
+DISTNPP   CY         2.0000
+DISTNPP   OH         2.0000
+DISTNPP   CH         2.0000
+DISTNPP   NH         2.0000
+DISTNPP   OP         2.0000
+DISTNPP   NP         2.0000
+DISTNPP   OF         2.0000
+DISTNPP   NF         2.0000
+DISTNPP   S          2.0000
+DISTNPP   SH         2.0000
+DISTNPP   EP         2.0000
+
+RADSCAL   C          1.0000
+RADSCAL   N          1.0000
+RADSCAL   O          1.0000
+RADSCAL   CT         1.0000
+RADSCAL   CL         1.0000
+RADSCAL   CF         1.0000
+RADSCAL   CW         1.0000
+RADSCAL   NW         1.0000
+RADSCAL   CY         1.0000
+RADSCAL   OH         1.0000
+RADSCAL   CH         1.0000
+RADSCAL   NH         1.0000
+RADSCAL   OP         1.0000
+RADSCAL   NP         1.0000
+RADSCAL   OF         1.0000
+RADSCAL   NF         1.0000
+RADSCAL   S          1.0000
+RADSCAL   SH         1.0000
+RADSCAL   EP         1.0000
+
+##
+##   This is used to make definitions of proteins easier
+##   e.g. Nme-(APPKWTRSTTMAANPA)-HID-(PPEWYALLK)-N-Ac
+##
+##   is a protein sequence with an N-Methyl C terminus, a special HD Histidine and an Acetylated N Terminus 
+
+# Include the default list of protein name aliases, they can be overridden below by new declarations
+INCLUDE default.alias
+
+ALIAS   Ac ACE
+ALIAS   A  ALA
+ALIAS   G  GLY							   
+ALIAS   P  PRO							   
+ALIAS   R  ARG							   
+ALIAS   N  ASN							   
+ALIAS   D  ASP
+ALIAS   C  CYS							   
+ALIAS   Q  GLN							   
+ALIAS   E  GLU							   
+ALIAS   H  HIE           ## Standart Histidine is the NE2 protonated form
+ALIAS   I  ILE							   
+ALIAS   L  LEU							   
+ALIAS   K  LYS							   
+ALIAS   M  MET							   
+ALIAS   F  PHE
+ALIAS   S  SER							   
+ALIAS   T  THR							   
+ALIAS   W  TRP							   
+ALIAS   Y  TYR
+ALIAS   V  VAL
+ALIAS   HIS HIE
+
+
+# import standard class:residue_name mappings
+INCLUDE default.class
+
+#Now define residues/molecule types explicitly
+#
+# atnam x y z Type Connectivity
+MOLECULE A ALA ALA
+ ATOM N    N     3.326  1.548 -0.000 N          -C,CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CL         CA
+ ATOM C    C     5.486  2.705 -0.000 C          +N,CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT +N   6.2030   3.8280   0.0880 
+ CONNECT -C   1.9930   1.5140   0.0090
+ VDWRADIUS  CB  1.8900
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   15.04000 
+ENDMOLECULE
+
+
+MOLECULE G GLY GLY
+ ATOM N    N     3.326  1.548 -0.000 N          -C,CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N
+ ATOM C    C     5.484  2.687 -0.000 C          +N,CA,O
+ ATOM O    O     5.993  1.568 -0.000 O          C
+ CONNECT +N   6.2030   3.8280   0.0880 
+ CONNECT -C   1.9930   1.5140   0.0090 
+ MASS N    15.02000 
+ MASS CA   14.03000 
+ENDMOLECULE
+
+
+MOLECULE P PRO PRO
+ ATOM N    N     3.327  1.557 -0.000 N          -C,CA,CD
+ ATOM CA   CA    3.934  2.871 -0.105 CT         C,N,CB
+ ATOM CB   CB    5.369  2.628  0.185 CL         CA,CG
+ ATOM CG   CG    5.547  1.172  0.545 CL         CB,CD
+ ATOM CD   CD    4.302  0.477  0.080 CL         CG,N
+ ATOM C    C     3.505  3.526 -1.410 C          +N,CA,O
+ ATOM O    O     2.754  2.939 -2.185 O          C
+ CONNECT +N   4.2780   4.5600  -1.8740 
+ CONNECT -C   1.9930   1.5140   0.0090 
+ VDWRADIUS  CD  1.7100
+ VDWRADIUS  CG  1.7100
+ VDWRADIUS  CB  1.7100
+ CHARGE  N  0.0000
+ ELECTYPE  N  N
+ MASS CA   13.02000 
+ MASS CD   14.03000 
+ MASS CG   14.03000 
+ MASS CB   14.03000 
+ENDMOLECULE
+
+
+MOLECULE R ARG ARG
+ ATOM N    N     3.326  1.548 -0.000 N          -C,CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CL         CA,CG
+ ATOM CG   CG    4.274  5.010  1.195 CL         CB,CD
+ ATOM CD   CD    3.881  5.818  2.427 CL         CG,NE
+ ATOM NE   NE    4.540  7.143  2.424 NF         CD,CZ
+ ATOM CZ   CZ    4.364  8.041  3.389 CL         NE,NH1,NH2
+ ATOM NH1  NH1   3.575  7.808  4.434 NF         CZ
+ ATOM NH2  NH2   5.006  9.201  3.287 NF         CZ
+ ATOM C    C     5.486  2.705 -0.000 C          +N,CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT +N   6.2030   3.8280   0.0880 
+ CONNECT -C   1.9930   1.5140   0.0090 
+ VDWRADIUS  CB  1.5700
+ VDWRADIUS  CG  1.5700
+ VDWRADIUS  CD  1.5700
+ VDWRADIUS  CZ  1.5700
+ HYDROPHOB CZ  1.3758
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   14.03000 
+ MASS CG   14.03000 
+ MASS CD   14.03000 
+ MASS NE   15.02000 
+ MASS NH1  16.03000 
+ MASS NH2  16.03000 
+ENDMOLECULE
+
+
+MOLECULE N ASN ASN
+ ATOM N    N     3.326  1.548 -0.000 N          -C,CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CL         CA,CG
+ ATOM CG   CG    4.254  5.017  1.232 CL         CB,OD1,ND2
+ ATOM OD1  OD1   5.005  5.340  0.315 OP         CG
+ ATOM ND2  ND2   3.985  5.818  2.266 NP         CG
+ ATOM C    C     5.486  2.705 -0.000 C          +N,CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT +N   6.2030   3.8280   0.0880 
+ CONNECT -C   1.9930   1.5140   0.0090 
+ VDWRADIUS  CB  1.5100
+ VDWRADIUS  CG  1.5100
+ HYDROPHOB CG  0.9808
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   14.03000 
+ MASS ND2  16.03000 
+ENDMOLECULE
+
+
+MOLECULE D ASP ASP
+ ATOM N    N     3.326  1.548 -0.000 N          -C,CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CL         CA,CG
+ ATOM CG   CG    4.275  5.011  1.195 CL         CB,OD1,OD2
+ ATOM OD1  OD1   3.669  5.955  0.620 OF         CG
+ ATOM OD2  OD2   5.408  5.092  1.741 OF         CG
+ ATOM C    C     5.486  2.705 -0.000 C          +N,CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT +N   6.2030   3.8280   0.0880 
+ CONNECT -C   1.9930   1.5140   0.0090 
+ VDWRADIUS  CB  1.4500
+ VDWRADIUS  CG  1.4500
+ HYDROPHOB CG  1.0867
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   14.03000 
+ENDMOLECULE
+
+
+MOLECULE C CYS CYS
+ ATOM N    N     3.326  1.548 -0.000 N          -C,CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CL         CA,SG
+ ATOM SG   SG    4.310  5.304  1.366 SH         CB
+ ATOM C    C     5.486  2.705 -0.000 C          +N,CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT +N   6.2030   3.8280   0.0880 
+ CONNECT -C   1.9930   1.5140   0.0090 
+ VDWRADIUS  CB  1.7900
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   14.03000 
+ MASS SG   33.07000 
+ENDMOLECULE
+
+
+MOLECULE C CYX CYX
+ ATOM N    N     3.326  1.548 -0.000 N          -C,CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CL         CA,SG
+ ATOM SG   SG    4.310  5.304  1.366 SH         CB
+ ATOM C    C     5.486  2.705 -0.000 C          +N,CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT +N   6.2030   3.8280   0.0880 
+ CONNECT -C   1.9930   1.5140   0.0090 
+ VDWRADIUS  CB  1.7900
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   14.03000 
+ENDMOLECULE
+
+
+MOLECULE Q GLN GLN
+ ATOM N    N     3.326  1.548 -0.000 N          -C,CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CL         CA,CG
+ ATOM CG   CG    4.274  5.010  1.195 CL         CB,CD
+ ATOM CD   CD    3.907  5.848  2.410 CL         CG,OE1,NE2
+ ATOM OE1  OE1   3.139  5.408  3.263 OP         CD
+ ATOM NE2  NE2   4.459  7.062  2.488 NP         CD
+ ATOM C    C     5.486  2.705 -0.000 C          +N,CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT +N   6.2030   3.8280   0.0880 
+ CONNECT -C   1.9930   1.5140   0.0090 
+ VDWRADIUS  CB  1.5900
+ VDWRADIUS  CG  1.5900
+ VDWRADIUS  CD  1.5900
+ VDWRADIUS  OE1 1.5900
+ VDWRADIUS  NE2 1.5900
+ HYDROPHOB  CD 0.9558
+ HYDROPHOB OE1 0.9558
+ HYDROPHOB NE2 0.9558
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   14.03000 
+ MASS CG   14.03000 
+ MASS NE2  16.03000 
+ENDMOLECULE
+
+
+MOLECULE E GLU GLU
+ ATOM N    N     3.326  1.548 -0.000 N          -C,CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CL         CA,CG
+ ATOM CG   CG    4.267  4.996  1.195 CL         CB,CD
+ ATOM CD   CD    3.874  5.805  2.429 CL         CG,OE1,OE2
+ ATOM OE1  OE1   4.595  5.679  3.454 OF         CD
+ ATOM OE2  OE2   2.856  6.542  2.334 OF         CD
+ ATOM C    C     5.486  2.705 -0.000 C          +N,CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT +N   6.2030   3.8280   0.0880 
+ CONNECT -C   1.9930   1.5140   0.0090 
+ VDWRADIUS  CB  1.5500
+ VDWRADIUS  CG  1.5500
+ VDWRADIUS  CD  1.5500
+ VDWRADIUS  OE1 1.5500
+ VDWRADIUS  OE2 1.5500
+ HYDROPHOB CD  1.0242
+ HYDROPHOB OE1 1.0242
+ HYDROPHOB OE2 1.0242
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   14.03000 
+ MASS CG   14.03000 
+ENDMOLECULE
+
+
+MOLECULE H HIS HIS
+ ATOM N    N     3.326  1.548 -0.000 N          -C,CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CH         CA,CG
+ ATOM CG   CG    4.201  5.026  1.321 CH         CB,CD2,ND1
+ ATOM ND1  ND1   3.943  5.885  2.383 NH         CG,CE1
+ ATOM CE1  CE1   4.624  6.998  2.182 CH         ND1,NE2
+ ATOM NE2  NE2   5.294  6.891  1.062 NH         CE1,CD2
+ ATOM CD2  CD2   5.059  5.679  0.492 CH         NE2,CG
+ ATOM C    C     5.486  2.705 -0.000 C          +N,CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT +N   6.2030   3.8280   0.0880 
+ CONNECT -C   1.9930   1.5140   0.0090 
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   14.03000 
+ MASS CE1  13.02000 
+ MASS NE2  15.02000 
+ MASS CD2  13.02000 
+ENDMOLECULE
+
+
+MOLECULE H HIP HIP
+ ATOM N    N     3.326  1.548 -0.000 N          -C,CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CH         CA,CG
+ ATOM CG   CG    4.201  5.026  1.321 CH         CB,CD2,ND1
+ ATOM ND1  ND1   3.943  5.885  2.383 NH         CG,CE1
+ ATOM CE1  CE1   4.624  6.998  2.182 CH         ND1,NE2
+ ATOM NE2  NE2   5.294  6.891  1.062 NH         CE1,CD2
+ ATOM CD2  CD2   5.059  5.679  0.492 CH         NE2,CG
+ ATOM C    C     5.486  2.705 -0.000 C          +N,CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT +N   6.2030   3.8280   0.0880 
+ CONNECT -C   1.9930   1.5140   0.0090 
+ CHARGE  ND1 0.5000
+ CHARGE  NE2 0.5000
+ ELECTYPE  ND1 F
+ ELECTYPE  NE2 F
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   14.03000 
+ MASS ND1  15.02000 
+ MASS CE1  13.02000 
+ MASS NE2  15.02000 
+ MASS CD2  13.02000 
+ENDMOLECULE
+
+
+MOLECULE I ILE ILE
+ ATOM N    N     3.326  1.548 -0.000 N          -C,CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.552  3.621  1.245 CL         CA,CG1,CG2
+ ATOM CG2  CG2   3.970  2.846  2.490 CL         CB
+ ATOM CG1  CG1   4.230  4.987  1.245 CL         CB,CD1
+ ATOM CD1  CD1   3.812  5.762  2.490 CL         CG1
+ ATOM C    C     5.486  2.705 -0.000 C          +N,CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT +N   6.2030   3.8280   0.0880 
+ CONNECT -C   1.9930   1.5140   0.0090 
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   13.02000 
+ MASS CG2  15.04000 
+ MASS CG1  14.03000 
+ MASS CD1  15.04000 
+ENDMOLECULE
+
+
+MOLECULE L LEU LEU
+ ATOM N    N     3.326  1.548 -0.000 N          -C,CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CL         CA,CG
+ ATOM CG   CG    4.274  5.010  1.195 CL         CB,CD1,CD2
+ ATOM CD1  CD1   3.853  5.763 -0.063 CL         CG
+ ATOM CD2  CD2   3.881  5.818  2.427 CL         CG
+ ATOM C    C     5.486  2.705 -0.000 C          +N,CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT +N   6.2030   3.8280   0.0880 
+ CONNECT -C   1.9930   1.5140   0.0090 
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   14.03000 
+ MASS CG   13.02000 
+ MASS CD1  15.04000 
+ MASS CD2  15.04000 
+ENDMOLECULE
+
+
+MOLECULE K LYS LYS
+ ATOM N    N     3.326  1.548 -0.000 N          -C,CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CL         CA,CG
+ ATOM CG   CG    4.274  5.010  1.195 CL         CB,CD
+ ATOM CD   CD    3.881  5.818  2.427 CL         CG,CE
+ ATOM CE   CE    4.578  7.173  2.389 CL         CD,NZ
+ ATOM NZ   NZ    4.199  7.952  3.577 NF         CE
+ ATOM C    C     5.486  2.705 -0.000 C          +N,CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT +N   6.2030   3.8280   0.0880 
+ CONNECT -C   1.9930   1.5140   0.0090 
+ VDWRADIUS  CB  1.7300
+ VDWRADIUS  CG  1.7300
+ VDWRADIUS  CD  1.7300
+ VDWRADIUS  CE  1.7300
+ VDWRADIUS  NZ  1.7300
+ HYDROPHOB NZ  2.9025
+ CHARGE  NZ  1.0000
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   14.03000 
+ MASS CG   14.03000 
+ MASS CD   14.03000 
+ MASS CE   14.03000 
+ MASS NZ   17.04000 
+ENDMOLECULE
+
+
+MOLECULE M MET MET
+ ATOM N    N     3.326  1.548 -0.000 N          -C,CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CL         CA,CG
+ ATOM CG   CG    4.274  5.010  1.195 CL         CB,SD
+ ATOM SD   SD    3.817  5.981  2.652 S          CG,CE
+ ATOM CE   CE    4.753  7.463  2.341 CL         SD
+ ATOM C    C     5.486  2.705 -0.000 C          +N,CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT +N   6.2030   3.8280   0.0880 
+ CONNECT -C   1.9930   1.5140   0.0090 
+ VDWRADIUS  CB  1.8300
+ VDWRADIUS  CG  1.8300
+ VDWRADIUS  CE  1.8300
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   14.03000 
+ MASS CG   14.03000 
+ MASS CE   15.04000 
+ENDMOLECULE
+
+
+MOLECULE F PHE PHE
+ ATOM N    N     3.326  1.548 -0.000 N          -C,CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CF         CA,CG
+ ATOM CG   CG    4.201  5.026  1.321 CF         CB,CD1,CD2
+ ATOM CD1  CD1   3.912  5.857  2.410 CF         CG,CE1
+ ATOM CE1  CE1   4.490  7.130  2.492 CF         CD1,CZ
+ ATOM CZ   CZ    5.358  7.571  1.486 CF         CE1,CE2
+ ATOM CE2  CE2   5.647  6.739  0.397 CF         CD2,CZ
+ ATOM CD2  CD2   5.068  5.467  0.315 CF         CG,CE2
+ ATOM C    C     5.486  2.705 -0.000 C          +N,CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT +N   6.2030   3.8280   0.0880 
+ CONNECT -C   1.9930   1.5140   0.0090 
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   14.03000 
+ MASS CD1  13.02000 
+ MASS CE1  13.02000 
+ MASS CZ   13.02000 
+ MASS CE2  13.02000 
+ MASS CD2  13.02000 
+ENDMOLECULE
+
+
+MOLECULE S SER SER
+ ATOM N    N     3.326  1.548 -0.000 N          -C,CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CL         CA,OG
+ ATOM OG   OG    4.231  4.925  1.197 OH         CB
+ ATOM C    C     5.486  2.705 -0.000 C          +N,CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT +N   6.2030   3.8280   0.0880 
+ CONNECT -C   1.9930   1.5140   0.0090 
+ VDWRADIUS  CB  1.5100
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   14.03000 
+ MASS OG   17.01000 
+ENDMOLECULE
+
+
+MOLECULE T THR THR
+ ATOM N    N     3.326  1.548 -0.000 N          -C,CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CL         CA,CG2,OG1
+ ATOM CG2  CG2   2.066  3.859  1.244 CL         CB
+ ATOM OG1  OG1   3.972  2.947  2.411 OH         CB
+ ATOM C    C     5.486  2.705 -0.000 C          +N,CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT +N   6.2030   3.8280   0.0880 
+ CONNECT -C   1.9930   1.5140   0.0090 
+ VDWRADIUS  CB  1.6500
+ VDWRADIUS  CG2 1.6500
+ VDWRADIUS  OG1 1.6500
+ HYDROPHOB CG2  1.7425
+ HYDROPHOB OG1 -0.6250
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   13.02000 
+ MASS CG2  15.04000 
+ MASS OG1  17.01000 
+ENDMOLECULE
+
+
+MOLECULE W TRP TRP
+ ATOM N    N     3.326  1.548 -0.000 N          -C,CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CW         CA,CG
+ ATOM CG   CG    4.201  5.026  1.321 CW         CB,CD1,CD2
+ ATOM CD1  CD1   4.023  5.931  2.293 CW         CG,NE1
+ ATOM NE1  NE1   4.812  7.074  1.950 NW         CD1,CE2
+ ATOM CE2  CE2   5.427  6.842  0.817 CW         NE1,CZ2,CD2
+ ATOM CZ2  CZ2   6.297  7.689  0.120 CW         CE2,CH2
+ ATOM CH2  CH2   6.814  7.187 -1.069 CW         CZ2,CZ3
+ ATOM CZ3  CZ3   6.483  5.953 -1.505 CW         CH2,CE3
+ ATOM CE3  CE3   5.604  5.117 -0.786 CW         CZ3,CD2
+ ATOM CD2  CD2   5.083  5.623  0.412 CW         CE3,CE2,CG
+ ATOM C    C     5.486  2.705 -0.000 C          +N,CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT +N   6.2030   3.8280   0.0880 
+ CONNECT -C   1.9930   1.5140   0.0090 
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   14.03000 
+ MASS CD1  13.02000 
+ MASS NE1  15.02000 
+ MASS CZ2  13.02000 
+ MASS CH2  13.02000 
+ MASS CZ3  13.02000 
+ MASS CE3  13.02000 
+ENDMOLECULE
+
+
+MOLECULE Y TYR TYR
+ ATOM N    N     3.326  1.548 -0.000 N          -C,CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CY         CA,CG
+ ATOM CG   CG    4.267  4.996  1.195 CY         CB,CD1,CD2
+ ATOM CD1  CD1   4.060  5.919  2.227 CY         CG,CE1
+ ATOM CE1  CE1   4.700  7.164  2.193 CY         CD1,CZ
+ ATOM CZ   CZ    5.547  7.486  1.126 CY         CE1,CE2,OH
+ ATOM OH   OH    6.169  8.695  1.092 OH         CZ
+ ATOM CE2  CE2   5.755  6.563  0.094 CY         CD2,CZ
+ ATOM CD2  CD2   5.115  5.318  0.128 CY         CG,CE2
+ ATOM C    C     5.486  2.705 -0.000 C          +N,CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT +N   6.2030   3.8280   0.0880 
+ CONNECT -C   1.9930   1.5140   0.0090 
+ VDWRADIUS  OH  1.5900
+ HYDROPHOB OH -0.2906
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   14.03000 
+ MASS CD1  13.02000 
+ MASS CE1  13.02000 
+ MASS OH   17.01000 
+ MASS CE2  13.02000 
+ MASS CD2  13.02000 
+ENDMOLECULE
+
+
+MOLECULE V VAL VAL
+ ATOM N    N     3.326  1.548 -0.000 N          -C,CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CL         CA,CG1,CG2
+ ATOM CG1  CG1   3.998  2.900  2.490 CL         CB
+ ATOM CG2  CG2   4.274  5.010  1.195 CL         CB
+ ATOM C    C     5.486  2.705 -0.000 C          +N,CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT +N   6.2030   3.8280   0.0880 
+ CONNECT -C   1.9930   1.5140   0.0090 
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   13.02000 
+ MASS CG1  15.04000 
+ MASS CG2  15.04000 
+ENDMOLECULE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+MOLECULE A ALA NALA
+ ATOM N    N     3.326  1.548 -0.000 N          CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CL         CA
+ ATOM C    C     5.486  2.705 -0.000 C          +N,CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT +N   6.2030   3.8280   0.0880 
+ VDWRADIUS  CB  1.8900
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   15.04000 
+ENDMOLECULE
+
+
+MOLECULE G GLY NGLY
+ ATOM N    N     3.326  1.548 -0.000 N          CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N
+ ATOM C    C     5.484  2.687 -0.000 C          +N,CA,O
+ ATOM O    O     5.993  1.568 -0.000 O          C
+ CONNECT +N   6.2030   3.8280   0.0880 
+ MASS N    15.02000 
+ MASS CA   14.03000 
+ENDMOLECULE
+
+
+MOLECULE P PRO NPRO
+ ATOM N    N     3.327  1.557 -0.000 N          CA,CD
+ ATOM CA   CA    3.934  2.871 -0.105 CT         C,N,CB
+ ATOM CB   CB    5.369  2.628  0.185 CL         CA,CG
+ ATOM CG   CG    5.547  1.172  0.545 CL         CB,CD
+ ATOM CD   CD    4.302  0.477  0.080 CL         CG,N
+ ATOM C    C     3.505  3.526 -1.410 C          +N,CA,O
+ ATOM O    O     2.754  2.939 -2.185 O          C
+ CONNECT +N   4.2780   4.5600  -1.8740 
+ VDWRADIUS  CD  1.7100
+ VDWRADIUS  CG  1.7100
+ VDWRADIUS  CB  1.7100
+ CHARGE  N  0.0000
+ ELECTYPE  N  N
+ MASS CA   13.02000 
+ MASS CD   14.03000 
+ MASS CG   14.03000 
+ MASS CB   14.03000 
+ENDMOLECULE
+
+
+MOLECULE R ARG NARG
+ ATOM N    N     3.326  1.548 -0.000 N          CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CL         CA,CG
+ ATOM CG   CG    4.274  5.010  1.195 CL         CB,CD
+ ATOM CD   CD    3.881  5.818  2.427 CL         CG,NE
+ ATOM NE   NE    4.540  7.143  2.424 NF         CD,CZ
+ ATOM CZ   CZ    4.364  8.041  3.389 CL         NE,NH1,NH2
+ ATOM NH1  NH1   3.575  7.808  4.434 NF         CZ
+ ATOM NH2  NH2   5.006  9.201  3.287 NF         CZ
+ ATOM C    C     5.486  2.705 -0.000 C          +N,CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT +N   6.2030   3.8280   0.0880 
+ VDWRADIUS  CB  1.5700
+ VDWRADIUS  CG  1.5700
+ VDWRADIUS  CD  1.5700
+ VDWRADIUS  CZ  1.5700
+ HYDROPHOB CZ  1.3758
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   14.03000 
+ MASS CG   14.03000 
+ MASS CD   14.03000 
+ MASS NE   15.02000 
+ MASS NH1  16.03000 
+ MASS NH2  16.03000 
+ENDMOLECULE
+
+
+MOLECULE N ASN NASN
+ ATOM N    N     3.326  1.548 -0.000 N          CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CL         CA,CG
+ ATOM CG   CG    4.254  5.017  1.232 CL         CB,OD1,ND2
+ ATOM OD1  OD1   5.005  5.340  0.315 OP         CG
+ ATOM ND2  ND2   3.985  5.818  2.266 NP         CG
+ ATOM C    C     5.486  2.705 -0.000 C          +N,CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT +N   6.2030   3.8280   0.0880 
+ VDWRADIUS  CB  1.5100
+ VDWRADIUS  CG  1.5100
+ HYDROPHOB CG  0.9808
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   14.03000 
+ MASS ND2  16.03000 
+ENDMOLECULE
+
+
+MOLECULE D ASP NASP
+ ATOM N    N     3.326  1.548 -0.000 N          CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CL         CA,CG
+ ATOM CG   CG    4.275  5.011  1.195 CL         CB,OD1,OD2
+ ATOM OD1  OD1   3.669  5.955  0.620 OF         CG
+ ATOM OD2  OD2   5.408  5.092  1.741 OF         CG
+ ATOM C    C     5.486  2.705 -0.000 C          +N,CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT +N   6.2030   3.8280   0.0880 
+ VDWRADIUS  CB  1.4500
+ VDWRADIUS  CG  1.4500
+ HYDROPHOB CG  1.0867
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   14.03000 
+ENDMOLECULE
+
+
+MOLECULE C CYS NCYS
+ ATOM N    N     3.326  1.548 -0.000 N          CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CL         CA,SG
+ ATOM SG   SG    4.310  5.304  1.366 SH         CB
+ ATOM C    C     5.486  2.705 -0.000 C          +N,CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT +N   6.2030   3.8280   0.0880 
+ VDWRADIUS  CB  1.7900
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   14.03000 
+ MASS SG   33.07000 
+ENDMOLECULE
+
+
+MOLECULE C CYX NCYX
+ ATOM N    N     3.326  1.548 -0.000 N          CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CL         CA,SG
+ ATOM SG   SG    4.310  5.304  1.366 SH         CB
+ ATOM C    C     5.486  2.705 -0.000 C          +N,CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT +N   6.2030   3.8280   0.0880 
+ VDWRADIUS  CB  1.7900
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   14.03000 
+ENDMOLECULE
+
+
+MOLECULE Q GLN NGLN
+ ATOM N    N     3.326  1.548 -0.000 N          CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CL         CA,CG
+ ATOM CG   CG    4.274  5.010  1.195 CL         CB,CD
+ ATOM CD   CD    3.907  5.848  2.410 CL         CG,OE1,NE2
+ ATOM OE1  OE1   3.139  5.408  3.263 OP         CD
+ ATOM NE2  NE2   4.459  7.062  2.488 NP         CD
+ ATOM C    C     5.486  2.705 -0.000 C          +N,CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT +N   6.2030   3.8280   0.0880 
+ VDWRADIUS  CB  1.5900
+ VDWRADIUS  CG  1.5900
+ VDWRADIUS  CD  1.5900
+ VDWRADIUS  OE1 1.5900
+ VDWRADIUS  NE2 1.5900
+ HYDROPHOB  CD 0.9558
+ HYDROPHOB OE1 0.9558
+ HYDROPHOB NE2 0.9558
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   14.03000 
+ MASS CG   14.03000 
+ MASS NE2  16.03000 
+ENDMOLECULE
+
+
+MOLECULE E GLU NGLU
+ ATOM N    N     3.326  1.548 -0.000 N          CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CL         CA,CG
+ ATOM CG   CG    4.267  4.996  1.195 CL         CB,CD
+ ATOM CD   CD    3.874  5.805  2.429 CL         CG,OE1,OE2
+ ATOM OE1  OE1   4.595  5.679  3.454 OF         CD
+ ATOM OE2  OE2   2.856  6.542  2.334 OF         CD
+ ATOM C    C     5.486  2.705 -0.000 C          +N,CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT +N   6.2030   3.8280   0.0880 
+ VDWRADIUS  CB  1.5500
+ VDWRADIUS  CG  1.5500
+ VDWRADIUS  CD  1.5500
+ VDWRADIUS  OE1 1.5500
+ VDWRADIUS  OE2 1.5500
+ HYDROPHOB CD  1.0242
+ HYDROPHOB OE1 1.0242
+ HYDROPHOB OE2 1.0242
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   14.03000 
+ MASS CG   14.03000 
+ENDMOLECULE
+
+
+MOLECULE H HIS NHIS
+ ATOM N    N     3.326  1.548 -0.000 N          CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CH         CA,CG
+ ATOM CG   CG    4.201  5.026  1.321 CH         CB,CD2,ND1
+ ATOM ND1  ND1   3.943  5.885  2.383 NH         CG,CE1
+ ATOM CE1  CE1   4.624  6.998  2.182 CH         ND1,NE2
+ ATOM NE2  NE2   5.294  6.891  1.062 NH         CE1,CD2
+ ATOM CD2  CD2   5.059  5.679  0.492 CH         NE2,CG
+ ATOM C    C     5.486  2.705 -0.000 C          +N,CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT +N   6.2030   3.8280   0.0880 
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   14.03000 
+ MASS CE1  13.02000 
+ MASS NE2  15.02000 
+ MASS CD2  13.02000 
+ENDMOLECULE
+
+
+MOLECULE H HIP NHIP
+ ATOM N    N     3.326  1.548 -0.000 N          CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CH         CA,CG
+ ATOM CG   CG    4.201  5.026  1.321 CH         CB,CD2,ND1
+ ATOM ND1  ND1   3.943  5.885  2.383 NH         CG,CE1
+ ATOM CE1  CE1   4.624  6.998  2.182 CH         ND1,NE2
+ ATOM NE2  NE2   5.294  6.891  1.062 NH         CE1,CD2
+ ATOM CD2  CD2   5.059  5.679  0.492 CH         NE2,CG
+ ATOM C    C     5.486  2.705 -0.000 C          +N,CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT +N   6.2030   3.8280   0.0880 
+ CHARGE  ND1 0.5000
+ CHARGE  NE2 0.5000
+ ELECTYPE  ND1 F
+ ELECTYPE  NE2 F
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   14.03000 
+ MASS ND1  15.02000 
+ MASS CE1  13.02000 
+ MASS NE2  15.02000 
+ MASS CD2  13.02000 
+ENDMOLECULE
+
+
+MOLECULE I ILE NILE
+ ATOM N    N     3.326  1.548 -0.000 N          CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.552  3.621  1.245 CL         CA,CG1,CG2
+ ATOM CG2  CG2   3.970  2.846  2.490 CL         CB
+ ATOM CG1  CG1   4.230  4.987  1.245 CL         CB,CD1
+ ATOM CD1  CD1   3.812  5.762  2.490 CL         CG1
+ ATOM C    C     5.486  2.705 -0.000 C          +N,CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT +N   6.2030   3.8280   0.0880 
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   13.02000 
+ MASS CG2  15.04000 
+ MASS CG1  14.03000 
+ MASS CD1  15.04000 
+ENDMOLECULE
+
+
+MOLECULE L LEU NLEU
+ ATOM N    N     3.326  1.548 -0.000 N          CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CL         CA,CG
+ ATOM CG   CG    4.274  5.010  1.195 CL         CB,CD1,CD2
+ ATOM CD1  CD1   3.853  5.763 -0.063 CL         CG
+ ATOM CD2  CD2   3.881  5.818  2.427 CL         CG
+ ATOM C    C     5.486  2.705 -0.000 C          +N,CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT +N   6.2030   3.8280   0.0880 
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   14.03000 
+ MASS CG   13.02000 
+ MASS CD1  15.04000 
+ MASS CD2  15.04000 
+ENDMOLECULE
+
+
+MOLECULE K LYS NLYS
+ ATOM N    N     3.326  1.548 -0.000 N          CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CL         CA,CG
+ ATOM CG   CG    4.274  5.010  1.195 CL         CB,CD
+ ATOM CD   CD    3.881  5.818  2.427 CL         CG,CE
+ ATOM CE   CE    4.578  7.173  2.389 CL         CD,NZ
+ ATOM NZ   NZ    4.199  7.952  3.577 NF         CE
+ ATOM C    C     5.486  2.705 -0.000 C          +N,CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT +N   6.2030   3.8280   0.0880 
+ VDWRADIUS  CB  1.7300
+ VDWRADIUS  CG  1.7300
+ VDWRADIUS  CD  1.7300
+ VDWRADIUS  CE  1.7300
+ VDWRADIUS  NZ  1.7300
+ HYDROPHOB NZ  2.9025
+ CHARGE  NZ  1.0000
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   14.03000 
+ MASS CG   14.03000 
+ MASS CD   14.03000 
+ MASS CE   14.03000 
+ MASS NZ   17.04000 
+ENDMOLECULE
+
+
+MOLECULE M MET NMET
+ ATOM N    N     3.326  1.548 -0.000 N          CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CL         CA,CG
+ ATOM CG   CG    4.274  5.010  1.195 CL         CB,SD
+ ATOM SD   SD    3.817  5.981  2.652 S          CG,CE
+ ATOM CE   CE    4.753  7.463  2.341 CL         SD
+ ATOM C    C     5.486  2.705 -0.000 C          +N,CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT +N   6.2030   3.8280   0.0880 
+ VDWRADIUS  CB  1.8300
+ VDWRADIUS  CG  1.8300
+ VDWRADIUS  CE  1.8300
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   14.03000 
+ MASS CG   14.03000 
+ MASS CE   15.04000 
+ENDMOLECULE
+
+
+MOLECULE F PHE NPHE
+ ATOM N    N     3.326  1.548 -0.000 N          CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CF         CA,CG
+ ATOM CG   CG    4.201  5.026  1.321 CF         CB,CD1,CD2
+ ATOM CD1  CD1   3.912  5.857  2.410 CF         CG,CE1
+ ATOM CE1  CE1   4.490  7.130  2.492 CF         CD1,CZ
+ ATOM CZ   CZ    5.358  7.571  1.486 CF         CE1,CE2
+ ATOM CE2  CE2   5.647  6.739  0.397 CF         CD2,CZ
+ ATOM CD2  CD2   5.068  5.467  0.315 CF         CG,CE2
+ ATOM C    C     5.486  2.705 -0.000 C          +N,CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT +N   6.2030   3.8280   0.0880 
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   14.03000 
+ MASS CD1  13.02000 
+ MASS CE1  13.02000 
+ MASS CZ   13.02000 
+ MASS CE2  13.02000 
+ MASS CD2  13.02000 
+ENDMOLECULE
+
+
+MOLECULE S SER NSER
+ ATOM N    N     3.326  1.548 -0.000 N          CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CL         CA,OG
+ ATOM OG   OG    4.231  4.925  1.197 OH         CB
+ ATOM C    C     5.486  2.705 -0.000 C          +N,CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT +N   6.2030   3.8280   0.0880 
+ VDWRADIUS  CB  1.5100
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   14.03000 
+ MASS OG   17.01000 
+ENDMOLECULE
+
+
+MOLECULE T THR NTHR
+ ATOM N    N     3.326  1.548 -0.000 N          CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CL         CA,CG2,OG1
+ ATOM CG2  CG2   2.066  3.859  1.244 CL         CB
+ ATOM OG1  OG1   3.972  2.947  2.411 OH         CB
+ ATOM C    C     5.486  2.705 -0.000 C          +N,CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT +N   6.2030   3.8280   0.0880 
+ VDWRADIUS  CB  1.6500
+ VDWRADIUS  CG2 1.6500
+ VDWRADIUS  OG1 1.6500
+ HYDROPHOB CG2  1.7425
+ HYDROPHOB OG1 -0.6250
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   13.02000 
+ MASS CG2  15.04000 
+ MASS OG1  17.01000 
+ENDMOLECULE
+
+
+MOLECULE W TRP NTRP
+ ATOM N    N     3.326  1.548 -0.000 N          CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CW         CA,CG
+ ATOM CG   CG    4.201  5.026  1.321 CW         CB,CD1,CD2
+ ATOM CD1  CD1   4.023  5.931  2.293 CW         CG,NE1
+ ATOM NE1  NE1   4.812  7.074  1.950 NW         CD1,CE2
+ ATOM CE2  CE2   5.427  6.842  0.817 CW         NE1,CZ2,CD2
+ ATOM CZ2  CZ2   6.297  7.689  0.120 CW         CE2,CH2
+ ATOM CH2  CH2   6.814  7.187 -1.069 CW         CZ2,CZ3
+ ATOM CZ3  CZ3   6.483  5.953 -1.505 CW         CH2,CE3
+ ATOM CE3  CE3   5.604  5.117 -0.786 CW         CZ3,CD2
+ ATOM CD2  CD2   5.083  5.623  0.412 CW         CE3,CE2,CG
+ ATOM C    C     5.486  2.705 -0.000 C          +N,CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT +N   6.2030   3.8280   0.0880 
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   14.03000 
+ MASS CD1  13.02000 
+ MASS NE1  15.02000 
+ MASS CZ2  13.02000 
+ MASS CH2  13.02000 
+ MASS CZ3  13.02000 
+ MASS CE3  13.02000 
+ENDMOLECULE
+
+
+MOLECULE Y TYR NTYR
+ ATOM N    N     3.326  1.548 -0.000 N          CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CY         CA,CG
+ ATOM CG   CG    4.267  4.996  1.195 CY         CB,CD1,CD2
+ ATOM CD1  CD1   4.060  5.919  2.227 CY         CG,CE1
+ ATOM CE1  CE1   4.700  7.164  2.193 CY         CD1,CZ
+ ATOM CZ   CZ    5.547  7.486  1.126 CY         CE1,CE2,OH
+ ATOM OH   OH    6.169  8.695  1.092 OH         CZ
+ ATOM CE2  CE2   5.755  6.563  0.094 CY         CD2,CZ
+ ATOM CD2  CD2   5.115  5.318  0.128 CY         CG,CE2
+ ATOM C    C     5.486  2.705 -0.000 C          +N,CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT +N   6.2030   3.8280   0.0880 
+ VDWRADIUS  OH  1.5900
+ HYDROPHOB OH -0.2906
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   14.03000 
+ MASS CD1  13.02000 
+ MASS CE1  13.02000 
+ MASS OH   17.01000 
+ MASS CE2  13.02000 
+ MASS CD2  13.02000 
+ENDMOLECULE
+
+
+MOLECULE V VAL NVAL
+ ATOM N    N     3.326  1.548 -0.000 N          CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CL         CA,CG1,CG2
+ ATOM CG1  CG1   3.998  2.900  2.490 CL         CB
+ ATOM CG2  CG2   4.274  5.010  1.195 CL         CB
+ ATOM C    C     5.486  2.705 -0.000 C          +N,CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT +N   6.2030   3.8280   0.0880 
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   13.02000 
+ MASS CG1  15.04000 
+ MASS CG2  15.04000 
+ENDMOLECULE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+MOLECULE A ALA CALA
+ ATOM N    N     3.326  1.548 -0.000 N          -C,CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CL         CA
+ ATOM C    C     5.486  2.705 -0.000 C          CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT -C   1.9930   1.5140   0.0090
+ VDWRADIUS  CB  1.8900
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   15.04000 
+ENDMOLECULE
+
+
+MOLECULE G GLY CGLY
+ ATOM N    N     3.326  1.548 -0.000 N          -C,CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N
+ ATOM C    C     5.484  2.687 -0.000 C          CA,O
+ ATOM O    O     5.993  1.568 -0.000 O          C
+ CONNECT -C   1.9930   1.5140   0.0090 
+ MASS N    15.02000 
+ MASS CA   14.03000 
+ENDMOLECULE
+
+
+MOLECULE P PRO CPRO
+ ATOM N    N     3.327  1.557 -0.000 N          -C,CA,CD
+ ATOM CA   CA    3.934  2.871 -0.105 CT         C,N,CB
+ ATOM CB   CB    5.369  2.628  0.185 CL         CA,CG
+ ATOM CG   CG    5.547  1.172  0.545 CL         CB,CD
+ ATOM CD   CD    4.302  0.477  0.080 CL         CG,N
+ ATOM C    C     3.505  3.526 -1.410 C          CA,O
+ ATOM O    O     2.754  2.939 -2.185 O          C
+ CONNECT -C   1.9930   1.5140   0.0090 
+ VDWRADIUS  CD  1.7100
+ VDWRADIUS  CG  1.7100
+ VDWRADIUS  CB  1.7100
+ CHARGE  N  0.0000
+ ELECTYPE  N  N
+ MASS CA   13.02000 
+ MASS CD   14.03000 
+ MASS CG   14.03000 
+ MASS CB   14.03000 
+ENDMOLECULE
+
+
+MOLECULE R ARG CARG
+ ATOM N    N     3.326  1.548 -0.000 N          -C,CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CL         CA,CG
+ ATOM CG   CG    4.274  5.010  1.195 CL         CB,CD
+ ATOM CD   CD    3.881  5.818  2.427 CL         CG,NE
+ ATOM NE   NE    4.540  7.143  2.424 NF         CD,CZ
+ ATOM CZ   CZ    4.364  8.041  3.389 CL         NE,NH1,NH2
+ ATOM NH1  NH1   3.575  7.808  4.434 NF         CZ
+ ATOM NH2  NH2   5.006  9.201  3.287 NF         CZ
+ ATOM C    C     5.486  2.705 -0.000 C          CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT -C   1.9930   1.5140   0.0090 
+ VDWRADIUS  CB  1.5700
+ VDWRADIUS  CG  1.5700
+ VDWRADIUS  CD  1.5700
+ VDWRADIUS  CZ  1.5700
+ HYDROPHOB CZ  1.3758
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   14.03000 
+ MASS CG   14.03000 
+ MASS CD   14.03000 
+ MASS NE   15.02000 
+ MASS NH1  16.03000 
+ MASS NH2  16.03000 
+ENDMOLECULE
+
+
+MOLECULE N ASN CASN
+ ATOM N    N     3.326  1.548 -0.000 N          -C,CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CL         CA,CG
+ ATOM CG   CG    4.254  5.017  1.232 CL         CB,OD1,ND2
+ ATOM OD1  OD1   5.005  5.340  0.315 OP         CG
+ ATOM ND2  ND2   3.985  5.818  2.266 NP         CG
+ ATOM C    C     5.486  2.705 -0.000 C          CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT -C   1.9930   1.5140   0.0090 
+ VDWRADIUS  CB  1.5100
+ VDWRADIUS  CG  1.5100
+ HYDROPHOB CG  0.9808
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   14.03000 
+ MASS ND2  16.03000 
+ENDMOLECULE
+
+
+MOLECULE D ASP CASP
+ ATOM N    N     3.326  1.548 -0.000 N          -C,CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CL         CA,CG
+ ATOM CG   CG    4.275  5.011  1.195 CL         CB,OD1,OD2
+ ATOM OD1  OD1   3.669  5.955  0.620 OF         CG
+ ATOM OD2  OD2   5.408  5.092  1.741 OF         CG
+ ATOM C    C     5.486  2.705 -0.000 C          CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT -C   1.9930   1.5140   0.0090 
+ VDWRADIUS  CB  1.4500
+ VDWRADIUS  CG  1.4500
+ HYDROPHOB CG  1.0867
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   14.03000 
+ENDMOLECULE
+
+
+MOLECULE C CYS CCYS
+ ATOM N    N     3.326  1.548 -0.000 N          -C,CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CL         CA,SG
+ ATOM SG   SG    4.310  5.304  1.366 SH         CB
+ ATOM C    C     5.486  2.705 -0.000 C          CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT -C   1.9930   1.5140   0.0090 
+ VDWRADIUS  CB  1.7900
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   14.03000 
+ MASS SG   33.07000 
+ENDMOLECULE
+
+
+MOLECULE C CYX CCYX
+ ATOM N    N     3.326  1.548 -0.000 N          -C,CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CL         CA,SG
+ ATOM SG   SG    4.310  5.304  1.366 SH         CB
+ ATOM C    C     5.486  2.705 -0.000 C          CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT -C   1.9930   1.5140   0.0090 
+ VDWRADIUS  CB  1.7900
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   14.03000 
+ENDMOLECULE
+
+
+MOLECULE Q GLN CGLN
+ ATOM N    N     3.326  1.548 -0.000 N          -C,CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CL         CA,CG
+ ATOM CG   CG    4.274  5.010  1.195 CL         CB,CD
+ ATOM CD   CD    3.907  5.848  2.410 CL         CG,OE1,NE2
+ ATOM OE1  OE1   3.139  5.408  3.263 OP         CD
+ ATOM NE2  NE2   4.459  7.062  2.488 NP         CD
+ ATOM C    C     5.486  2.705 -0.000 C          CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT -C   1.9930   1.5140   0.0090 
+ VDWRADIUS  CB  1.5900
+ VDWRADIUS  CG  1.5900
+ VDWRADIUS  CD  1.5900
+ VDWRADIUS  OE1 1.5900
+ VDWRADIUS  NE2 1.5900
+ HYDROPHOB  CD 0.9558
+ HYDROPHOB OE1 0.9558
+ HYDROPHOB NE2 0.9558
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   14.03000 
+ MASS CG   14.03000 
+ MASS NE2  16.03000 
+ENDMOLECULE
+
+
+MOLECULE E GLU CGLU
+ ATOM N    N     3.326  1.548 -0.000 N          -C,CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CL         CA,CG
+ ATOM CG   CG    4.267  4.996  1.195 CL         CB,CD
+ ATOM CD   CD    3.874  5.805  2.429 CL         CG,OE1,OE2
+ ATOM OE1  OE1   4.595  5.679  3.454 OF         CD
+ ATOM OE2  OE2   2.856  6.542  2.334 OF         CD
+ ATOM C    C     5.486  2.705 -0.000 C          CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT -C   1.9930   1.5140   0.0090 
+ VDWRADIUS  CB  1.5500
+ VDWRADIUS  CG  1.5500
+ VDWRADIUS  CD  1.5500
+ VDWRADIUS  OE1 1.5500
+ VDWRADIUS  OE2 1.5500
+ HYDROPHOB CD  1.0242
+ HYDROPHOB OE1 1.0242
+ HYDROPHOB OE2 1.0242
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   14.03000 
+ MASS CG   14.03000 
+ENDMOLECULE
+
+
+MOLECULE H HIS CHIS
+ ATOM N    N     3.326  1.548 -0.000 N          -C,CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CH         CA,CG
+ ATOM CG   CG    4.201  5.026  1.321 CH         CB,CD2,ND1
+ ATOM ND1  ND1   3.943  5.885  2.383 NH         CG,CE1
+ ATOM CE1  CE1   4.624  6.998  2.182 CH         ND1,NE2
+ ATOM NE2  NE2   5.294  6.891  1.062 NH         CE1,CD2
+ ATOM CD2  CD2   5.059  5.679  0.492 CH         NE2,CG
+ ATOM C    C     5.486  2.705 -0.000 C          CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT -C   1.9930   1.5140   0.0090 
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   14.03000 
+ MASS CE1  13.02000 
+ MASS NE2  15.02000 
+ MASS CD2  13.02000 
+ENDMOLECULE
+
+
+MOLECULE H HIP CHIP
+ ATOM N    N     3.326  1.548 -0.000 N          -C,CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CH         CA,CG
+ ATOM CG   CG    4.201  5.026  1.321 CH         CB,CD2,ND1
+ ATOM ND1  ND1   3.943  5.885  2.383 NH         CG,CE1
+ ATOM CE1  CE1   4.624  6.998  2.182 CH         ND1,NE2
+ ATOM NE2  NE2   5.294  6.891  1.062 NH         CE1,CD2
+ ATOM CD2  CD2   5.059  5.679  0.492 CH         NE2,CG
+ ATOM C    C     5.486  2.705 -0.000 C          CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT -C   1.9930   1.5140   0.0090 
+ CHARGE  ND1 0.5000
+ CHARGE  NE2 0.5000
+ ELECTYPE  ND1 F
+ ELECTYPE  NE2 F
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   14.03000 
+ MASS ND1  15.02000 
+ MASS CE1  13.02000 
+ MASS NE2  15.02000 
+ MASS CD2  13.02000 
+ENDMOLECULE
+
+
+MOLECULE I ILE CILE
+ ATOM N    N     3.326  1.548 -0.000 N          -C,CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.552  3.621  1.245 CL         CA,CG1,CG2
+ ATOM CG2  CG2   3.970  2.846  2.490 CL         CB
+ ATOM CG1  CG1   4.230  4.987  1.245 CL         CB,CD1
+ ATOM CD1  CD1   3.812  5.762  2.490 CL         CG1
+ ATOM C    C     5.486  2.705 -0.000 C          CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT -C   1.9930   1.5140   0.0090 
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   13.02000 
+ MASS CG2  15.04000 
+ MASS CG1  14.03000 
+ MASS CD1  15.04000 
+ENDMOLECULE
+
+
+MOLECULE L LEU CLEU
+ ATOM N    N     3.326  1.548 -0.000 N          -C,CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CL         CA,CG
+ ATOM CG   CG    4.274  5.010  1.195 CL         CB,CD1,CD2
+ ATOM CD1  CD1   3.853  5.763 -0.063 CL         CG
+ ATOM CD2  CD2   3.881  5.818  2.427 CL         CG
+ ATOM C    C     5.486  2.705 -0.000 C          CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT -C   1.9930   1.5140   0.0090 
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   14.03000 
+ MASS CG   13.02000 
+ MASS CD1  15.04000 
+ MASS CD2  15.04000 
+ENDMOLECULE
+
+
+MOLECULE K LYS CLYS
+ ATOM N    N     3.326  1.548 -0.000 N          -C,CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CL         CA,CG
+ ATOM CG   CG    4.274  5.010  1.195 CL         CB,CD
+ ATOM CD   CD    3.881  5.818  2.427 CL         CG,CE
+ ATOM CE   CE    4.578  7.173  2.389 CL         CD,NZ
+ ATOM NZ   NZ    4.199  7.952  3.577 NF         CE
+ ATOM C    C     5.486  2.705 -0.000 C          CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT -C   1.9930   1.5140   0.0090 
+ VDWRADIUS  CB  1.7300
+ VDWRADIUS  CG  1.7300
+ VDWRADIUS  CD  1.7300
+ VDWRADIUS  CE  1.7300
+ VDWRADIUS  NZ  1.7300
+ HYDROPHOB NZ  2.9025
+ CHARGE  NZ  1.0000
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   14.03000 
+ MASS CG   14.03000 
+ MASS CD   14.03000 
+ MASS CE   14.03000 
+ MASS NZ   17.04000 
+ENDMOLECULE
+
+
+MOLECULE M MET CMET
+ ATOM N    N     3.326  1.548 -0.000 N          -C,CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CL         CA,CG
+ ATOM CG   CG    4.274  5.010  1.195 CL         CB,SD
+ ATOM SD   SD    3.817  5.981  2.652 S          CG,CE
+ ATOM CE   CE    4.753  7.463  2.341 CL         SD
+ ATOM C    C     5.486  2.705 -0.000 C          CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT -C   1.9930   1.5140   0.0090 
+ VDWRADIUS  CB  1.8300
+ VDWRADIUS  CG  1.8300
+ VDWRADIUS  CE  1.8300
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   14.03000 
+ MASS CG   14.03000 
+ MASS CE   15.04000 
+ENDMOLECULE
+
+
+MOLECULE F PHE CPHE
+ ATOM N    N     3.326  1.548 -0.000 N          -C,CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CF         CA,CG
+ ATOM CG   CG    4.201  5.026  1.321 CF         CB,CD1,CD2
+ ATOM CD1  CD1   3.912  5.857  2.410 CF         CG,CE1
+ ATOM CE1  CE1   4.490  7.130  2.492 CF         CD1,CZ
+ ATOM CZ   CZ    5.358  7.571  1.486 CF         CE1,CE2
+ ATOM CE2  CE2   5.647  6.739  0.397 CF         CD2,CZ
+ ATOM CD2  CD2   5.068  5.467  0.315 CF         CG,CE2
+ ATOM C    C     5.486  2.705 -0.000 C          CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT -C   1.9930   1.5140   0.0090 
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   14.03000 
+ MASS CD1  13.02000 
+ MASS CE1  13.02000 
+ MASS CZ   13.02000 
+ MASS CE2  13.02000 
+ MASS CD2  13.02000 
+ENDMOLECULE
+
+
+MOLECULE S SER CSER
+ ATOM N    N     3.326  1.548 -0.000 N          -C,CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CL         CA,OG
+ ATOM OG   OG    4.231  4.925  1.197 OH         CB
+ ATOM C    C     5.486  2.705 -0.000 C          CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT -C   1.9930   1.5140   0.0090 
+ VDWRADIUS  CB  1.5100
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   14.03000 
+ MASS OG   17.01000 
+ENDMOLECULE
+
+
+MOLECULE T THR CTHR
+ ATOM N    N     3.326  1.548 -0.000 N          -C,CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CL         CA,CG2,OG1
+ ATOM CG2  CG2   2.066  3.859  1.244 CL         CB
+ ATOM OG1  OG1   3.972  2.947  2.411 OH         CB
+ ATOM C    C     5.486  2.705 -0.000 C          CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT -C   1.9930   1.5140   0.0090 
+ VDWRADIUS  CB  1.6500
+ VDWRADIUS  CG2 1.6500
+ VDWRADIUS  OG1 1.6500
+ HYDROPHOB CG2  1.7425
+ HYDROPHOB OG1 -0.6250
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   13.02000 
+ MASS CG2  15.04000 
+ MASS OG1  17.01000 
+ENDMOLECULE
+
+
+MOLECULE W TRP CTRP
+ ATOM N    N     3.326  1.548 -0.000 N          -C,CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CW         CA,CG
+ ATOM CG   CG    4.201  5.026  1.321 CW         CB,CD1,CD2
+ ATOM CD1  CD1   4.023  5.931  2.293 CW         CG,NE1
+ ATOM NE1  NE1   4.812  7.074  1.950 NW         CD1,CE2
+ ATOM CE2  CE2   5.427  6.842  0.817 CW         NE1,CZ2,CD2
+ ATOM CZ2  CZ2   6.297  7.689  0.120 CW         CE2,CH2
+ ATOM CH2  CH2   6.814  7.187 -1.069 CW         CZ2,CZ3
+ ATOM CZ3  CZ3   6.483  5.953 -1.505 CW         CH2,CE3
+ ATOM CE3  CE3   5.604  5.117 -0.786 CW         CZ3,CD2
+ ATOM CD2  CD2   5.083  5.623  0.412 CW         CE3,CE2,CG
+ ATOM C    C     5.486  2.705 -0.000 C          CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT -C   1.9930   1.5140   0.0090 
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   14.03000 
+ MASS CD1  13.02000 
+ MASS NE1  15.02000 
+ MASS CZ2  13.02000 
+ MASS CH2  13.02000 
+ MASS CZ3  13.02000 
+ MASS CE3  13.02000 
+ENDMOLECULE
+
+
+MOLECULE Y TYR CTYR
+ ATOM N    N     3.326  1.548 -0.000 N          -C,CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CY         CA,CG
+ ATOM CG   CG    4.267  4.996  1.195 CY         CB,CD1,CD2
+ ATOM CD1  CD1   4.060  5.919  2.227 CY         CG,CE1
+ ATOM CE1  CE1   4.700  7.164  2.193 CY         CD1,CZ
+ ATOM CZ   CZ    5.547  7.486  1.126 CY         CE1,CE2,OH
+ ATOM OH   OH    6.169  8.695  1.092 OH         CZ
+ ATOM CE2  CE2   5.755  6.563  0.094 CY         CD2,CZ
+ ATOM CD2  CD2   5.115  5.318  0.128 CY         CG,CE2
+ ATOM C    C     5.486  2.705 -0.000 C          CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT -C   1.9930   1.5140   0.0090 
+ VDWRADIUS  OH  1.5900
+ HYDROPHOB OH -0.2906
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   14.03000 
+ MASS CD1  13.02000 
+ MASS CE1  13.02000 
+ MASS OH   17.01000 
+ MASS CE2  13.02000 
+ MASS CD2  13.02000 
+ENDMOLECULE
+
+
+MOLECULE V VAL CVAL
+ ATOM N    N     3.326  1.548 -0.000 N          -C,CA
+ ATOM CA   CA    3.970  2.846 -0.000 CT         C,N,CB
+ ATOM CB   CB    3.577  3.654  1.232 CL         CA,CG1,CG2
+ ATOM CG1  CG1   3.998  2.900  2.490 CL         CB
+ ATOM CG2  CG2   4.274  5.010  1.195 CL         CB
+ ATOM C    C     5.486  2.705 -0.000 C          CA,O
+ ATOM O    O     6.009  1.593 -0.000 O          C
+ CONNECT -C   1.9930   1.5140   0.0090 
+ MASS N    15.02000 
+ MASS CA   13.02000 
+ MASS CB   13.02000 
+ MASS CG1  15.04000 
+ MASS CG2  15.04000 
+ENDMOLECULE
+

@@ -1,0 +1,86 @@
+	clock_t start = clock();
+
+	//---------------------------------------------------
+	// Invoke test code here ....
+	//---------------------------------------------------
+
+	// first get the input params:
+	LoopBuilderUPS *lbups = new LoopBuilderUPS();
+	if( !lbups->Obtain(ups) ) return false;
+
+	// Define the loop ...
+	LoopDefinition *ld = new LoopDefinition();
+	if( extVectors != NULL )  ld->EnableVectors ( extVectors  ); // enable our tra extensions if they are non-NULL.
+	if( extComments != NULL ) ld->EnableComments( extComments );
+	if( !ld->Initialise( psystem, lbups->GetLoopBuilderParams() ) ) return false;
+
+	ConfBuilderBase *cb;
+	ConformerGenMode mode = FromDescriptor;
+
+	switch( mode )
+	{
+		case FromDescriptor:
+			{
+				ConfBuilder_FromDescriptor *b = new ConfBuilder_FromDescriptor();
+				if( !b->Initialise( angSet, ld, "?0?0N0N0" ) ) return false;
+				b->ChangeEnumerationMode( ConfBuilderBase_Enumeration::SequentialAscent );
+				cb = b;
+				break;
+			}
+		case FromFile:
+			{
+			}
+		case RandomWhole:
+			{
+				ConfBuilder_RandomWhole *b = new ConfBuilder_RandomWhole();
+				if( !b->Initialise( angSet, ld, 100 ) ) return false;
+				cb = b;
+				break;
+			}
+		case RandomSingle:
+			{
+				ConfBuilder_RandomWhole *b = new ConfBuilder_RandomWhole();
+				if( !b->Initialise( angSet, ld, 100 ) ) return false;
+				cb = b;
+				break;
+			}
+		case JustNativeBin:
+			{
+				ConfBuilder_JustNativeBin *b = new ConfBuilder_JustNativeBin();
+				if( !b->Initialise( angSet, ld ) ) return false;
+				cb = b;
+				break;
+			}
+		case JustNativeClosest:
+			{
+				ConfBuilder_JustNativeClosest *b = new ConfBuilder_JustNativeClosest();
+				if( !b->Initialise( angSet, ld ) ) return false;
+				cb = b;
+				break;
+			}
+		case Exhaustive:
+			{
+				ConfBuilder_Exhaustive *b = new ConfBuilder_Exhaustive();
+				if( !b->Initialise( angSet, ld ) ) return false;
+				b->ChangeEnumerationMode( ConfBuilderBase_Enumeration::SequentialAscent );
+				cb = b;
+				break;
+			}
+		default:
+			exit(0);
+	}
+
+	do
+	{		
+		cb->PrintCurrentConformer();
+		printf("\n");
+
+		strcpy( extComments->GetString(), "BB: " );
+		cb->SPrintCurrentConformer(&extComments->GetString()[strlen(extComments->GetString())]);						
+		psystem->trajectory->append(); // append to the trajectory with the string above.
+	}
+	while( cb->Next() );
+
+	clock_t end = clock();
+	// Final runtime report.
+	printf("\n'Test' Complete! Execution %f seconds\n\n", ((double)(end-start)/((double)(CLOCKS_PER_SEC))));

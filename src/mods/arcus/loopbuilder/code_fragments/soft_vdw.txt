@@ -1,0 +1,38 @@
+	void Test_SoftSteric()
+	{
+		time_t start = time(0);
+
+		Forcefield* stericFF = new Forcefield(psystem);
+		//BondedForcefield *bonds = new BondedForcefield( psystem, false, false, true );
+		BondedForcefield *bonds = new BondedForcefield( psystem, true, true, true );
+		stericFF->add(bonds);
+		SoftVDWForcefield *sff = new SoftVDWForcefield(psystem);
+		stericFF->add(sff);
+		stericFF->setup();
+
+		Minimisation lm(psystem, stericFF, Minimisation::ConjugateGradients, 50, 1.0E7);
+		lm.printInfoLineHeader();
+		stericFF->printInfoLineHeader();
+		printf("\n");
+		lm.trajectoryupdate = -1;
+		lm.update = 1;
+		lm.silent = false;
+		lm.run();
+
+		MolecularDynamics mymd(psystem,stericFF, MolecularDynamics::Beeman,	0.5E-15f,500, true,
+		VariableTemperature(300.0),
+		MolecularDynamics::ConstantEnergy,
+		0.0f,0.0f,0.0f,(10.0f*1E12f));
+
+		mymd.printInfoLineHeader();
+		stericFF->printInfoLineHeader();
+		printf("\n");
+		mymd.trajectoryupdate = -1;
+		mymd.update = 1;
+		mymd.silent = false;
+		mymd.run();
+
+		time_t end = time(0);
+		printf("%d seconds\n",(int)(end-start));
+		return;
+	}

@@ -1,0 +1,83 @@
+/*!
+
+@mainpage PD3 Code Documentation 
+<center>
+                   Welcome to PD3 beta 0.8a!  <br>
+                     Last Update 02/11/07<br>
+               (c) Mike Tyka, Jon Rea 2003-2008<br>
+</center>
+
+By using, modifying, enhancing or adding to PD, you agree to abide by the 
+licence detailed in the current complementary LICENCE file hosted on the 
+official PD webserver. 
+The current version is always available at:
+https://bch-icarus.bch.bris.ac.uk/svn/pdPrime/LICENCE
+
+@section mainpage_maindoc User Documentation
+
+  - \ref install
+	- \ref license
+	- \ref introduction
+
+@subsection mainpage_tutorials Tutorials 
+
+ - \ref tutorial_1 
+ 
+@subsection mainpage_examples Example Scripts
+
+A \ref examplelist scripts found in  examples/  
+can be found 
+
+
+@section mainpage_development   Development
+
+  - \ref codingguidelines 
+	- \ref newforcefield
+	- \ref newprotocol
+	- \ref newmonitor
+
+
+@subsection mainpage_namespaces Important Namespaces
+
+	- WorkSpace
+	- Protocol 
+	- Physics 
+	- Monitors
+
+@subsection mainpage_classes Important Classes
+
+	- FFParamSet 
+	- WorkSpace
+	- System
+
+@subsection mainpage_classes Important Base Classes
+
+	- ProtocolBase
+	  - RangedProtocolBase
+	- ForcefieldBase
+	  - RestraintForcefieldBase
+	- MonitorBase
+	- PickBase
+
+
+
+@section mainpage_otherpages Other Pages
+
+It's also possible to have additional pages where other topics can be
+discussed. For instance:
+
+To create a new additional page, just make a .dox file with a "@page ..."
+command in it, somewhere under the doc/ directory.
+These pages will show up under the "Related Pages" tab automatically,
+but you may add a "@ref" to them here also.
+
+@section mainpage_abbreviations Abbreviations
+
+Common Abbreviations:
+
+ - FF  --> Forcefield
+
+*/
+
+
+

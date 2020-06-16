@@ -1,0 +1,74 @@
+void Test()
+	{
+		//Define a loop ...
+		LoopDefinition *ld = new LoopDefinition();
+		if( extVectors != NULL ) ld->EnableVectors ( extVectors  ); // enable our tra extensions if they are non-NULL.
+		if( extComments != NULL ) ld->EnableComments( extComments );
+		bool IdealiseGeom = true;
+		if( !ld->Initialise( psystem, loopStartResidue, loopLength, globalFastRand, IdealiseGeom ) )
+		{
+			return false;
+		}
+
+		LoopJoinForce *ljf = new LoopJoinForce();
+		if( !ljf->Initialise(ld) ) 
+		{
+			printf("ERROR: Could not initialise the Loop rejoin forcefield!\n");
+			return false;
+		}
+		normalFF->add( ljf->GetForcefield() );
+
+		LoopTorsionManipulator *ltm = new LoopTorsionManipulator();
+		if( !ltm->Initialise( ld ) ) 
+		{
+			return false;
+		}
+
+		psystem->trajectory->append();
+
+		clock_t start = clock();
+
+		LoopTorsionalMinimisation lm( ld, normalFF, 150, LoopTorsionalMinimisation::AllValid );
+		lm.printInfoLineHeader();
+		normalFF->printInfoLineHeader();
+		printf("\n");
+		lm.trajectoryupdate = 1;
+		lm.update = 1;
+		lm.silent = false;
+		lm.run();
+
+		Minimisation lm(ld->GetParticleSystem(), normalFF, Minimisation::ConjugateGradients, 500, 1.0E7);
+		lm.printInfoLineHeader();
+		normalFF->printInfoLineHeader();
+		printf("\n");
+		lm.trajectoryupdate = 10000000;
+		lm.update = 100;
+		lm.silent = true;
+		lm.run();
+
+		LoopCGMinimisation lm( ld, normalFF, 500, 1.0E7 );
+		lm.printInfoLineHeader();
+		normalFF->printInfoLineHeader();
+		printf("\n");
+		lm.trajectoryupdate = 1;
+		lm.update = 5;
+		lm.silent = false;
+		lm.SetMoveRangeToWhole();
+		lm.run();
+
+		TorsionalMinimisation lm( ld->GetParticleSystem(), normalFF, 250, TorsionalMinimisation::AllValid );
+		lm.printInfoLineHeader();
+		normalFF->printInfoLineHeader();
+		printf("\n");
+		lm.trajectoryupdate = 1;
+		lm.update = 1;
+		lm.silent = false;
+		lm.run();
+
+		clock_t end = clock();
+		
+		fprintf( reportFileHandle, "%f\tseconds,\t", ((double)(end-start)/((double)(CLOCKS_PER_SEC))) );
+		fprintf( reportFileHandle, "%f\tenergy\n", (double) psystem->ene.epot * Constant::J2kcal * Constant::Na );
+
+		delete ld;
+	}
