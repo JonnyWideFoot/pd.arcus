@@ -86,7 +86,8 @@ void MoleculeBase::printBondConnectivity() const
 
 int MoleculeBase::findParticleBy_ffname(int ir,const std::string &name) const 
 {
-	for(size_t i = 0; i < nAtoms(); i++) {
+	for(size_t i = 0; i < nAtoms(); i++) 
+    {
 		if(ir == atom[i].ir)
 			if(strcmp(name.c_str(), atom[i].rawname.c_str()) == 0)
 				return i;

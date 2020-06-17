@@ -36,7 +36,7 @@ namespace IO
 	class PD_API BTF_Base
 	{
 	public:
-		BTF_Base(){};
+		BTF_Base(){}
 		virtual BTF_Base* clone() const = 0;
 
 	protected:
@@ -58,7 +58,7 @@ namespace IO
 	///
 	/// \bug BUGS?
 	///
-	class PD_API OutTra_BTF: public BTF_Base, public OutputTrajectoryFile
+	class PD_API OutTra_BTF : public BTF_Base, public OutputTrajectoryFile
 	{
 	public:
 		OutTra_BTF(const std::string &_filestem, WorkSpace& _wspace);
@@ -91,7 +91,7 @@ namespace IO
 	///
 	/// \bug BUGS?
 	///
-	class PD_API BTF_ImportBase: public BTF_Base
+	class PD_API BTF_ImportBase : public BTF_Base
 	{
 	public:
 		enum AtomFilter
@@ -112,11 +112,11 @@ namespace IO
 		virtual BTF_ImportBase* clone() const = 0;
 
 		void reOpen(const std::string &_fileName, bool _FullFileValidation = true);
-		void validateFile(); // Performs a validation on all the Sanity-Tags that should be contained within the tar file
+		void validateFile(); ///< Performs a validation on all the Sanity-Tags that should be contained within the tar file
 		void info( bool _verbose );
 
-		int recountEntries(); // Just in case the file is being written to, we can do an internal recount - the header and system cannot change.
-		int getEntryCount() const; // The total number of entries in the file
+		int recountEntries(); ///< Just in case the file is being written to, we can do an internal recount - the header and system cannot change.
+		int getEntryCount() const; ///< The total number of entries in the file
 		int size() const;
 
 		const Sequence::BioSequence& getSequence() const;
@@ -126,9 +126,9 @@ namespace IO
 		void assertTag( std::ifstream &_stream, std::string _tag ); // parsing assistance function
 		void load(); // Load the header and system definitions from the binary file.
 
-		// loadVectors() is applicable to any dvector  array stored in the tra file,
-		// that is the same length as that of m_Header.atoms.
-		// This includes the atom positions, the forcevectors, and velocities if these are added later ...
+		/// loadVectors() is applicable to any dvector  array stored in the tra file,
+		/// that is the same length as that of m_Header.atoms.
+		/// This includes the atom positions, the forcevectors, and velocities if these are added later ...
 		void loadVectors( std::ifstream &_traFile, std::vector<Maths::dvector>& _storage, AtomFilter _filter, int _molNum );
 		int passesFilter( int _Index, AtomFilter _filter, int _molNum );
 
@@ -183,7 +183,6 @@ namespace IO
 		virtual size_t nEntries() const;
 
 	protected:
-
 		SnapShot makeSnapShot( size_t entry );
 
 		size_t currentPos;
@@ -227,8 +226,6 @@ namespace IO
 	int loadtra(System &sysspec, const std::string &filename, const std::string &entrystring);
 
 
-
-
 	//-------------------------------------------------
 	//
 	/// \brief Saves a WorkSpace, System or Molecule to a BTF file
@@ -239,21 +236,21 @@ namespace IO
 	///          FileOutut_BTF can be called in two different ways. Either a system/workspace is passed as an argument
 	///          or the "save" function of a system/workspace is used. Both lead to the same result:
 	///          THe constructor requires a filename or a filestem (the extension is added automatically if its missing). 
-/*! 
-\code
+	/*! 
+	\code
 
-// examples
-OutputFile_BTF  mypdb("test.pdb");
-mypdb.save( mysystem );
-mypdb.save( myworkspace );
-mypdb.save( mymolecule );
+	// examples
+	OutputFile_BTF  mypdb("test.pdb");
+	mypdb.save( mysystem );
+	mypdb.save( myworkspace );
+	mypdb.save( mymolecule );
 
-mysystem.save( OutputFile_BTF("test.pdb") );
-myworkspace.save( OutputFile_BTF("test.pdb") );
-mymolecule.save( OutputFile_BTF("test.pdb") );
+	mysystem.save( OutputFile_BTF("test.pdb") );
+	myworkspace.save( OutputFile_BTF("test.pdb") );
+	mymolecule.save( OutputFile_BTF("test.pdb") );
 
-\endcode
-*/
+	\endcode
+	*/
 	/// \author Mike Tyka 
 	///
 	class PD_API OutputFile_BTF: public OutputFile
@@ -265,10 +262,6 @@ mymolecule.save( OutputFile_BTF("test.pdb") );
 		/// Saves a work space to a BTF file
 		virtual void save( WorkSpace &_wspace );
 	};
-
-
-
-
 }
 
 #endif

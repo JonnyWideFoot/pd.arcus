@@ -622,7 +622,7 @@ namespace JAMA
 								H[i][i] -= s;
 							}
 							exshift += s;
-							x = y = w = 0.964;
+							x = y = w = 0.964f;
 						}
 					}
 

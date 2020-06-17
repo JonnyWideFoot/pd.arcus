@@ -12,7 +12,7 @@
 #include "forcefields/lcpo.h"
 #include "forcefields/ffsoftvdw.h"
 #include "forcefields/pops.h"
-#include "forcefields/ffrestraint.h"
+#include "forcefields/restraint_positional.h"
 
 #include "monitors/basicmonitors.h"
 
@@ -48,15 +48,14 @@
 using namespace std;
 using namespace Physics;
 using namespace Protocol;
-using namespace Tra;
-using namespace PDB;
+using namespace IO;
 using namespace Manipulator;
 
 namespace Protocol
 {
 	MonteCarloLowKeep::MonteCarloLowKeep(
 		ProtocolBase&  _evaluator,
-		Manipulator::MoveSet& _moveset ): 
+		MoveSet& _moveset ): 
 	MonteCarlo(
 			_evaluator,
 			_moveset
@@ -71,13 +70,10 @@ namespace Protocol
 		return MonteCarlo::runcore();
 	}
 
-	bool MonteCarloLowKeep::accept(
-			double enenew, 
-			double eneold
-		) const
+	bool MonteCarloLowKeep::accept(double enenew, double eneold) const
 	{
 		const double acc = ( m_StartEne + (fabs(m_StartEne) * 0.3) );
-		static const double conv = 1.0 /  (Physics::PhysicsConst::kcal2J / Physics::PhysicsConst::Na);
+		static const double conv = 1.0 / (Physics::PhysicsConst::kcal2J / Physics::PhysicsConst::Na);
 		if( enenew < m_BestEne ) m_BestEne = enenew;
 		if( enenew < acc )
 		{
@@ -644,7 +640,7 @@ void main_GentleHarmonicRestraintMinimisation()
 	bool useBrokenBonded = false; // Flag the use of the bonded forcefield that allows bond breaks.
 	Forcefield ff = createffVac(wspace,useBrokenBonded,true);
 
-	CartesianRestraint rest(wspace);
+	FF_Restraint_Positional rest(wspace);
 	rest.k = 20.0;
 	ff.add(rest);
 
@@ -775,8 +771,8 @@ void TestProximityGrid()
 	WorkSpace wspace( sys );
 	wspace.info();
 	wspace.printPDB("rot_start.pdb");
-	Tra::Traj_Out& tra = wspace.addStdTra("rot_test");
-	Tra::TrajBlockVect* vect = new Tra::TrajBlockVect(10000);
+	IO::OutTra_BTF& tra = wspace.addStdTra("rot_test");
+	IO::BTF_Block_Vector* vect = new IO::BTF_Block_Vector(10000);
 	tra.addOwnedBlock(vect);
 	wspace.outtra.append();
 
@@ -810,7 +806,6 @@ void TestProximityGrid()
 	StatClock bob;
 	while( true )
 	{
-
 		seekPos.x = (fr.nextDouble() * (2.0 * grid.getXBound())) - grid.getXBound();
 		seekPos.y = (fr.nextDouble() * (2.0 * grid.getYBound())) - grid.getYBound();
 		seekPos.z = (fr.nextDouble() * (2.0 * grid.getZBound())) - grid.getZBound();
@@ -977,8 +972,8 @@ void TheWandersOfRotamers()
 	WorkSpace wspace( sys );
 	wspace.info();
 	wspace.printPDB("rot_start.pdb");
-	Tra::Traj_Out& tra = wspace.addStdTra("rot_test");
-	//Tra::TrajBlockVect* vect = new Tra::TrajBlockVect(5000);
+	IO::OutTra_BTF& tra = wspace.addStdTra("rot_test");
+	//IO::BTF_Block_Vector* vect = new IO::BTF_Block_Vector(5000);
 	//tra.addOwnedBlock(vect);
 	wspace.outtra.append();
 
@@ -1047,7 +1042,7 @@ void doMD()
 	ffps.readLib("lib/amber.zinc.ff");
 
 	System sim(ffps);
-	Traj_In tra( traFile + ".tra" );
+	InTra_BTF tra( traFile + ".tra" );
 	tra.loadIntoSystem( sim, -1 ); // load the final entry
 
 	WorkSpace wspace( sim );
@@ -1078,7 +1073,7 @@ void doMD()
 	md.UpdateScr = 100;
 	md.UpdateNList = 10;
 	md.UpdateTra = 100;
-	md.TargetTemp = new Temp(298);
+    md.setTargetTemp(298);
 	md.Steps = 150;
 	md.run();
 
@@ -1205,9 +1200,9 @@ void zincFingerPrimaryModelBuilder()
 	sim.loadExplicit('A',Library::Polypeptide,seq);
 
 	// Bond my onion!
-	Molecule& mol = sim.sysmol(0);
+	Molecule& mol = sim.getMolecule(0);
 	mol.append( NewMolecule( ffps, "ZN" ) ); // add our zinc ion. Added arbritrarily at (0.0,0.0,0.0) (ffps default).
-	int zincResIndex = mol.nres()-1; // we just pushed it there ...
+    int zincResIndex = mol.nResidues()-1; // we just pushed it there ...
 	int zincIndex =  mol.findParticle( zincResIndex, "ZN" );
 	mol.addBond( mol.findParticle( 2, "SG" ), zincIndex );
 	mol.addBond( mol.findParticle( 5, "SG" ), zincIndex );
@@ -1229,11 +1224,11 @@ void zincFingerPrimaryModelBuilder()
 	Forcefield ffs = createffs(wspace);
 
 	Forcefield ff(wspace);
-	BondedForcefield bonds(wspace);
+	FF_Bonded bonds(wspace);
 	ff.add( bonds );
 
 	// SLAM that zinc in place!! Moving ONLY the zinc itself
-	PickedMinimisation zincPlacementMinimisation(ff, PickAtomIndex(zincIndex) );
+	Minimisation zincPlacementMinimisation(ff, PickAtomIndex(zincIndex) );
 	zincPlacementMinimisation.Steps = 20000;
 	zincPlacementMinimisation.UpdateTra = 10;
 	zincPlacementMinimisation.UpdateScr = 10;
@@ -1244,11 +1239,11 @@ void zincFingerPrimaryModelBuilder()
 	zincPlacementMinimisation.setPicking( Pick_AND( PickAtomIndex(zincIndex), pickCoordinatingRes ) );
 	zincPlacementMinimisation.run();
 
-	GB_Still* gbsa = new GB_Still( wspace ); // used to take nb
+	FF_GeneralizedBorn_Still* gbsa = new FF_GeneralizedBorn_Still( wspace ); // used to take nb
 	gbsa->FastMode = true;
 	ff.addWithOwnership( gbsa );
 
-	SASA_LCPO* sasa = new SASA_LCPO(wspace);
+	FF_SASA_LCPO* sasa = new FF_SASA_LCPO(wspace);
 	sasa->GlobalASP = 0.009;
 	ff.addWithOwnership( sasa );
 

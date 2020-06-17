@@ -69,8 +69,8 @@ namespace Protocol
 		const Library::AngleSet& getAngleSet() const { return *m_AngleSet; }
 
 	protected:
-
 		virtual int initialise(); ///< Called in the intitialisation phase of run_core()
+        virtual int ensureFFSetup() override; ///< Override: we need to verify both forcefields (ff and ffs)
 
 		size_t Step;
 		Physics::Forcefield* ffs;

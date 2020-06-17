@@ -10,12 +10,12 @@
 #include "system/rebuilder.h"
 
 class MoleculeBase;
-class PD_API FileMoleculeMaker;
-
 class System;
 
 namespace IO
 {
+
+	class PD_API FileMoleculeMaker;
 
 	//-------------------------------------------------
 	//
@@ -48,7 +48,6 @@ namespace IO
 		void info() const;
 	};
 
-
 	void setPolymerPositions( const FFParamSet& ffps, MoleculeBase& mol, const Sequence::AlignmentDef& sequencePair, const std::vector<FileParticle>& particles, Verbosity::Type verbose );
 	void setPolymerPositions( const FFParamSet& ffps, MoleculeBase& mol, const std::vector<FileParticle>& particles, Verbosity::Type verbose = Verbosity::Normal );
 
@@ -69,7 +68,7 @@ namespace IO
 	class PD_API File_Molecule : public Sequence::ExpSeqPair
 	{
 	public:
-		friend class PD_API FileMoleculeMaker;
+		friend class  ::IO::FileMoleculeMaker;
 
 		File_Molecule( char _ChainID );
 		File_Molecule( const File_Molecule& _clone );
@@ -96,10 +95,6 @@ namespace IO
 		std::vector<FileParticle> atomLines;
 		char chainID;
 	};
-
-
-
-
 
 
 	//-------------------------------------------------
@@ -147,10 +142,6 @@ namespace IO
 	};
 
 
-
-
-
-
 	//-------------------------------------------------
 	//
 	/// \brief  BRIEF DESCRIPTION
@@ -195,9 +186,6 @@ namespace IO
 
 
 
-
-
-
 	//-------------------------------------------------
 	//
 	/// \brief  The base class for any System importing file Type
@@ -221,11 +209,11 @@ namespace IO
 	/// An 'atomic babel-fish' ;-D
 	/// http://en.wikipedia.org/wiki/Tower_of_Babel
 	///
-	/// \author Mike Tyka & Jon Rea 
+	/// \author Jon Rea 
 	///
-	/// \todo STATE OF DEVELOPMENT
+	/// \todo
 	///
-	/// \bug BUGS?
+	/// \bug
 	///
 	class FileBabelBase 
 	{
@@ -251,9 +239,6 @@ namespace IO
 		Library::StandardNameSets m_AtomNameset;
 		Library::NamingConventions* m_AtomNamer;
 	};
-
-
-
 
 
 
@@ -351,10 +336,10 @@ namespace IO
 	///
 	/// \bug BUGS?
 	///
-	class FileInBase : public IO::FileImportBase, 
-	                   public System, 
-										 public RebuilderOwner, 
-										 public Library::CustomAliasMapper
+	class FileInBase : public FileImportBase, 
+                       public System, 
+                       public RebuilderOwner, 
+                       public Library::CustomAliasMapper
 	{
 	public:
 		FileInBase( const FFParamSet &_ffps, const std::string& _filename );
@@ -364,7 +349,7 @@ namespace IO
 		bool CentreOnBuild; ///< Allow recentre the molecules after they have been built?
 
 	protected:
-		void baseLoad( FileMoleculeMaker& modelMaker, char chainID, const Sequence::BioSequence* _SequenceOverride = NULL);
+		void baseLoad( ::IO::FileMoleculeMaker& modelMaker, char chainID, const Sequence::BioSequence* _SequenceOverride = NULL);
 		void SupplementaryBondScan( Molecule& sysMol );
 
 	private:
@@ -399,8 +384,6 @@ namespace IO
 	public:
 		FileToolBase( const std::string& _filename );
 	};
-
-
 
 
 
@@ -491,7 +474,8 @@ namespace IO
 
 	*/
 
-	struct PSF_AtomLine{
+	struct PSF_AtomLine
+	{
 		int index;
 		std::string segname;
 		int resnumber;
@@ -503,22 +487,14 @@ namespace IO
 		int    extratoken;
 	};
 
-
 	class Load_PSF: public System 
 	{
 	public:
 		Load_PSF( const FFParamSet &_ffps, const std::string& _filename );
-
 	private:
 	};
 
-
-
-
 } //namespace IO
-
-
-
 
 #endif
 

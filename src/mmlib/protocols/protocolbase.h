@@ -46,14 +46,12 @@ namespace Protocol
 		ProtocolBase( Physics::Forcefield & _ff );
 		virtual ProtocolBase* clone() const = 0;
 
-
 		/// NOTE!!: Run should return either the number of Steps performed, or -1 on failure.
 		virtual int run(); 
 		virtual int runcore() = 0;
 
 		/// prints a little block of parameter information	
 		virtual void info() const = 0; 
-
 
 		/// List the runtime types of the forcefields that this protocol uses.
 		void listForcefields(); 
@@ -120,15 +118,16 @@ namespace Protocol
 	protected:
 
 		/// sets default parameter values
-		void settodefault();                     
-
-
+		void settodefault();
 
 		/// Forcefield this protocol works on
 		Physics::Forcefield *ff;                 
 
-		int ensureFFSetup();
+        /// Ensures that the primary forcefield 'ff' is setup correctly
+		virtual int ensureFFSetup();
 
+        /// Allows derived classes to ensure that additional forcefields are setup correctly.
+        int ensureFFSetup(Physics::Forcefield& ff);
 
 		/// check energies are still real numbers or throw an exception
 		void assertStability();                  

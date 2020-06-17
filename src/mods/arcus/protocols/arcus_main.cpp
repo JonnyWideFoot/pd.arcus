@@ -595,7 +595,11 @@ COOKED:
 				}
 #endif
 
-				torMin.run();
+                // Call the core version, we have verified the ffs forcefield locally and dont want to
+                // print extra info.
+                torMin.runcore();
+
+                if(OutputLevel) Printf("."); // Print a progress identified for the minimisation process.
 
 				if( !joinFilter.passes() )
 				{

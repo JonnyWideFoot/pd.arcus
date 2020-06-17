@@ -8,33 +8,28 @@
 
 namespace Physics
 {
+	//-------------------------------------------------
+	//
+	/// \brief Description: Surface Area calculations Using Numerical Counting, the linear
+	/// approximate LCPO algorithm [1] 
+	/// Energies/Forces are calculated using Atomic Solvation Paraemters
+	///
+	/// \details 
+	///    
+	/// References:
+	/// [1] Jorg Weiser, Peter S. Shenkin, W. Clark Still
+	/// Approximate Atomic Surfaces from Linear Combinations of Pairwise Overlaps (LCPO)
+	/// J. Comp. Chem., Vol. 20, No. 2, 217-230 (1999)
+	///
+	/// \author Mike Tyka  
+	///
+	/// \todo STATE OF DEVELOPMENT
+	///
+	/// \bug BUGS?
+	///
 
-
-
-
-
-//-------------------------------------------------
-//
-/// \brief Description: Surface Area calculations Using Numerical Counting, the linear
-/// approximate LCPO algorithm [1] 
-/// Energies/Forces are calculated using Atomic Solvation Paraemters
-///
-///
-/// \details 
-///    
-/// References:
-/// [1] Jorg Weiser, Peter S. Shenkin, W. Clark Still
-/// Approximate Atomic Surfaces from Linear Combinations of Pairwise Overlaps (LCPO)
-/// J. Comp. Chem., Vol. 20, No. 2, 217-230 (1999)
-///
-/// \author Mike Tyka  
-///
-/// \todo STATE OF DEVELOPMENT
-///
-/// \bug BUGS?
-///
-	class PD_API FF_SASA_LCPO : public ForcefieldBase 
-		// NOTE: Should derive from public 'FF_SurfaceArea' when re-fitted
+	// **NOTE**: Should derive from public 'FF_SurfaceArea' when re-fitted
+	class PD_API FF_SASA_LCPO : public ForcefieldBase 		
 	{
 	public:
 		FF_SASA_LCPO(WorkSpace &newwspace) 
@@ -67,27 +62,25 @@ namespace Physics
 		virtual void infoLine() const;       ///< prints a line of current energies
 		virtual void infoLineHeader() const; ///< prints the headers for the above function
 
-
-
-
-
-
-//-------------------------------------------------
-//
-/// \brief  BRIEF DESCRIPTION
-///
-/// \details DETAILED USER'S DESCRIPTION
-///    DESCRIBE PURPOSE, INTERACTION WITH OTHER CLASSES, EXAMPLE CODE
-///
-/// \author Mike Tyka  
-///
-/// \todo STATE OF DEVELOPMENT
-///
-/// \bug BUGS?
-///
-		class PD_API SASA_Atom{
+		//-------------------------------------------------
+		//
+		/// \brief  BRIEF DESCRIPTION
+		///
+		/// \details DETAILED USER'S DESCRIPTION
+		///    DESCRIBE PURPOSE, INTERACTION WITH OTHER CLASSES, EXAMPLE CODE
+		///
+		/// \author Mike Tyka  
+		///
+		/// \todo STATE OF DEVELOPMENT
+		///
+		/// \bug BUGS?
+		///
+		class PD_API SASA_Atom
+		{
 		public:		
-			SASA_Atom():sigma(0){};
+			SASA_Atom() : sigma(0)
+			{
+			}
 			int attype;               ///< link to the atom type
 			double P1, P2, P3, P4;    ///< LCPO Parameters
 			double radius;            ///< Vdw Radius + 1.4
@@ -98,17 +91,12 @@ namespace Physics
 			char use;                 ///< include in calculation
 		};
 
-
-
-
-
-
 		class PD_API member
 		{
 		public:
 			int size;
-			int i[Nlistmax];         ///< index of neighbor
-			double s[Nlistmax];      ///< this atoms overlap with its neighbor i
+			int i[Nlistmax];          ///< index of neighbor
+			double s[Nlistmax];       ///< this atoms overlap with its neighbor i
 		};
 
 	private:
@@ -119,11 +107,11 @@ namespace Physics
 		double epot_cav;
 		double totalSASA;
 
-		// can be used to implement forcefields like Eisenberg et al., Ooi et al etc..
-		int readASPSection(const std::string &sectionname); // reads ASP parameters
+		/// Can be used to implement forcefields like Eisenberg et al., Ooi et al etc..
+		int readASPSection(const std::string &sectionname);
 
-		// this reads in the algorithm parameters (LCPO), called by setup();
-		int readLCPOSection(); // reads the algorithm parameters
+		/// This reads in the algorithm parameters (LCPO), called by setup();
+		int readLCPOSection();
 
 		// Solvent Accesable Surface Area calculations
 		int calcNumericalSASA();
@@ -137,7 +125,7 @@ namespace Physics
 		void testDerivatives();
 	};
 
-
 } // namespace Physics
 
 #endif
+

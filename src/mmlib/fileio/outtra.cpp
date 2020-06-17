@@ -8,18 +8,14 @@
 
 namespace IO
 {
-
 	// ------------------
 	//  OutputTrajectory
 	// ------------------
 
-	OutputTrajectory::OutputTrajectory(  
-		WorkSpace &_wspace 
-	) :
+	OutputTrajectory::OutputTrajectory(WorkSpace &_wspace) :
 		WorkSpaceOperatorBase( _wspace ),
 		created(false)
 	{
-
 	}
 
 	// ----------------------
@@ -33,22 +29,18 @@ namespace IO
 		filestem(_filestem), 
 		OutputTrajectory( _wspace )
 	{
-
 	}
 
 	// ---------------------------
 	//  OutputTrajectoryContainer
 	// ---------------------------
 
-
 	OutputTrajectoryContainer::OutputTrajectoryContainer( 
 		WorkSpace & _wspace 
 	) :
 		OutputTrajectory( _wspace )
 	{
-
 	}
-
 
 	void OutputTrajectoryContainer::prepare()
 	{
@@ -58,7 +50,6 @@ namespace IO
 		}
 	}
 
-
 	int OutputTrajectoryContainer::create()
 	{
 		prepare();
@@ -66,7 +57,6 @@ namespace IO
 			element(i).create();
 		return 0;
 	}
-
 
 	int OutputTrajectoryContainer::append()
 	{
@@ -78,29 +68,27 @@ namespace IO
 		return 0;
 	}
 
-
-
-
-
-
+	// -------------
+	//  OutputFile
+	// -------------
 
 	OutputFile::OutputFile(const std::string& _filestem)
 	{
 		filestem = _filestem;
 	}
 
-	void OutputFile::save( System &_system){
+	void OutputFile::save( System &_system)
+	{
 		WorkSpace wspace( _system );
 		save( wspace );
 	}
 
-	void OutputFile::save( Molecule &_molecule){
+	void OutputFile::save( Molecule &_molecule)
+	{
 		System mysystem( _molecule.ffps() );
 		mysystem.add( _molecule );
 		save( mysystem );
 	}
-
-
 } // namespace IO
 
 

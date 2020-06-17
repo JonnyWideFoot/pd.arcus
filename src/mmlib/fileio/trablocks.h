@@ -97,10 +97,6 @@ namespace IO
 		size_t m_TraCapacity;
 	};
 
-
-	
-
-
 	//-------------------------------------------------
 	//
 	/// \brief  derive a class PD_API from this to allow easy BristolTrajectoryFormat-Comment support within that class
@@ -127,7 +123,6 @@ namespace IO
 		inline BTF_Block_Comment* getTraComments() { return m_ExtComments; } ///> Can return NULL, ask hasTraComments()
 	};
 
-
 	/// \brief  Defines a class that uses a BTF_Block_Vector.
 	/// \details A client class can derive from BTF_Block_Vector_User to allow the user to supply 
 	/// the class with a m_ExtVectors.
@@ -144,8 +139,6 @@ namespace IO
 		inline void enableVectors( BTF_Block_Vector *vectors ) { m_ExtVectors = vectors; }
 		inline BTF_Block_Vector* getTraVectors() { return m_ExtVectors; } ///> Can return NULL, ask hasTraVectors()
 	};
-
-
 }  // namespace IO
 
 #endif

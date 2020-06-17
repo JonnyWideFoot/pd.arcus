@@ -1,35 +1,31 @@
-#ifndef __GB_H
-#define __GB_H
+#ifndef __GBFF_H
+#define __GBFF_H
 
 #include <vector>
+
 #include "forcefields/forcefield.h" // provides base class
 #include "forcefields/nonbonded.h"  // provides constructor reference argument 
 #include "monitors/monitorbase.h"   // provides constructor reference argument 
 
-#include "maths/maths.fwd.h"           // forward declarations
+#include "maths/maths.fwd.h"        // forward declarations
 
-
-namespace Physics{
-
-
-
-
-
-
-//-------------------------------------------------
-//
-/// \brief  BRIEF DESCRIPTION
-///
-/// \details DETAILED USER'S DESCRIPTION
-///    DESCRIBE PURPOSE, INTERACTION WITH OTHER CLASSES, EXAMPLE CODE
-///
-/// \author Mike Tyka  
-///
-/// \todo STATE OF DEVELOPMENT
-///
-/// \bug BUGS?
-///
-	class PD_API ContinuumElectrostatic{
+namespace Physics
+{
+	//-------------------------------------------------
+	//
+	/// \brief  BRIEF DESCRIPTION
+	///
+	/// \details DETAILED USER'S DESCRIPTION
+	///    DESCRIBE PURPOSE, INTERACTION WITH OTHER CLASSES, EXAMPLE CODE
+	///
+	/// \author Mike Tyka  
+	///
+	/// \todo STATE OF DEVELOPMENT
+	///
+	/// \bug BUGS?
+	///
+	class PD_API ContinuumElectrostatic
+	{
 	public:
 		ContinuumElectrostatic()
 		{
@@ -44,79 +40,69 @@ namespace Physics{
 
 
 
-
-
-
-//-------------------------------------------------
-//
-/// \brief  BRIEF DESCRIPTION
-///
-/// \details DETAILED USER'S DESCRIPTION
-///    DESCRIBE PURPOSE, INTERACTION WITH OTHER CLASSES, EXAMPLE CODE
-///
-/// \author Mike Tyka  
-///
-/// \todo STATE OF DEVELOPMENT
-///
-/// \bug BUGS?
-///
-	class PD_API FF_GeneralizedBorn:
+	//-------------------------------------------------
+	//
+	/// \brief  BRIEF DESCRIPTION
+	///
+	/// \details DETAILED USER'S DESCRIPTION
+	///    DESCRIBE PURPOSE, INTERACTION WITH OTHER CLASSES, EXAMPLE CODE
+	///
+	/// \author Mike Tyka  
+	///
+	/// \todo STATE OF DEVELOPMENT
+	///
+	/// \bug BUGS?
+	///
+	class PD_API FF_GeneralizedBorn :
 		public FF_NonBonded,
-		public ContinuumElectrostatic{
+		public ContinuumElectrostatic
+	{
 	public:
 		FF_GeneralizedBorn( WorkSpace &newwspace ): 
-			FF_NonBonded( newwspace )
-			{}
-		FF_GeneralizedBorn(  const FF_NonBonded &_clone ):
-			FF_NonBonded( _clone ){}
-		virtual ~FF_GeneralizedBorn(){};
+		  FF_NonBonded( newwspace ) {}
+		  FF_GeneralizedBorn(  const FF_NonBonded &_clone ):
+		  FF_NonBonded( _clone ) {}
+		  virtual ~FF_GeneralizedBorn() {}
 
-		virtual FF_GeneralizedBorn* clone() const { return new FF_GeneralizedBorn(*this); }
+		  virtual FF_GeneralizedBorn* clone() const { return new FF_GeneralizedBorn(*this); }
 
-    double getEPol() const { return epot_pol; }
-  protected:
-    double epot_pol; // born energy
-    
+		  double getEPol() const { return epot_pol; }
+
+	protected:
+		double epot_pol; // born energy
 	};
 
 
 
-
-
-
-
-
-
-
-//-------------------------------------------------
-//
-/// \brief Generalised Born Forcefield (Implicit Solvation)
-/// \details
-/// Description: Generalised Born / (Surface Area is separate) Implicit Solvent
-/// Implements a "fastgbsa" function which calculates vdw,
-/// vacuum electrostatics and gb forces at once for highest performance
-/// Born Radii are calculated using the Clarke Still Approximation [2]
-/// \version 0.1
-/// \author Michael Tyka
-///
-/// References:
-///
-/// These classes/functions are based on the following papers:
-/// [1] W. Clark Still, Anna Tempczyk, Ronald C. Hawley and Thomas
-/// Hendrickson, Semianalytical Treatment of Solvation for Molecular
-/// Mechanics and Dynamics, J Am. Chem. Soc. 1990, 112, 6127-6129
-/// [2] Di Qui, Peter S. Shenkin, Frank P. Hollinger and
-/// W. Clark Still The GB/SA Continuum Model for Solvation. A fast
-/// Analytical Method for the calculation of Approximate Born Radii
-/// J. Phys. Chem A 1997, 101, 3005-3014
-/// [3] Vickie Tsui & David A. Case Biopolymers (Nucleic Acid Sciences),
-/// Theory and Applications of the generalized Born Solvation Model
-/// in Macromolecular Simulations Vol 56, 275-291 (2001)
-///
-/// \todo STATE OF DEVELOPMENT
-///
-/// \bug BUGS?
-///
+	//-------------------------------------------------
+	//
+	/// \brief Generalised Born Forcefield (Implicit Solvation)
+	/// \details
+	/// Description: Generalised Born / (Surface Area is separate) Implicit Solvent
+	/// Implements a "fastgbsa" function which calculates vdw,
+	/// vacuum electrostatics and gb forces at once for highest performance
+	/// Born Radii are calculated using the Clarke Still Approximation [2]
+	/// \version 0.1
+	/// \author Michael Tyka
+	///
+	/// References:
+	///
+	/// These classes/functions are based on the following papers:
+	/// [1] W. Clark Still, Anna Tempczyk, Ronald C. Hawley and Thomas
+	/// Hendrickson, Semianalytical Treatment of Solvation for Molecular
+	/// Mechanics and Dynamics, J Am. Chem. Soc. 1990, 112, 6127-6129
+	/// [2] Di Qui, Peter S. Shenkin, Frank P. Hollinger and
+	/// W. Clark Still The GB/SA Continuum Model for Solvation. A fast
+	/// Analytical Method for the calculation of Approximate Born Radii
+	/// J. Phys. Chem A 1997, 101, 3005-3014
+	/// [3] Vickie Tsui & David A. Case Biopolymers (Nucleic Acid Sciences),
+	/// Theory and Applications of the generalized Born Solvation Model
+	/// in Macromolecular Simulations Vol 56, 275-291 (2001)
+	///
+	/// \todo STATE OF DEVELOPMENT
+	///
+	/// \bug BUGS?
+	///
 	class PD_API FF_GeneralizedBorn_Still : public FF_GeneralizedBorn
 	{
 	public:
@@ -156,8 +142,8 @@ namespace Physics{
 			double radiusij;
 			double epsilon;
 			double deda;
-			Maths::dvector  position;
-			Maths::dvector  dedi;
+			Maths::dvector position;
+			Maths::dvector dedi;
 		};
 
 		// this is stuff for the Di Qiu, Peter S. Shenkin, Frank P. Hollinger, and W. Clark Still
@@ -185,7 +171,7 @@ namespace Physics{
 		int calcFixedBornRadiiTerms();
 		int calcBornRadii_constant(double constBornRadius);
 		int calcBornRadii_PairwiseApprox();
-		
+
 		void calcBornEnergy_covalentTerms();
 		void calcBornEnergy();
 		void calcBornEnergy_verbose(ForcefieldBase::AtomicVerbosity verboselevel);
@@ -200,23 +186,19 @@ namespace Physics{
 	};
 
 
-
-
-
-
-//-------------------------------------------------
-//
-/// \brief  Monitors Electrostatic Energy in an FF_GeneralizedBorn Forcefield
-///
-/// \details DETAILED USER'S DESCRIPTION
-///    DESCRIBE PURPOSE, INTERACTION WITH OTHER CLASSES, EXAMPLE CODE
-///
-/// \author Mike Tyka  
-///
-/// \todo STATE OF DEVELOPMENT
-///
-/// \bug BUGS?
-///
+	//-------------------------------------------------
+	//
+	/// \brief  Monitors Electrostatic Energy in an FF_GeneralizedBorn Forcefield
+	///
+	/// \details DETAILED USER'S DESCRIPTION
+	///    DESCRIBE PURPOSE, INTERACTION WITH OTHER CLASSES, EXAMPLE CODE
+	///
+	/// \author Mike Tyka  
+	///
+	/// \todo STATE OF DEVELOPMENT
+	///
+	/// \bug BUGS?
+	///
 	class PD_API Monitor_FF_GeneralizedBorn_EPol: public Monitors::MonitorBase
 	{
 	public:
@@ -224,8 +206,8 @@ namespace Physics{
 		/// Obtain a pointer to the FF_Bonded in the constructor
 		Monitor_FF_GeneralizedBorn_EPol(const FF_GeneralizedBorn &_ffgb)
 		{
-			name = "Monitor_FF_GeneralizedBorn_EPol";  // set a recognisable name
-			ffgb = &_ffgb;         // remember the pointer to the bonded forcefield
+			name = "Monitor_FF_GeneralizedBorn_EPol"; // set a recognisable name
+			ffgb = &_ffgb; // remember the pointer to the bonded forcefield
 		}
 
 		virtual Monitor_FF_GeneralizedBorn_EPol* clone() const { return new Monitor_FF_GeneralizedBorn_EPol(*this); }
@@ -242,7 +224,6 @@ namespace Physics{
 	private:
 		const FF_GeneralizedBorn *ffgb;
 	};
-
 
 } // namespace Physics
 

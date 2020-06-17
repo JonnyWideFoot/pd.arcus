@@ -9,8 +9,7 @@
 using namespace std;
 using namespace Physics;
 using namespace Protocol;
-using namespace Tra;
-using namespace PDB;
+using namespace IO;
 using namespace Manipulator;
 
 int main_inner(int argc, char** argv);
@@ -155,10 +154,10 @@ void tempSegDistFan()
 	wspace.info();
 	RotBond replacement; // Must stay in scope for the lifetime of this wspace...
 	wspace.setRotatableBondList( &replacement ); // Override the internal dummy rotbond array
-	Tra::Traj_Out& tra = wspace.addStdTra("testSegDistFan");
-	Tra::TrajBlockVect* vect = new Tra::TrajBlockVect(); // due to a bug in dave, TrajBlockVect must be added 1st...
+	IO::OutTra_BTF& tra = wspace.addStdTra("testSegDistFan");
+	IO::BTF_Block_Vector* vect = new IO::BTF_Block_Vector(); // due to a bug in dave, BTF_Block_Vector must be added 1st...
 	tra.addOwnedBlock(vect);
-	Tra::TraBlockCmnt* cmnt = new Tra::TraBlockCmnt();
+	IO::BTF_Block_Comment* cmnt = new IO::BTF_Block_Comment();
 	tra.addOwnedBlock(cmnt);
 	tra.append();
 
@@ -312,7 +311,7 @@ void TestRefiner_FromStage2( int argc, char** argv)
 
 	// Load our tra
 	System sys(ffps);
-	Tra::Traj_In traInput( traFile );
+	IO::InTra_BTF traInput( traFile );
 	traInput.loadIntoSystem( sys, -1 );
 
 	// Make a full workspace from the imported system
@@ -320,8 +319,8 @@ void TestRefiner_FromStage2( int argc, char** argv)
 	wspace.info();
 	RotBond replacement; // Must stay in scope for the lifetime of this wspace...
 	wspace.setRotatableBondList( &replacement ); // Override the internal dummy rotbond array
-	Tra::Traj_Out& tra = wspace.addStdTra(stem); // tra
-	Tra::TraBlockCmnt* cmnt = new Tra::TraBlockCmnt();
+	IO::OutTra_BTF& tra = wspace.addStdTra(stem); // tra
+	IO::BTF_Block_Comment* cmnt = new IO::BTF_Block_Comment();
 	tra.addOwnedBlock(cmnt);
 
 	// Write what we have interpreted from the import file	
@@ -408,9 +407,9 @@ void TestStitcher_ToStage2(int argc, char** argv)
 	wspace.info();
 	RotBond replacement; // Must stay in scope for the lifetime of this wspace...
 	wspace.setRotatableBondList( &replacement ); // Override the internal dummy rotbond array
-	//Tra::Traj_Out& tra = wspace.addStdTra(stem); // tra
-	//Tra::TraBlockCmnt* cmnt = new Tra::TraBlockCmnt();
-	//tra.addOwnedBlock(cmnt);
+	IO::OutTra_BTF& tra = wspace.addStdTra(stem); // tra
+	IO::BTF_Block_Comment* cmnt = new IO::BTF_Block_Comment();
+	tra.addOwnedBlock(cmnt);
 
 	// Write what we have interpreted from the import file	
 	PDB_Writer(stem + ".imported.pdb").write(wspace); // pdb

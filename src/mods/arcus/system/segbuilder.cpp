@@ -77,22 +77,22 @@ bool rebuildExtdFromStart(MoleculeBase& mol, int start, int end)
 
 	// Find out if subsequent stiching is possible ...
 	int superimpositionStart = start-1;
-	if( !res[start].param->backlink )
+    if( !res[start].param->hasBackLink() )
 	{
 		printf("The stitching residue has no backwards link. Reconnection is impossible!");
 		return false;
 	}
-	int iBackAtom = mol.findParticle(superimpositionStart,res[start].param->backname.c_str());
+	int iBackAtom = mol.findParticle(superimpositionStart,res[start].param->backName);
 	if(iBackAtom < 0) {
 		printf("ERROR: Cannot find Backward Link Atom in residue %d\n", superimpositionStart);
 		return false;
 	}
-	if( !res[superimpositionStart].param->frwdlink )
+    if( !res[superimpositionStart].param->hasFrwdLink() )
 	{
 		printf("The stitching residue has no forward link. Reconnection is impossible!");
 		return false;
 	}
-	int iFrwdAtom = mol.findParticle(start,res[superimpositionStart].param->frwdname.c_str());
+	int iFrwdAtom = mol.findParticle(start,res[superimpositionStart].param->frwdName);
 	if(iFrwdAtom < 0) {
 		printf("ERROR: Cannot find Forward Link Atom in residue %d\n", start);
 		return false;
@@ -233,23 +233,25 @@ bool rebuildExtdFromEnd(MoleculeBase& mol, int start, int end)
 
 	// Find out if subsequent stiching is possible ...
 	int superimpositionEnd = end+1;
-	if( !res[superimpositionEnd].param->backlink )
+    if( !res[superimpositionEnd].param->hasBackLink() )
 	{
 		printf("The stitching residue has no backward link. Reconnection is impossible!");
 		return false;
 	}
-	int iBackAtom = mol.findParticle(end,res[superimpositionEnd].param->backname.c_str());
-	if(iBackAtom < 0) {
+	int iBackAtom = mol.findParticle(end,res[superimpositionEnd].param->backName);
+	if(iBackAtom < 0)
+    {
 		printf("ERROR: Cannot find Backward Link Atom in residue %d\n", end);
 		return false;
 	}
-	if( !res[end].param->frwdlink )
+    if( !res[end].param->hasFrwdLink() )
 	{
 		printf("The stitching residue has no forward link. Reconnection is impossible!");
 		return false;
 	}
-	int iFrwdAtom = mol.findParticle(superimpositionEnd,res[end].param->frwdname.c_str());
-	if(iFrwdAtom < 0) {
+	int iFrwdAtom = mol.findParticle(superimpositionEnd,res[end].param->frwdName);
+	if(iFrwdAtom < 0)
+    {
 		printf("ERROR: Cannot find Forward Link Atom in residue %d\n", superimpositionEnd);
 		return false;
 	}

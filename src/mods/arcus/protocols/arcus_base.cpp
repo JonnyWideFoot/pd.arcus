@@ -75,9 +75,6 @@ namespace Protocol
 			throw(ArgumentException("'Steps' determines the number of candidate models that are generated. This must be greater than 0."));
 		}
 
-		if(ensureFFSetup()!=0) 
-			return -1;
-		
 		// Initialisation Phase
 		int init = initialise();
 		if( init <= 0 ) // returns 0 if there are no regions to manipulate
@@ -346,6 +343,14 @@ namespace Protocol
 
 		return m_Regions.size();
 	}
+
+    int ArcusBase::ensureFFSetup()
+    {        
+        int prinaryFFSetup = ProtocolBase::ensureFFSetup();
+        if( prinaryFFSetup != 0 ) return prinaryFFSetup;
+        ASSERT(ffs!=NULL,CodeException,"ArcusBase internal 'ffs' pointer is invalid!");
+        return ProtocolBase::ensureFFSetup(*ffs);
+    }
 
 	void ArcusBase::setPickedRegions( const WorkSpace& wspace, PickAtomRanges& picker, SegmentDef& _region ) const
 	{

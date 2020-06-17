@@ -14,11 +14,6 @@
 
 class ClosedSpace;
 
-
-
-
-
-
 //-------------------------------------------------
 //
 /// \brief A System is a container for Molecules and provides functions for manipulating them. 
@@ -37,133 +32,131 @@ class ClosedSpace;
 ///
 /// \author Mike Tyka & Jon Rea 
 ///
-///
-
-
 class PD_API System 
 {
 public:
-	System();
+    System();
 
-	/// Constructor must take a reference to an ffps
-	System(const FFParamSet &_ptr_ffps);
+    /// Constructor must take a reference to an ffps
+    System(const FFParamSet &_ptr_ffps);
 
-	~System();
+    ~System();
 
-	/// returns a non-const reference to a molecules stored
-	Molecule &getMolecule(size_t index);
+    /// returns a non-const reference to a molecules stored
+    Molecule &getMolecule(size_t index);
 
-	/// returns a const reference to a molecules stored
-	const Molecule &getMolecule(size_t index) const;
+    /// returns a const reference to a molecules stored
+    const Molecule &getMolecule(size_t index) const;
 
-	/// returns the number of molecules stored
-	size_t nMolecules() const;
-	
-	/// returns the total number of atoms 
-	size_t nAtoms() const;
+    /// returns the number of molecules stored
+    size_t nMolecules() const;
 
-	/// Adds a Molecule to this System (it creates a copy)
-	void add(const Molecule &newmol);
-	
-	/// Adds the contents of another System to this one  
-	void add(const System &newSys);
+    /// returns the total number of atoms 
+    size_t nAtoms() const;
 
-	/// Remove the Molecule with the index 
-	void remove(size_t index);
+    /// Adds a Molecule to this System (it creates a copy)
+    void add(const Molecule &newmol);
 
-	/// Adds a Particle to this System as an individual MoleculeBase (it creates a copy)
-	///
-	/// A FFParamSet must be supplied here because particles dont have their
-	/// own reference to a parameter set.
-	void add(const Particle &newatom, const FFParamSet &ffps);
+    /// Adds the contents of another System to this one  
+    void add(const System &newSys);
 
-	/// Adds lots of copies of copies of molecule to this system filling
-	/// up the space layed out by boundary
-	void solvate_N(
-		const Molecule &newmol, 
-		const ClosedSpace &boundary, 
-		unsigned N, 
-		int      enforceN = -1                ///< if enforceN >= 0, Force to insert this number of solvent molecules (useful if you want to create two systems with identical numbers of water atoms
-	);
+    /// Remove the Molecule with the index 
+    void remove(size_t index);
 
-	void solvate(
-		const Molecule &newmol, 
-		const ClosedSpace &boundary, 
-		double density,                ///< required density of the solvent in g/ml, e.g. water = 1.0
-		int      enforceN = -1             ///< if enforceN >= 0, Force to insert this number of solvent molecules (useful if you want to create two systems with identical numbers of water atoms
-	);
+    /// Adds a Particle to this System as an individual MoleculeBase (it creates a copy)
+    ///
+    /// A FFParamSet must be supplied here because particles dont have their
+    /// own reference to a parameter set.
+    void add(const Particle &newatom, const FFParamSet &ffps);
 
-	/// this can be used to access ffps through the system
-	const FFParamSet &ffps() const {
-		return *ptr_ffps;
-	}
+    /// Adds lots of copies of copies of molecule to this system filling
+    /// up the space layed out by boundary
+    void solvate_N(
+        const Molecule &newmol, 
+        const ClosedSpace &boundary, 
+        unsigned N, 
+        int enforceN = -1 ///< if enforceN >= 0, Force to insert this number of solvent molecules (useful if you want to create two systems with identical numbers of water atoms
+        );
 
-	/// gets maximum absolute coordinate in system (i.e. largest value of |x|,|y| and |z|
-	Maths::dvector getEncompassingVector() const;
+    void solvate(
+        const Molecule &newmol, 
+        const ClosedSpace &boundary, 
+        double density, ///< required density of the solvent in g/ml, e.g. water = 1.0
+        int enforceN = -1 ///< if enforceN >= 0, Force to insert this number of solvent molecules (useful if you want to create two systems with identical numbers of water atoms
+        );
 
-	/// Returns the total mass of the system
-	double getTotalMass() const; 
+    /// this can be used to access ffps through the system
+    const FFParamSet &ffps() const 
+    {
+        return *ptr_ffps;
+    }
 
-	/// Returns the total charge of the system
-	double getTotalCharge() const; 
+    /// gets maximum absolute coordinate in system (i.e. largest value of |x|, |y| and |z|
+    Maths::dvector getEncompassingVector() const;
 
-	/// Returns the center of mass of the system
-	Maths::dvector getCentreOfMass() const; 
+    /// Returns the total mass of the system
+    double getTotalMass() const; 
 
-	/// Returns the center of geometry of the system
-	Maths::dvector getCentreOfGeometry() const; 
+    /// Returns the total charge of the system
+    double getTotalCharge() const; 
 
-	/// calculates the inertia tensor of the entire system
-	void calcInertiaTensor(Maths::matrix3x3 & I) const; 
+    /// Returns the center of mass of the system
+    Maths::dvector getCentreOfMass() const; 
 
-	/// aligns the system such that the principal axes of rotation point along the coordinate axes.
-	/// In other words, by applying this function, the smallest solvent box is needed to accomodate the molecule.
-	/// Note that this has to be called before the solvent is added. 
-	void alignAlongPrincipalAxes();
+    /// Returns the center of geometry of the system
+    Maths::dvector getCentreOfGeometry() const; 
 
-	/// displays the inertia tensor 
-	void printInertiaInfo() const;
+    /// calculates the inertia tensor of the entire system
+    void calcInertiaTensor(Maths::matrix3x3 & I) const; 
 
-	/// calculates the rotational partition function of the system 
-	double calcRotationalPartition(double temp, unsigned SymNumber) const;
+    /// aligns the system such that the principal axes of rotation point along the coordinate axes.
+    /// In other words, by applying this function, the smallest solvent box is needed to accomodate the molecule.
+    /// Note that this has to be called before the solvent is added. 
+    void alignAlongPrincipalAxes();
 
-	/// rotates the entire system by the rotation matrix
-	void rotate(const Maths::matrix3x3 &rot);
+    /// displays the inertia tensor 
+    void printInertiaInfo() const;
 
-	/// center the system such that the centre of geometry is a s 0,0,0
-	void zeroCentreOfGeometry();
-	
-	/// center the system such that the centre of mass is a s 0,0,0
-	void zeroCentreOfMass();
+    /// calculates the rotational partition function of the system 
+    double calcRotationalPartition(double temp, unsigned SymNumber) const;
 
-	
-	
-	/// Displays a short summary of the system 
-	void info() const;
+    /// rotates the entire system by the rotation matrix
+    void rotate(const Maths::matrix3x3 &rot);
 
-	/// Displays detailed information about the system
-	void detail() const;
+    /// center the system such that the centre of geometry is a s 0,0,0
+    void zeroCentreOfGeometry();
 
-	/////////////////////////////////// IO functionality
+    /// center the system such that the centre of mass is a s 0,0,0
+    void zeroCentreOfMass();	
 
-	/// This saves the current state of the system in a file format of the users choice
-	///
-	///  For example  mysystem.save( OutputFile_PDB("mypdbfile") ) 
-	///  saves a PDB file.
-	void save( IO::OutputFile &_output );
+    /// Displays a short summary of the system 
+    void info() const;
 
-	/// These are dirty shortcuts to dump the state of the System in a PDB file!
-	void printPDB(const std::string& _Filename);
-	void printPDB();
+    /// Displays detailed information about the system
+    void detail() const;
 
-	friend class WorkspaceCreatorBase;
+    // ----------------
+    // IO functionality
+
+    /// This saves the current state of the system in a file format of the users choice
+    ///
+    ///  For example  mysystem.save( OutputFile_PDB("mypdbfile") ) 
+    ///  saves a PDB file.
+    void save( IO::OutputFile &_output );
+
+    /// These are dirty shortcuts to dump the state of the System in a PDB file!
+    void printPDB(const std::string& _Filename);
+    void printPDB();
+
+    friend class WorkspaceCreatorBase;
+
 private:
-	int setup();
-	int checkAllMoleculeParams();
-	int loadAllMoleculeParams();
+    int setup();
+    int checkAllMoleculeParams();
+    int loadAllMoleculeParams();
 
-	std::vector<Molecule> m_Molecule;
-	const FFParamSet *ptr_ffps;
+    std::vector<Molecule> m_Molecule;
+    const FFParamSet *ptr_ffps;
 };
 
 #endif

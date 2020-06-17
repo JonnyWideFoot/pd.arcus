@@ -10,8 +10,6 @@
 
 namespace IO
 {
-
-
 	void PD_API FileParticle::info() const
 	{
 		std::cout << ' ' <<  atomNum

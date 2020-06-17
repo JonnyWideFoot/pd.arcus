@@ -257,7 +257,7 @@ namespace Protocol{
 
 	void REX_Local::addReplica(
 		const Protocol::ProtocolBase &simTemplate, 
-		double Temperature,
+		float Temperature,
 		REX_Replica::ExchangeModeType exmode
 		)
 	{
@@ -273,15 +273,15 @@ namespace Protocol{
 
 	void REX_Local::addReplicas(
 		const Protocol::ProtocolBase &simTemplate, 
-		double firstTemp,
-    double factor,
+		float firstTemp,
+        float factor,
 		size_t N,
 		REX_Replica::ExchangeModeType exmode
 		)
 	{
-		for(size_t i=0;i<N;i++)
+		for(size_t i = 0; i < N; i++)
 		{
-			addReplica(simTemplate,firstTemp, exmode);
+			addReplica(simTemplate, firstTemp, exmode);
 			firstTemp *= factor;
 		}
 	}

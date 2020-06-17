@@ -8,8 +8,8 @@
 // namespace includes
 using namespace Maths;
 
-namespace Physics{
-
+namespace Physics
+{
 	void FF_Bonded::setup()
 	{ 
 		if(OutputLevel) printf("FF_Bonded Setup:\n\tBonds... \n");
@@ -387,64 +387,120 @@ check the forcefield definition files and add the missing parameters!") );
 
 	int FF_Bonded::assembleImproperList()
 	{
+        // Initialisation
+        improper.clear();
+		if(IgnoreForcefieldParams)
+        { 
+            return 0;
+        }
+
+        int errorCount = 0;
+
 		// Proxies
 		WorkSpace& wspace = getWSpace();
 		const ParticleStore& atomparam = wspace.atom;
 		SnapShotAtom *atom = wspace.cur.atom;
-		int tindex;
-		int ir,iimp;
-		improper.clear();
-		if(IgnoreForcefieldParams){ return 0; }
 
-		for(ir = 0; ir < wspace.res.size(); ir++) {
-			// add impropers, (always explicitly defined in residue definition)
-			for(iimp = 0; iimp < wspace.res[ir].param->improper.size(); iimp++) {
+		for(int ir = 0; ir < wspace.res.size(); ir++)
+        {
+			// Add impropers, (always explicitly defined in residue definition)   
+            const MoleculeDefinition* molParam = wspace.res[ir].param;
+            const std::vector<DihedralDefinition>& diheds = molParam->improper;
+
+			for(int iimp = 0; iimp < diheds.size(); iimp++) 
+            {
+                const DihedralDefinition& dihed = diheds[iimp];
 				Torsion newimp;
-				//printf("adding improper dihedral..\n");
-				newimp.i = wspace.findParticleBy_ffname(ir + wspace.res[ir].param->improper[iimp].roi, &wspace.res[ir].param->improper[iimp].ani[0]);
-				newimp.a = wspace.findParticleBy_ffname(ir + wspace.res[ir].param->improper[iimp].roa, &wspace.res[ir].param->improper[iimp].ana[0]);
-				newimp.b = wspace.findParticleBy_ffname(ir + wspace.res[ir].param->improper[iimp].rob, &wspace.res[ir].param->improper[iimp].anb[0]);
-				newimp.j = wspace.findParticleBy_ffname(ir + wspace.res[ir].param->improper[iimp].roj, &wspace.res[ir].param->improper[iimp].anj[0]);
+
+                // If an atom is not found and no backLink\frwdLink is present, ignore the improper...
+                if( dihed.roi < 0 ||dihed.roa < 0 || dihed.rob < 0 || dihed.roj < 0 )
+                {
+                    if(!molParam->hasBackLink())
+                    {
+                        printf("FORCEFIELD ERROR: Improper definition refers to non-existent backlink atom res:atnam %d:%s\n",
+						    ir + dihed.roa, 
+                            &dihed.ana[0]
+                            );
+                        errorCount++;
+                        continue;
+                    }
+                    if(!molParam->hasFrwdLink())
+                    {
+                        printf("FORCEFIELD ERROR: Improper definition refers to non-existent forward atom res:atnam %d:%s\n",
+						    ir + dihed.roa, 
+                            &dihed.ana[0]
+                            );
+                        errorCount++;
+                        continue;
+                    }
+                }
+
+				// printf("Adding improper dihedral..\n");                
+				newimp.i = wspace.findParticleBy_ffname(ir + dihed.roi, dihed.ani);
+				newimp.a = wspace.findParticleBy_ffname(ir + dihed.roa, dihed.ana);
+				newimp.b = wspace.findParticleBy_ffname(ir + dihed.rob, dihed.anb);
+				newimp.j = wspace.findParticleBy_ffname(ir + dihed.roj, dihed.anj);
 
 				// check all particles have been found
-				if(newimp.i < 0) {
+				if(newimp.i < 0)
+                {
 					printf("FORCEFIELD ERROR: Improper definition refers to unknown atom res:atnam %d:%s\n",
-						ir + wspace.res[ir].param->improper[iimp].roi, &wspace.res[ir].param->improper[iimp].ani[0]);
+						ir + dihed.roi, 
+                        &dihed.ani[0]
+                        );
+                    errorCount++;
 					continue;
 				}
-				if(newimp.a < 0) {
+				else if(newimp.a < 0) 
+                {
 					printf("FORCEFIELD ERROR: Improper definition refers to unknown atom res:atnam %d:%s\n",
-						ir + wspace.res[ir].param->improper[iimp].roa, &wspace.res[ir].param->improper[iimp].ana[0]);
+						ir + dihed.roa, 
+                        &dihed.ana[0]
+                        );
+                    errorCount++;
 					continue;
 				}
-				if(newimp.b < 0) {
+				else if(newimp.b < 0) 
+                {
 					printf("FORCEFIELD ERROR: Improper definition refers to unknown atom res:atnam %d:%s\n",
-						ir + wspace.res[ir].param->improper[iimp].rob, &wspace.res[ir].param->improper[iimp].anb[0]);
+						ir + dihed.rob, 
+                        &dihed.anb[0]
+                        );
+                    errorCount++;
 					continue;
 				}
-				if(newimp.j < 0) {
+				else if(newimp.j < 0) 
+                {
 					printf("FORCEFIELD ERROR: Improper definition refers to unknown atom res:atnam %d:%s\n",
-						ir + wspace.res[ir].param->improper[iimp].roj, &wspace.res[ir].param->improper[iimp].anj[0]);
+						ir + dihed.roj, &dihed.anj[0]
+                        );
+                    errorCount++;
 					continue;
 				}
 
 				newimp.Type = 1; //mark it's an improper rather than a true torsion (cosmetic)
 
-				tindex = wspace.ffps().findImproperType(
+				int tindex = wspace.ffps().findImproperType(
 					atomparam[newimp.i].FFType,
 					atomparam[newimp.a].FFType,
 					atomparam[newimp.b].FFType, 
 					atomparam[newimp.j].FFType);
 
-				if(tindex < 0) { // ignore if no appropriate torsion Type known
+				if(tindex < 0) 
+                { 
+                    // ignore if no appropriate torsion Type known
 					printf("WARNING: Unknown Improper Type (res %s)- ignoring, forcefield incomplete \n",
 						atomparam[newimp.i].parentl3name.c_str());
+                    errorCount++;
 					continue;
-				} else {
+				} 
+                else 
+                {
 					// now load improper (note that in ffps torsions & impropers are treated together so
 					// wspace.ffps().TorsionType[tindex]... appears here !
 					newimp.terms = wspace.ffps().TorsionType[tindex].terms;
-					for(int iterm = 0; iterm < 4; iterm++) {
+					for(int iterm = 0; iterm < 4; iterm++)
+                    {
 						newimp.Vn[iterm] = wspace.ffps().TorsionType[tindex].Vn[iterm];
 						newimp.n[iterm] = wspace.ffps().TorsionType[tindex].n[iterm];
 						newimp.gamma[iterm] = wspace.ffps().TorsionType[tindex].gamma[iterm];
@@ -456,7 +512,7 @@ check the forcefield definition files and add the missing parameters!") );
 			}
 		}
 
-		return 0;
+		return errorCount;
 	}
 
 	Physics::Bond FF_Bonded::getBond( int i, int j ) const
@@ -1661,8 +1717,5 @@ check the forcefield definition files and add the missing parameters!") );
 
 
 } // namespace Physics
-
-
-
 
 

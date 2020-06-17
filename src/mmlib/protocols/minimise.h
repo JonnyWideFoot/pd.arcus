@@ -16,7 +16,7 @@ namespace Protocol
 	///
 	/// \author Mike Tyka 
 	///
-	class PD_API Minimisation: public PickedProtocolBase 
+	class PD_API Minimisation : public PickedProtocolBase 
 	{
 	public:
 		Minimisation(Physics::Forcefield & _ff);

@@ -90,12 +90,6 @@ namespace Sequence
 	}
 
 
-
-
-
-
-
-
 	BioSequence::BioSequence() 
 		: m_NamingExceptions(true), m_ChainID(' ')
 	{

@@ -6,8 +6,8 @@
 #include "workspace/neighbourlist.h"
 #include "temperature.h"
 
-namespace Protocol{
-
+namespace Protocol
+{
 	ProtocolBase::ProtocolBase(Physics::Forcefield & _ff )
 		: WorkSpaceOperatorBase(_ff.getWSpace()),
 		ff(&_ff),
@@ -100,6 +100,11 @@ namespace Protocol{
 		ASSERT(ff!=NULL,CodeException,"ProtocolBase internal 'ff' pointer is invalid!");
 		return ff->ensuresetup(getWSpace());
 	}
+
+    int ProtocolBase::ensureFFSetup(Physics::Forcefield& ff)
+    {
+        return ff.ensuresetup(getWSpace());
+    }
 
 	void ProtocolBase::assertStability()
 	{

@@ -23,11 +23,11 @@ Forcefield createffs( WorkSpace& wspace, bool useBreakableFF, bool summary )
 	}
 	else
 	{
-		BondedForcefield* bonds = new BondedForcefield(wspace);
+		FF_Bonded* bonds = new FF_Bonded(wspace);
 		ff.addWithOwnership( bonds ) ;
 	}
 
-	SoftVDWForcefield *sff = new SoftVDWForcefield(wspace);
+	FF_SoftVDW *sff = new FF_SoftVDW(wspace);
 	ff.addWithOwnership(sff);
 
 	if( summary ) ff.printEnergySummary();
@@ -48,13 +48,13 @@ Forcefield createffts( WorkSpace& wspace, bool useBreakableFF, bool summary)
 	}
 	else
 	{
-		BondedForcefield* bonds = new BondedForcefield(wspace);
+		FF_Bonded* bonds = new FF_Bonded(wspace);
 		bonds->DoBonds = false;
 		bonds->DoAngles = false;
 		ff.addWithOwnership( bonds ) ;
 	}
 
-	SoftVDWForcefield *sff = new SoftVDWForcefield(wspace);
+	FF_SoftVDW *sff = new FF_SoftVDW(wspace);
 	ff.addWithOwnership(sff);
 
 	if( summary ) ff.printEnergySummary();
@@ -73,7 +73,7 @@ Forcefield createffVac(WorkSpace& wspace, bool useBreakableFF, bool summary)
 	}
 	else
 	{
-		BondedForcefield* bonds = new BondedForcefield(wspace);
+		FF_Bonded* bonds = new FF_Bonded(wspace);
 		ff.addWithOwnership( bonds ) ;
 	}
 
@@ -98,16 +98,16 @@ Forcefield createff(WorkSpace& wspace, bool useBreakableFF, double dielec, bool 
 	}
 	else
 	{
-		BondedForcefield* bonds = new BondedForcefield(wspace);
+		FF_Bonded* bonds = new FF_Bonded(wspace);
 		ff.addWithOwnership( bonds ) ;
 	}
 
-	GB_Still* gbsa = new GB_Still( wspace ); // used to take nb
+	FF_GeneralizedBorn_Still* gbsa = new FF_GeneralizedBorn_Still( wspace ); // used to take nb
 	gbsa->FastMode = true;
 	gbsa->DielectricSolute = dielec;
 	ff.addWithOwnership( gbsa );
 
-	SASA_LCPO* sasa = new SASA_LCPO(wspace);
+	FF_SASA_LCPO* sasa = new FF_SASA_LCPO(wspace);
 	sasa->GlobalASP = 0.009;
 	ff.addWithOwnership( sasa );
 

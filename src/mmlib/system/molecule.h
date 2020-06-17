@@ -187,8 +187,8 @@ public:
 	void calcInertiaTensor(Maths::matrix3x3 & I) const;
 	void printInertiaInfo() const;
 	double calcRotationalPartition(double temp, unsigned SymNumber) const;
-	int findParticleBy_ffname(int ir, const std::string &name) const ;
-	int findParticle(int ir, const std::string &name) const ;
+	int findParticleBy_ffname(int ir, const std::string &name) const;
+	int findParticle(int ir, const std::string &name) const;
 	// For doxygen:
 	/// \}
 

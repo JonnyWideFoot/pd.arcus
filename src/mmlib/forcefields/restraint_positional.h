@@ -6,7 +6,6 @@
 
 namespace Physics
 {
-
 	//-------------------------------------------------
 	//
 	/// \brief Implements a simple Cartesian harmonic, positional restraint for sets of atoms
@@ -47,16 +46,12 @@ namespace Physics
 	protected:
 		virtual void setup();
 
-		virtual void  calcEnergiesVerbose(ForcefieldBase::AtomicVerbosity level);
-		virtual void  calcEnergies();
-		virtual void  calcForces();
-
+		virtual void calcEnergiesVerbose(ForcefieldBase::AtomicVerbosity level);
+		virtual void calcEnergies();
+		virtual void calcForces();
 	};
-
-
-
 } // namespace Physics
 
-
 #endif
+
 

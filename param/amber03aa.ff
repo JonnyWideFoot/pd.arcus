@@ -1705,7 +1705,8 @@ MOLECULE   A ALA NALA
         DELATOM  		H
         DELATOM  		N
         DELCONNECT 		-C
-        ATOM_APPEND_MODE START
+    	DELIMPROPER  		-C  CA   N   H 
+    	ATOM_APPEND_MODE START
         ATOM   HT3   3H     2.823 1.499  0.874  H          N
         ATOM   HT2   2H     2.823 1.499 -0.874  H          N
         ATOM   HT1   1H     4.046 0.839  0.000  H          N
@@ -1729,7 +1730,8 @@ MOLECULE   G GLY NGLY
         DELATOM  		H
         DELATOM  		N
         DELCONNECT 		-C
-        ATOM_APPEND_MODE START
+    	DELIMPROPER  		-C  CA   N   H 
+    	ATOM_APPEND_MODE START
         ATOM   HT3   3H     2.823 1.499  0.874  H          N
         ATOM   HT2   2H     2.823 1.499 -0.874  H          N
         ATOM   HT1   1H     4.046 0.839  0.000  H          N
@@ -1749,6 +1751,7 @@ MOLECULE   P PRO NPRO
         LOAD PRO
         DELATOM  		N
         DELCONNECT 		-C
+        DELIMPROPER  		-C  CD   N   CA 
         ATOM_APPEND_MODE START
         ATOM   HN2   H2     2.823 1.499  -0.874   H          N
         ATOM   HN1   H1     4.046 0.839  0.000   H          N
@@ -1776,7 +1779,8 @@ MOLECULE   R ARG NARG
         DELATOM  		H
         DELATOM  		N
         DELCONNECT 		-C
-        ATOM_APPEND_MODE START
+    	DELIMPROPER  		-C  CA   N   H 
+    	ATOM_APPEND_MODE START
         ATOM   HT3   3H     2.823 1.499  0.874  H          N
         ATOM   HT2   2H     2.823 1.499 -0.874  H          N
         ATOM   HT1   1H     4.046 0.839  0.000  H          N
@@ -1814,7 +1818,8 @@ MOLECULE   N ASN NASN
         DELATOM  		H
         DELATOM  		N
         DELCONNECT 		-C
-        ATOM_APPEND_MODE START
+    	DELIMPROPER  		-C  CA   N   H 
+    	ATOM_APPEND_MODE START
         ATOM   HT3   3H     2.823 1.499  0.874  H          N
         ATOM   HT2   2H     2.823 1.499 -0.874  H          N
         ATOM   HT1   1H     4.046 0.839  0.000  H          N
@@ -1842,7 +1847,8 @@ MOLECULE   D ASP NASP
         DELATOM  		H
         DELATOM  		N
         DELCONNECT 		-C
-        ATOM_APPEND_MODE START
+    	DELIMPROPER  		-C  CA   N   H 
+    	ATOM_APPEND_MODE START
         ATOM   HT3   3H     2.823 1.499  0.874  H          N
         ATOM   HT2   2H     2.823 1.499 -0.874  H          N
         ATOM   HT1   1H     4.046 0.839  0.000  H          N
@@ -1868,7 +1874,8 @@ MOLECULE   C CYS NCYS
         DELATOM  		H
         DELATOM  		N
         DELCONNECT 		-C
-        ATOM_APPEND_MODE START
+    	DELIMPROPER  		-C  CA   N   H 
+    	ATOM_APPEND_MODE START
         ATOM   HT3   3H     2.823 1.499  0.874  H          N
         ATOM   HT2   2H     2.823 1.499 -0.874  H          N
         ATOM   HT1   1H     4.046 0.839  0.000  H          N
@@ -1894,7 +1901,8 @@ MOLECULE   C CYS NCYX
         DELATOM  		H
         DELATOM  		N
         DELCONNECT 		-C
-        ATOM_APPEND_MODE START
+    	DELIMPROPER  		-C  CA   N   H 
+    	ATOM_APPEND_MODE START
         ATOM   HT3   3H     2.823 1.499  0.874  H          N
         ATOM   HT2   2H     2.823 1.499 -0.874  H          N
         ATOM   HT1   1H     4.046 0.839  0.000  H          N
@@ -1918,7 +1926,8 @@ MOLECULE   Q GLN NGLN
         DELATOM  		H
         DELATOM  		N
         DELCONNECT 		-C
-        ATOM_APPEND_MODE START
+    	DELIMPROPER  		-C  CA   N   H 
+    	ATOM_APPEND_MODE START
         ATOM   HT3   3H     2.823 1.499  0.874  H          N
         ATOM   HT2   2H     2.823 1.499 -0.874  H          N
         ATOM   HT1   1H     4.046 0.839  0.000  H          N
@@ -1949,7 +1958,8 @@ MOLECULE   E GLU NGLU
         DELATOM  		H
         DELATOM  		N
         DELCONNECT 		-C
-        ATOM_APPEND_MODE START
+    	DELIMPROPER  		-C  CA   N   H 
+    	ATOM_APPEND_MODE START
         ATOM   HT3   3H     2.823 1.499  0.874  H          N
         ATOM   HT2   2H     2.823 1.499 -0.874  H          N
         ATOM   HT1   1H     4.046 0.839  0.000  H          N
@@ -1978,7 +1988,8 @@ MOLECULE   H HIS NHIP
         DELATOM  		H
         DELATOM  		N
         DELCONNECT 		-C
-        ATOM_APPEND_MODE START
+    	DELIMPROPER  		-C  CA   N   H 
+    	ATOM_APPEND_MODE START
         ATOM   HT3   3H     2.823 1.499  0.874  H          N
         ATOM   HT2   2H     2.823 1.499 -0.874  H          N
         ATOM   HT1   1H     4.046 0.839  0.000  H          N
@@ -2011,7 +2022,8 @@ MOLECULE   H HIS NHIE
         DELATOM  		H
         DELATOM  		N
         DELCONNECT 		-C
-        ATOM_APPEND_MODE START
+    	DELIMPROPER  		-C  CA   N   H 
+    	ATOM_APPEND_MODE START
         ATOM   HT3   3H     2.823 1.499  0.874  H          N
         ATOM   HT2   2H     2.823 1.499 -0.874  H          N
         ATOM   HT1   1H     4.046 0.839  0.000  H          N
@@ -2042,7 +2054,8 @@ MOLECULE   H HIS NHID
         DELATOM  		H
         DELATOM  		N
         DELCONNECT 		-C
-        ATOM_APPEND_MODE START
+    	DELIMPROPER  		-C  CA   N   H 
+    	ATOM_APPEND_MODE START
         ATOM   HT3   3H     2.823 1.499  0.874  H          N
         ATOM   HT2   2H     2.823 1.499 -0.874  H          N
         ATOM   HT1   1H     4.046 0.839  0.000  H          N
@@ -2073,7 +2086,8 @@ MOLECULE   I ILE NILE
         DELATOM  		H
         DELATOM  		N
         DELCONNECT 		-C
-        ATOM_APPEND_MODE START
+    	DELIMPROPER  		-C  CA   N   H 
+    	ATOM_APPEND_MODE START
         ATOM   HT3   3H     2.823 1.499  0.874  H          N
         ATOM   HT2   2H     2.823 1.499 -0.874  H          N
         ATOM   HT1   1H     4.046 0.839  0.000  H          N
@@ -2106,7 +2120,8 @@ MOLECULE   L LEU NLEU
         DELATOM  		H
         DELATOM  		N
         DELCONNECT 		-C
-        ATOM_APPEND_MODE START
+    	DELIMPROPER  		-C  CA   N   H 
+    	ATOM_APPEND_MODE START
         ATOM   HT3   3H     2.823 1.499  0.874  H          N
         ATOM   HT2   2H     2.823 1.499 -0.874  H          N
         ATOM   HT1   1H     4.046 0.839  0.000  H          N
@@ -2139,7 +2154,8 @@ MOLECULE   K LYS NLYS
         DELATOM  		H
         DELATOM  		N
         DELCONNECT 		-C
-        ATOM_APPEND_MODE START
+    	DELIMPROPER  		-C  CA   N   H 
+    	ATOM_APPEND_MODE START
         ATOM   HT3   3H     2.823 1.499  0.874  H          N
         ATOM   HT2   2H     2.823 1.499 -0.874  H          N
         ATOM   HT1   1H     4.046 0.839  0.000  H          N
@@ -2175,7 +2191,8 @@ MOLECULE   M MET NMET
         DELATOM  		H
         DELATOM  		N
         DELCONNECT 		-C
-        ATOM_APPEND_MODE START
+    	DELIMPROPER  		-C  CA   N   H 
+    	ATOM_APPEND_MODE START
         ATOM   HT3   3H     2.823 1.499  0.874  H          N
         ATOM   HT2   2H     2.823 1.499 -0.874  H          N
         ATOM   HT1   1H     4.046 0.839  0.000  H          N
@@ -2206,7 +2223,8 @@ MOLECULE   F PHE NPHE
         DELATOM  		H
         DELATOM  		N
         DELCONNECT 		-C
-        ATOM_APPEND_MODE START
+    	DELIMPROPER  		-C  CA   N   H 
+    	ATOM_APPEND_MODE START
         ATOM   HT3   3H     2.823 1.499  0.874  H          N
         ATOM   HT2   2H     2.823 1.499 -0.874  H          N
         ATOM   HT1   1H     4.046 0.839  0.000  H          N
@@ -2240,7 +2258,8 @@ MOLECULE   S SER NSER
         DELATOM  		H
         DELATOM  		N
         DELCONNECT 		-C
-        ATOM_APPEND_MODE START
+    	DELIMPROPER  		-C  CA   N   H 
+    	ATOM_APPEND_MODE START
         ATOM   HT3   3H     2.823 1.499  0.874  H          N
         ATOM   HT2   2H     2.823 1.499 -0.874  H          N
         ATOM   HT1   1H     4.046 0.839  0.000  H          N
@@ -2265,7 +2284,8 @@ MOLECULE   T THR NTHR
         DELATOM  		H
         DELATOM  		N
         DELCONNECT 		-C
-        ATOM_APPEND_MODE START
+    	DELIMPROPER  		-C  CA   N   H 
+    	ATOM_APPEND_MODE START
         ATOM   HT3   3H     2.823 1.499  0.874  H          N
         ATOM   HT2   2H     2.823 1.499 -0.874  H          N
         ATOM   HT1   1H     4.046 0.839  0.000  H          N
@@ -2293,7 +2313,8 @@ MOLECULE   W TRP NTRP
         DELATOM  		H
         DELATOM  		N
         DELCONNECT 		-C
-        ATOM_APPEND_MODE START
+    	DELIMPROPER  		-C  CA   N   H 
+    	ATOM_APPEND_MODE START
         ATOM   HT3   3H     2.823 1.499  0.874  H          N
         ATOM   HT2   2H     2.823 1.499 -0.874  H          N
         ATOM   HT1   1H     4.046 0.839  0.000  H          N
@@ -2331,7 +2352,8 @@ MOLECULE   Y TYR NTYR
         DELATOM  		H
         DELATOM  		N
         DELCONNECT 		-C
-        ATOM_APPEND_MODE START
+    	DELIMPROPER  		-C  CA   N   H 
+    	ATOM_APPEND_MODE START
         ATOM   HT3   3H     2.823 1.499  0.874  H          N
         ATOM   HT2   2H     2.823 1.499 -0.874  H          N
         ATOM   HT1   1H     4.046 0.839  0.000  H          N
@@ -2366,7 +2388,8 @@ MOLECULE   V VAL NVAL
         DELATOM  		H
         DELATOM  		N
         DELCONNECT 		-C
-        ATOM_APPEND_MODE START
+    	DELIMPROPER  		-C  CA   N   H 
+    	ATOM_APPEND_MODE START
         ATOM   HT3   3H     2.823 1.499  0.874  H          N
         ATOM   HT2   2H     2.823 1.499 -0.874  H          N
         ATOM   HT1   1H     4.046 0.839  0.000  H          N

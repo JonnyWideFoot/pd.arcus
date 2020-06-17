@@ -28,7 +28,7 @@ namespace IO
 	///
 
 	class PD_API OutputTrajectory: public Object, 
-																 public WorkSpaceOperatorBase
+		public WorkSpaceOperatorBase
 	{
 	public:
 		OutputTrajectory( WorkSpace &_wspace );
@@ -107,18 +107,16 @@ namespace IO
 	///
 	/// \author Mike Tyka & Jon Rea 
 	///
-
-
 	class PD_API OutputTrajectoryContainer: 
 		public OutputTrajectory, 
-		public ObjectContainer<OutputTrajectory> {
+		public ObjectContainer<OutputTrajectory> 
+	{
 	public:
-		
 		/// OutputTrajectoryContainer must take a WorkSpace at creation time
-		OutputTrajectoryContainer( WorkSpace &_wspace);
+		OutputTrajectoryContainer(WorkSpace &_wspace);
 		virtual ~OutputTrajectoryContainer () {}
 		virtual OutputTrajectoryContainer* clone() const { return new OutputTrajectoryContainer(*this); }
-		
+
 		/// Create all trajectories currently stored
 		virtual int create();
 
@@ -144,22 +142,21 @@ namespace IO
 	///          The constructor requires a filename or a filestem (the extension is added automatically if its missing). 
 	///
 	///          Intended use of the derived class (here for a format XXX) is demonstrated below: 
-	/*! 
-	\code
+				 /*! 
+				 \code 
 
-	// examples
-	OutputFile_XXX  mypdb("test.pdb");
-	mypdb.save( mysystem );
-	mypdb.save( myworkspace );
-	mypdb.save( mymolecule );
+				 // examples
+				 OutputFile_XXX  mypdb("test.pdb");
+				 mypdb.save( mysystem );
+				 mypdb.save( myworkspace );
+				 mypdb.save( mymolecule );
 
-	mysystem.save( OutputFile_XXX("test.pdb") );
-	myworkspace.save( OutputFile_XXX("test.pdb") );
-	mymolecule.save( OutputFile_XXX("test.pdb") );
+ 				 mysystem.save( OutputFile_XXX("test.pdb") );
+				 myworkspace.save( OutputFile_XXX("test.pdb") );
+				 mymolecule.save( OutputFile_XXX("test.pdb") );
 
-	\endcode
-	*/
-	///
+				 \endcode
+				 */
 	/// \details 
 	///
 	/// \author Mike Tyka 
@@ -182,10 +179,7 @@ namespace IO
 		std::string filestem;
 	};
 
-
 } // namespace IO
-
-
 
 #endif
 

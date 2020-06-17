@@ -304,7 +304,7 @@ bool rebuildMissingAtoms( MoleculeBase& mol, Verbosity::Type verbose )
 		size_t jStart = res[i].ifirst;
 		size_t jEnd =  res[i].ilast;
 		size_t jLength = res[i].ilast - res[i].ifirst + 1;
-		if( jLength <= 3 && !res[i].param->backlink && !res[i].param->frwdlink )
+        if( jLength <= 3 && !res[i].param->hasBackLink() && !res[i].param->hasFrwdLink() )
 		{
 			// We will get into this code path if we are something like water
 			// very small and lacking forward and back links
@@ -442,8 +442,8 @@ bool rebuildAndPolymerise(MoleculeBase& mol, int start, int end)
 		const MoleculeDefinition* resdef = mol.res[ir].param;
 		const MoleculeDefinition* resdefPrev = mol.res[ir-1].param;
 
-		int iBackAtom = mol.findParticle(ir-1,resdef->backname.c_str());
-		int iFrwdAtom = mol.findParticle(ir,resdefPrev->frwdname.c_str());
+		int iBackAtom = mol.findParticle(ir-1,resdef->backName);
+		int iFrwdAtom = mol.findParticle(ir,resdefPrev->frwdName);
 
 		if(iBackAtom < 0)
 		{

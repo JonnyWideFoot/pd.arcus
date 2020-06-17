@@ -21,24 +21,19 @@ class PD_API FFParamSet;
 
 namespace Sequence
 {
-
-
-
-
-
-//-------------------------------------------------
-//
-/// \brief  Handles Biological Residue Sequences
-///
-/// \details DETAILED USER'S DESCRIPTION
-///    DESCRIBE PURPOSE, INTERACTION WITH OTHER CLASSES, EXAMPLE CODE
-///
-/// \author  Jon Rea 
-///
-/// \todo STATE OF DEVELOPMENT
-///
-/// \bug BUGS?
-///
+	//-------------------------------------------------
+	//
+	/// \brief  Handles Biological Residue Sequences
+	///
+	/// \details DETAILED USER'S DESCRIPTION
+	///    DESCRIBE PURPOSE, INTERACTION WITH OTHER CLASSES, EXAMPLE CODE
+	///
+	/// \author  Jon Rea 
+	///
+	/// \todo STATE OF DEVELOPMENT
+	///
+	/// \bug BUGS?
+	///
 	class BioSource
 	{
 	public:
@@ -67,22 +62,19 @@ namespace Sequence
 
 
 
-
-
-
-//-------------------------------------------------
-//
-/// \brief  BRIEF DESCRIPTION
-///
-/// \details DETAILED USER'S DESCRIPTION
-///    DESCRIBE PURPOSE, INTERACTION WITH OTHER CLASSES, EXAMPLE CODE
-///
-/// \author  Jon Rea 
-///
-/// \todo STATE OF DEVELOPMENT
-///
-/// \bug BUGS?
-///
+	//-------------------------------------------------
+	//
+	/// \brief  BRIEF DESCRIPTION
+	///
+	/// \details DETAILED USER'S DESCRIPTION
+	///    DESCRIBE PURPOSE, INTERACTION WITH OTHER CLASSES, EXAMPLE CODE
+	///
+	/// \author  Jon Rea 
+	///
+	/// \todo STATE OF DEVELOPMENT
+	///
+	/// \bug BUGS?
+	///
 	class ResidueInfo : public BioSource
 	{
 		friend class BioSequence;
@@ -123,32 +115,28 @@ namespace Sequence
 		char m_SingleLetter;
 		Library::StandardResidues m_ResidueType;
 		unsigned int m_SequentialIndex;
-		
+
 		/// Determins this residues placement within the chain e.g. An alanine 
 		/// residue at the N-terminus is termed NALA, not ALA, with the prefix 'N'
 		Library::PrePostFix m_Prefix; 
 	};
 
 
-
-
-
-//-------------------------------------------------
-//
-/// \brief Defines & Holds an arbitrary sequence of a polymer 
-///
-/// \details 
-/// Syntax of the parse Function
-///
-/// Strings are termed 'advanced sequence strings'
-///
-/// simple: NHIS-ALA-GLN-CYS-HID-TYR-NME  with residues deliminated by '-'s
-/// simplified: *H-(ANC)-HID-(Y)-NME      with single letter codes in brackets
-/// translation from A to ALA is via ALIAS defs in ff def file
-///
-/// \author  Jon Rea 
-///
-///
+	//-------------------------------------------------
+	//
+	/// \brief Defines & Holds an arbitrary sequence of a polymer 
+	///
+	/// \details 
+	/// Syntax of the parse Function
+	///
+	/// Strings are termed 'advanced sequence strings'
+	///
+	/// simple: NHIS-ALA-GLN-CYS-HID-TYR-NME  with residues deliminated by '-'s
+	/// simplified: *H-(ANC)-HID-(Y)-NME      with single letter codes in brackets
+	/// translation from A to ALA is via ALIAS defs in ff def file
+	///
+	/// \author  Jon Rea 
+	///
 	class PD_API BioSequence
 	{
 	public:
@@ -160,7 +148,7 @@ namespace Sequence
 		BioSequence( const Library::AliasMapper &_ParserNameMapper );
 		BioSequence( const Library::ClassMapper &_ParserClassMapper );
 		BioSequence( const Library::AliasMapper &_ParserNameMapper, const Library::ClassMapper &_ParserClassMapper );
-		
+
 		// Operators
 #ifndef SWIG
 		// Function defined below class bods allows use of 'BioSequence' with cout.
@@ -191,7 +179,6 @@ namespace Sequence
 		void append( const BioSequence &_FullSequence );
 		void append( const BioSequence &_Seq, size_t _Start, size_t _Length );
 		void append( const ResidueInfo &_Res );
-
 
 		/// Re-number the sequential index of all residues in this collection, beginning from 0.
 		void reSequence(); 
@@ -235,10 +222,6 @@ namespace Sequence
 	// Stream Operator Overloading
 	std::ostream& operator<<(std::ostream &s, const BioSequence &_Print);
 	bool operator==(const BioSequence& _Seq1,const BioSequence& _Seq2);
-
-
-
-
 
 
 
@@ -383,7 +366,7 @@ namespace Sequence
 	// definition of them in different TU's (Type Unknowns). Full function template
 	// specialization is not a template, rather an ordinary function, so you
 	// need to use inline keyword not to violate ODR if you want to put them
-	// in a header file included into several TU's."
+	// in a header file included into several transaction units."
 	template<>
 	inline void BioSequenceCollection<char>::printScreen() const
 	{

@@ -1,16 +1,17 @@
 // (c) Michael Tyka & Jon Rea
 /// \file workspace.h 
 /// \brief Contains all the workspace main header definitions
-/// \details Details on the workings and general properties of this
-///          File
+/// \details Details on the workings and general properties of this file
 /// \author Michael Tyka & Jon Rea
 ///
 
 #ifndef __WORKSPACE_H
 #define __WORKSPACE_H
 
+// System includes
 #include <vector>
 
+// Forward declarations
 #include "system/system.fwd.h"
 #include "system/workspacecreator.fwd.h"
 #include "workspace/space.fwd.h"
@@ -27,15 +28,12 @@
 #include "fileio/outtra.fwd.h" // Member data
 
 
-
-
-
 //-------------------------------------------------
 //
 /// \brief Central simulation class 
 ///
 /// \details 
-/// Workspace  is responsible for holding a simulation state. It
+/// Workspace is responsible for holding a simulation state. It
 /// provides a linear atom array where each atom has properties such as
 /// position, previous position, force, old force, velocity etc.. which the
 /// Protocol s and Forcefield s can modify.
@@ -71,6 +69,7 @@
 class PD_API WorkSpace : public MoleculeBase
 {
 	friend class PD_API WorkspaceCreatorBase;
+
 public:
 	// -----------------------
 	//  Constructor Logic
@@ -86,7 +85,7 @@ private:
 	void CommonInit();
 	void reinitAll();
 	void Allocate(int _natom);
-  void parseGroups(); 
+	void parseGroups(); 
 
 	RotBond           *default_rotbond;
 	NeighbourListBase *default_nlist;
@@ -101,8 +100,8 @@ private:
 	Space             *ptr_boundary;
 
 	long m_CheckSum;
-public:
 
+public:
 	long getCheckSum() { return m_CheckSum; }
 
 	virtual char getChainID( size_t iAtom ) const;
@@ -252,10 +251,8 @@ public:
 	/// Output trajectory container - trajectories can be added&removed
 	/// Protocols can call the functions below to append trajectory snapshots
 	IO::OutputTrajectoryContainer outtra;
-
 	
 	/// This saves the current state of the WorkSpace in a file format of the users choice
-	///
 	///  For example  myworkspace.save( OutputFile_PDB("mypdbfile") ) 
 	///  saves a PDB file.
 	void save( IO::OutputFile &_output );

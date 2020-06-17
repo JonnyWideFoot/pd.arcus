@@ -26,10 +26,6 @@ extern const MoleculeDefinition nullmolecule;
 extern const AtomParameter nullatomparameter;
 
 
-
-
-
-
 //-------------------------------------------------
 //
 /// \brief  BRIEF DESCRIPTION
@@ -43,21 +39,19 @@ extern const AtomParameter nullatomparameter;
 ///
 /// \bug BUGS?
 ///
-class PD_API CovalentLink{
+class PD_API CovalentLink
+{
 public:
-	CovalentLink(){
-		i = 0;
-		ani = "";
-		roi = 0;
-	}
-	int i; // internal molecule atom index of bond partner
-	std::string ani; // name of bonded atom
-	int roi; // residue offset (is != 0 if linking to next/previous residue)
+    CovalentLink()
+    {
+        i = 0;
+        ani = "";
+        roi = 0;
+    }
+    int i; // internal molecule atom index of bond partner
+    std::string ani; // name of bonded atom
+    int roi; // residue offset (is != 0 if linking to next/previous residue)
 };
-
-
-
-
 
 
 //-------------------------------------------------
@@ -76,77 +70,24 @@ public:
 class PD_API AtomTypeParameter: public Particle
 { 
 public:
-	AtomTypeParameter()
-	{
-		init();
-	}
+    AtomTypeParameter()
+    {
+        init();
+    }
 
+    /// Name of Atom Type (could the inherited type_name be used here instead?)
+    std::string name; 
+    bool used;
 
-	/// Name of Atom Type (could the inherited type_name be used here instead?)
-	std::string name; 
-	bool used;
-
-	int AtomTypeReadLine(const std::string linestr, ParseErrorLogger &errlog);
- private:
-	void init()
-	{
-		name = "";
-		used = false;
-	}
-};
-
-
-
-
-
-
-//-------------------------------------------------
-//
-/// \brief  BRIEF DESCRIPTION
-///
-/// \details DETAILED USER'S DESCRIPTION
-///    DESCRIBE PURPOSE, INTERACTION WITH OTHER CLASSES, EXAMPLE CODE
-///
-/// \author Mike Tyka & Jon Rea 
-///
-/// \todo STATE OF DEVELOPMENT
-///
-/// \bug BUGS?
-///
-class PD_API AtomParameter: public AtomTypeParameter{
-public:
-	AtomParameter(): AtomTypeParameter() 
-	{
-		init();
-	}
-
-	AtomParameter( const AtomTypeParameter &copy)
-		: AtomTypeParameter(copy) 
-	{
-		init();
-	}
-
-	friend class PD_API FFParamSet;
-	friend class PD_API MoleculeDefinition;
-
-	char valid; // 0 for invalid (to be removed/ignored) !=0 for valid	
-
-	std::vector<CovalentLink> r_covalent; // bond definitions
+    int AtomTypeReadLine(const std::string linestr, ParseErrorLogger &errlog);
 
 private:
-	void init()
-	{
-		comment = ""; // comment
-		valid = 1;
-	}
-
-	std::string restraint;
-	std::string comment;
+    void init()
+    {
+        name = "";
+        used = false;
+    }
 };
-
-
-
-
 
 
 //-------------------------------------------------
@@ -162,36 +103,79 @@ private:
 ///
 /// \bug BUGS?
 ///
-class PD_API BondTypeParameter{
+class PD_API AtomParameter: public AtomTypeParameter
+{
 public:
+    AtomParameter(): AtomTypeParameter() 
+    {
+        init();
+    }
 
-	/// Internal type number of second atom type
-	int i; 
+    AtomParameter( const AtomTypeParameter &copy)
+        : AtomTypeParameter(copy) 
+    {
+        init();
+    }
 
-	/// Internal type number of second atom type
-	int j; 
-	char used;
+    friend class PD_API FFParamSet;
+    friend class PD_API MoleculeDefinition;
 
-	/// Equilibrium bond length
-	double length;    
+    char valid; // 0 for invalid (to be removed/ignored) !=0 for valid	
 
-	/// forceconstant for harmonic bond restraints
-	double forceconstant;  
+    std::vector<CovalentLink> r_covalent; // bond definitions
 
-	/// order of bond - 1 = single, 2 = double, 3 = triple
-	double bondorder;     
+private:
+    void init()
+    {
+        comment = ""; // comment
+        valid = 1;
+    }
 
-	/// Reads a line frm the forcefield definition file that contains a bond type entry:
-	/// For example "BOND  CA  N   1.35  300  1"
-	int readDefinitionLine(const std::string linestring, FFParamSet &ffps, ParseErrorLogger &errlog);
-	
-	/// compares if the bond Type matches t{i,j}
-	int cmpBond(int ti, int tj) const; 
+    std::string restraint;
+    std::string comment;
 };
 
 
+//-------------------------------------------------
+//
+/// \brief  BRIEF DESCRIPTION
+///
+/// \details DETAILED USER'S DESCRIPTION
+///    DESCRIBE PURPOSE, INTERACTION WITH OTHER CLASSES, EXAMPLE CODE
+///
+/// \author Mike Tyka & Jon Rea 
+///
+/// \todo STATE OF DEVELOPMENT
+///
+/// \bug BUGS?
+///
+class PD_API BondTypeParameter
+{
+public:
 
+    /// Internal type number of second atom type
+    int i; 
 
+    /// Internal type number of second atom type
+    int j; 
+    char used;
+
+    /// Equilibrium bond length
+    double length;    
+
+    /// forceconstant for harmonic bond restraints
+    double forceconstant;  
+
+    /// order of bond - 1 = single, 2 = double, 3 = triple
+    double bondorder;     
+
+    /// Reads a line frm the forcefield definition file that contains a bond type entry:
+    /// For example "BOND  CA  N   1.35  300  1"
+    int readDefinitionLine(const std::string linestring, FFParamSet &ffps, ParseErrorLogger &errlog);
+
+    /// compares if the bond Type matches t{i,j}
+    int cmpBond(int ti, int tj) const; 
+};
 
 
 //-------------------------------------------------
@@ -202,24 +186,21 @@ public:
 ///   as well as the equilibrium angle and the forceconstant    
 /// \author Mike Tyka & Jon Rea 
 ///
-class PD_API AngleTypeParameter{
+class PD_API AngleTypeParameter
+{
 public:
-	char used;
+    char used;
 
-	/// Type identifier (in AtomType[])
-	int i, a, j; 						
-	double angle;
-	double forceconstant;
+    /// Type identifier (in AtomType[])
+    int i, a, j; 						
+    double angle;
+    double forceconstant;
 
-	int readDefinitionLine(const std::string linestring, FFParamSet &ffps, ParseErrorLogger &errlog);
-	
-	/// compares if the angle yype matches t{i,a,j}
-	int cmpAngle(int ti, int ta, int tj) const;
+    int readDefinitionLine(const std::string linestring, FFParamSet &ffps, ParseErrorLogger &errlog);
+
+    /// compares if the angle yype matches t{i,a,j}
+    int cmpAngle(int ti, int ta, int tj) const;
 };
-
-
-
-
 
 
 //-------------------------------------------------
@@ -235,47 +216,41 @@ public:
 ///
 /// \bug BUGS?
 ///
-class PD_API TorsionTypeParameter{
+class PD_API TorsionTypeParameter
+{
 public:
-	TorsionTypeParameter()
-	{
-		zero();
-	}
+    TorsionTypeParameter()
+    {
+        zero();
+    }
 
-	char used;
-	int i, a, b, j;
+    char used;
+    int i, a, b, j;
 
+    /// Type identifier (in AtomType[]) 0 for torsion, 1 for improper
+    int Type;
 
-	/// Type identifier (in AtomType[]) 0 for torsion, 1 for improper
-	int Type; 
+    /// how many fourier terms
+    int terms; 
 
+    /// the individual parameters for each term
+    double Vn[4]; 
+    double n[4];
+    double gamma[4];
 
-	/// how many fourier terms
-	int terms; 
+    int addTerm(double newVn, double newn, double newgamma);
+    int cmpTorsion(int ti, int ta, int tb, int tj, int Type) const;
+    void zero();
+    void info();
 
-	/// the individual parameters for each term
-	double Vn[4]; 
-	double n[4];
-	double gamma[4];
-
-	int addTerm(double newVn, double newn, double newgamma);
-	int cmpTorsion(int ti, int ta, int tb, int tj, int Type) const;
-	void zero();
-	void info();
-
-	int readDefinitionLine(
-		std::vector<TorsionTypeParameter> &list,
-		int list_length,
-		const std::string &linestring,
-		FFParamSet &ffps,
-		ParseErrorLogger &errlog
-	);
-
+    int readDefinitionLine(
+        std::vector<TorsionTypeParameter> &list,
+        int list_length,
+        const std::string &linestring,
+        FFParamSet &ffps,
+        ParseErrorLogger &errlog
+        );
 };
-
-
-
-
 
 
 //-------------------------------------------------
@@ -295,34 +270,30 @@ class PD_API DihedralDefinition
 {
 public:
 
-	DihedralDefinition()
-	{
-		roi = 0;
-		roa = 0;
-		rob = 0;
-		roj = 0;
-		Type = 0;
-	}
+    DihedralDefinition()
+    {
+        roi = 0;
+        roa = 0;
+        rob = 0;
+        roj = 0;
+        Type = 0;
+    }
 
-	std::string ani; // Atom Names
-	std::string ana;
-	std::string anb;
-	std::string anj;
+    std::string ani; // Atom Names
+    std::string ana;
+    std::string anb;
+    std::string anj;
 
-	int roi;
-	int roa;
-	int rob;
-	int roj; // residue offsets (allows inter residue definitions
+    int roi;
+    int roa;
+    int rob;
+    int roj; // residue offsets (allows inter residue definitions
 
-	int Type;
+    int Type;
 
-	int readDefinitionLine(const std::string &linestring, ParseErrorLogger &errlog);
-	int printDefinitionLine(FILE * file);
+    int readDefinitionLine(const std::string &linestring, ParseErrorLogger &errlog);
+    int printDefinitionLine(FILE * file);
 };
-
-
-
-
 
 
 //-------------------------------------------------
@@ -341,113 +312,108 @@ public:
 class PD_API MoleculeDefinition
 {
 public:
-	friend class PD_API FFParamSet;
+    friend class PD_API FFParamSet;
 
-	MoleculeDefinition() 
-		: letter('-'),
-		backlink(false),
-		frwdlink(false),
-		backpos(),
-		frwdpos(),
-		m_AtomAppendMode(true),		
-		l3_name("---"),
-		name("unknown")
-	{
-	}
+    MoleculeDefinition() 
+        : letter('-'),
+        backpos(),
+        frwdpos(),
+        m_AtomAppendMode(true),		
+        l3_name("---"),
+        name("unknown")
+    {
+    }
 
-	MoleculeDefinition(const MoleculeDefinition &newmol)
-	{
-		(*this) = newmol;
-	}
+    MoleculeDefinition(const MoleculeDefinition &newmol)
+    {
+        (*this) = newmol;
+    }
 
-	MoleculeDefinition &operator=(const MoleculeDefinition &newmol)
-	{		
-		m_AtomAppendMode = newmol.m_AtomAppendMode;
+    MoleculeDefinition &operator=(const MoleculeDefinition &newmol)
+    {		
+        m_AtomAppendMode = newmol.m_AtomAppendMode;
 
-		letter = newmol.letter;
-		name = newmol.name;
-		l3_name = newmol.l3_name;
+        letter = newmol.letter;
+        name = newmol.name;
+        l3_name = newmol.l3_name;
 
-		backlink = newmol.backlink;
-		frwdlink = newmol.frwdlink;
-		backname = newmol.backname;
-		frwdname = newmol.frwdname;
-		backpos = newmol.backpos;
-		frwdpos = newmol.frwdpos;
+        backName = newmol.backName;
+        frwdName = newmol.frwdName;
+        backpos = newmol.backpos;
+        frwdpos = newmol.frwdpos;
 
-		atom = newmol.atom;
-		improper = newmol.improper;
-		torsion = newmol.torsion;
+        atom = newmol.atom;
+        improper = newmol.improper;
+        torsion = newmol.torsion;
 
-		// change the parent links back to "this"
-		for(size_t i=0;i<atom.size();i++) 
-			atom[i].parent = this;
+        // change the parent links back to "this"
+        for(size_t i=0;i<atom.size();i++) 
+            atom[i].parent = this;
 
-		return (*this);
-	}
+        return (*this);
+    }
 
-	int findAtomRaw(const std::string &atom_name) const;
-	int findAtomPDB(const std::string &atom_name) const;
-	int findImproperDef(const DihedralDefinition &query) const;
-	int checkRestraintList( ParseErrorLogger &errlog );
-	int decodeRestraintList(
-		const std::string &data,
-		std::vector<CovalentLink> &bondlist,
-		ParseErrorLogger &errlog 
-	);
+    int findAtomRaw(const std::string &atom_name) const;
+    int findAtomPDB(const std::string &atom_name) const;
+    int findImproperDef(const DihedralDefinition &query) const;
+    int checkRestraintList( ParseErrorLogger &errlog );
+    int decodeRestraintList(
+        const std::string &data,
+        std::vector<CovalentLink> &bondlist,
+        ParseErrorLogger &errlog 
+        );
 
-	int decodeRestraintList(  ParseErrorLogger &errlog );
-	
-	int readMoleculeBlock(FILE * file, ParseErrorLogger &errlog, FFParamSet &ffps);
-	int writeMoleculeBlock(FILE *file, FFParamSet &ffps);
+    int decodeRestraintList(  ParseErrorLogger &errlog );
 
-	// inspectors
-	const char *c_l3_name() const
-	{
-		return l3_name.c_str();
-	}
+    int readMoleculeBlock(FILE * file, ParseErrorLogger &errlog, FFParamSet &ffps);
+    int writeMoleculeBlock(FILE *file, FFParamSet &ffps);
 
-	const std::string &s_l3_name() const
-	{
-		return l3_name;
-	}
+    // inspectors
+    const char *c_l3_name() const
+    {
+        return l3_name.c_str();
+    }
 
-	const char *c_name() const
-	{
-		return name.c_str();
-	}
+    const std::string &s_l3_name() const
+    {
+        return l3_name;
+    }
 
-	const std::string &s_name() const
-	{
-		return name;
-	}
+    const char *c_name() const
+    {
+        return name.c_str();
+    }
+
+    const std::string &s_name() const
+    {
+        return name;
+    }
 
 public:
-	char letter;
-	bool backlink; // false if no back link, true if links to prev. residue
-	bool frwdlink; // false if no back link, true if links to prev. residue
-	std::string backname;
-	std::string frwdname;
-	Maths::dvector backpos;
-	Maths::dvector frwdpos;
+    char letter;
 
-	std::vector<AtomParameter> atom; // stores Atom information
-	std::vector<DihedralDefinition> improper; // stores explicit IMPROPER information
-	std::vector<DihedralDefinition> torsion; // stores explicit TORSION information
+    /// False if no BackLink, true if links to prev. residue
+    bool hasBackLink() const;
+    /// False if no FrwdLink, true if links to next residue
+    bool hasFrwdLink() const;
+
+    std::string backName;
+    std::string frwdName;
+    Maths::dvector backpos;
+    Maths::dvector frwdpos;
+
+    std::vector<AtomParameter> atom; ///< stores Atom information
+    std::vector<DihedralDefinition> improper; ///< stores explicit IMPROPER information
+    std::vector<DihedralDefinition> torsion; ///< stores explicit TORSION information
 
 private:
-	std::string name;
-	std::string l3_name;
-	std::string comment;
+    std::string name;
+    std::string l3_name;
+    std::string comment;
 
-
-	/// Controlls wether new atoms definitions are added at the start or end of their list. This is because atom order is important for rotations.
-	bool m_AtomAppendMode; 
+    /// Controlls wether new atoms definitions are added at the start or end of their list. This is because atom order is important for rotations.
+    bool m_AtomAppendMode; 
 };
-
-
-
-
 
 
 //-------------------------------------------------
@@ -463,35 +429,29 @@ private:
 ///
 /// \bug BUGS?
 ///
-class PD_API Section{
+class PD_API Section
+{
 public:
-	Section(){};
-	Section(const std::string &_sectionname,
-		const std::string &_filename,
-		int _lineoffset)
-	{
-		sectionname = _sectionname;
-		filename = _filename;
-		lineoffset = _lineoffset;
-	}
+    Section(){}
+    Section(const std::string &_sectionname,
+        const std::string &_filename,
+        int _lineoffset)
+    {
+        sectionname = _sectionname;
+        filename = _filename;
+        lineoffset = _lineoffset;
+    }
+    ~Section(){}
 
-	~Section(){
+    int readSectionBlock(FILE * file, ParseErrorLogger &errlog);
 
-	}
-
-	int readSectionBlock(FILE * file, ParseErrorLogger &errlog);
-
-	std::vector< std::string > sectionline;
-	int lineoffset;
-	std::string filename;
-	std::string sectionname;
+    std::vector< std::string > sectionline;
+    int lineoffset;
+    std::string filename;
+    std::string sectionname;
 };
 
 #endif
-
-
-
-
 
 
 //-------------------------------------------------
@@ -508,108 +468,101 @@ public:
 /// \bug BUGS?
 ///
 class PD_API FFParamSet : 
-	public Object, 
-	public Library::AliasMapper, 
-	public Library::ClassMapper 
+    public Object, 
+    public Library::AliasMapper, 
+    public Library::ClassMapper 
 {
- public:
-	FFParamSet() 
-		: Object(), 
-		Library::AliasMapper(), 
-		Library::ClassMapper() 
-	{
-		settodefault();
-	}
+public:
+    FFParamSet() 
+        : Object(), 
+        Library::AliasMapper(), 
+        Library::ClassMapper() 
+    {
+        settodefault();
+    }
 
-	FFParamSet(const std::string  &_filename) 
-		: Object(), 
-		Library::AliasMapper(), 
-		Library::ClassMapper() 
-	{
-		settodefault();
-		readLib(_filename);
-	}
+    FFParamSet(const std::string  &_filename) 
+        : Object(), 
+        Library::AliasMapper(), 
+        Library::ClassMapper() 
+    {
+        settodefault();
+        readLib(_filename);
+    }
 
-	virtual FFParamSet* clone() const { return new FFParamSet(*this); }
-
-	virtual ~FFParamSet()
-	{
-	}
-
-	void settodefault();
+    virtual FFParamSet* clone() const { return new FFParamSet(*this); }
+    virtual ~FFParamSet(){}
+    void settodefault();
 
 public:
 
 #ifndef SWIG
-	std::string fffilename;
-	std::string ffidentifier;
+    std::string fffilename;
+    std::string ffidentifier;
 
-	std::vector<MoleculeDefinition> molecule;
-	std::vector<AtomTypeParameter> AtomType;
-	std::vector<BondTypeParameter> BondType;
-	std::vector<AngleTypeParameter> AngleType;
-	std::vector<TorsionTypeParameter> TorsionType;
+    std::vector<MoleculeDefinition> molecule;
+    std::vector<AtomTypeParameter> AtomType;
+    std::vector<BondTypeParameter> BondType;
+    std::vector<AngleTypeParameter> AngleType;
+    std::vector<TorsionTypeParameter> TorsionType;
 
-	std::vector<Section> section;
+    std::vector<Section> section;
+    std::vector<Library::ResidueAliasDefinition> AliasDef;
+    std::vector<std::string> m_CustomProperty;
+    std::vector<std::string> m_ReservedKeywords;
 
-	std::vector<Library::ResidueAliasDefinition> AliasDef;
+    // Various flags & parameters
+    bool identgiven;
+    bool autobonds;
+    bool autoangles;
+    bool autotorsions;
 
-	std::vector<std::string> m_CustomProperty;
-
-	std::vector<std::string> m_ReservedKeywords;
-
-	// Various flags & parameters
-	bool identgiven;
-	bool autobonds;
-	bool autoangles;
-	bool autotorsions;
-
-	double Vdw14Scaling;
-	double Elec14Scaling;
+    double Vdw14Scaling;
+    double Elec14Scaling;
 #endif
 
-	int readLib(const std::string &filename, int level = 0);
-	int writeLib(const std::string &filename);
+    int readLib(const std::string &filename, int level = 0);
+    int writeLib(const std::string &filename);
 
-	int readCHARMMprm(const std::string &filename);
-	int readCHARMMrtf(const std::string &filename);
+    int readCHARMMprm(const std::string &filename);
+    int readCHARMMrtf(const std::string &filename);
 
+    int unifyForcefield();
 
-	int unifyForcefield();
 #ifndef SWIG
-	void checkUsedTypes();
+    void checkUsedTypes();
 
-	int findAtomType(const std::string &name) const;
-	int findBondType(int ti, int tj) const;
-	int findAngleType(int ti, int ta, int tj) const;
-	int findTorsionType(int ti, int ta, int tb, int tj) const;
-	int findImproperType(int ti, int ta, int tb, int tj) const;
-	int findSection(const std::string &name) const;
-	int findCustomProperty(const std::string &name) const;
-	int findReservedKeyword(const std::string &name) const;
+    int findAtomType(const std::string &name) const;
+    int findBondType(int ti, int tj) const;
+    int findAngleType(int ti, int ta, int tj) const;
+    int findTorsionType(int ti, int ta, int tb, int tj) const;
+    int findImproperType(int ti, int ta, int tb, int tj) const;
+    int findSection(const std::string &name) const;
+    int findCustomProperty(const std::string &name) const;
+    int findReservedKeyword(const std::string &name) const;
 
-	int findAliasName(const std::string &_queryAlias,std::string &_returnAliasName) const;
-	int findMoleculeType_withoutAlias(const std::string &queryname) const;
-	int findMoleculeType(const std::string &MolName) const;
+    int findAliasName(const std::string &_queryAlias,std::string &_returnAliasName) const;
+    int findMoleculeType_withoutAlias(const std::string &queryname) const;
+    int findMoleculeType(const std::string &MolName) const;
 
-	int getSection(const std::string &queryname, Section &result) const;
+    int getSection(const std::string &queryname, Section &result) const;
 
 #endif
 
-	// AliasMapper implementation
+    // AliasMapper implementation
 
-	/// Look up the long name for a given single letter name
-	virtual bool lookupLongName( char _SourceID, std::string& _DestID ) const; 
+    /// Look up the long name for a given single letter name
+    virtual bool lookupLongName( char _SourceID, std::string& _DestID ) const; 
 
-	/// Look up the single letter for a long residue name
-	virtual bool lookupShortName( const std::string& _SourceID, char& _DestID ) const; 
+    /// Look up the single letter for a long residue name
+    virtual bool lookupShortName( const std::string& _SourceID, char& _DestID ) const; 
 
-	/// Look to see if the source name is an alias, and return the true name
-	virtual bool lookupAlias( const std::string& _SourceID, std::string& _DestID ) const; 
+    /// Look to see if the source name is an alias, and return the true name
+    virtual bool lookupAlias( const std::string& _SourceID, std::string& _DestID ) const; 
 
 private:
 
-	void printAtomParameters(AtomParameter * apar);
+    void printAtomParameters(AtomParameter * apar);
 
 };
 

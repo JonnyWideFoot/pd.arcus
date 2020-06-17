@@ -44,25 +44,33 @@ int GeneratorCore( const Sequence::BioSequence &bioSeq, Molecule &newmol, const 
 	if(OutputLevel)
 		printf("Adding %d particles, %d residues to system ...\n", nnewparts, nres);
 
-	for(ir = 0; ir < resdef.size(); ir++) {
-		if(OutputLevel){
+	for(ir = 0; ir < resdef.size(); ir++)
+    {
+		if(OutputLevel)
+        {
 			if((ir>0)&&((ir%15)==0)) printf("\n");
 			printf("%4s ", resdef[ir]->c_name());
 		}
 
-		if(ir == 0) { // the first residue must have no back links
-			if(resdef[ir]->backlink) {
+		if(ir == 0)
+        { 
+            // the first residue must have no back links
+            if(resdef[ir]->hasBackLink())
+            {
 				printf("WARNING: The first residue is not a start-of-polymer residue \n");
 			}
 		}
-		if(ir == (resdef.size() - 1)) { // the last residue must have no forward links
-			if(resdef[ir]->frwdlink) {
+		if(ir == (resdef.size() - 1))
+        { 
+            // the last residue must have no forward links
+            if(resdef[ir]->hasFrwdLink())
+            {
 				printf("WARNING: The last residue is not a end-of-polymer residue \n");
 			}
 		}
 
-		for(iat = 0; iat < resdef[ir]->atom.size(); iat++) {
-
+		for(iat = 0; iat < resdef[ir]->atom.size(); iat++)
+        {
 			Particle newatom(resdef[ir]->atom[iat]); // create a 'copy' of the template atom
 			newatom.ir = ir; // residue number
 			newatom.parentname = newatom.parent->s_name();
@@ -81,7 +89,8 @@ int GeneratorCore( const Sequence::BioSequence &bioSeq, Molecule &newmol, const 
 	{
 		// now move each residue into it's respective position
 		if(OutputLevel) printf("Performing Polymerisation: ");
-		if(newmol.res.size() != resdef.size()){
+		if(newmol.res.size() != resdef.size())
+        {
 			printf("\nCODE ERROR: Numbers of residues does not agree\n");
 			return -1;
 		}
@@ -89,20 +98,22 @@ int GeneratorCore( const Sequence::BioSequence &bioSeq, Molecule &newmol, const 
 		// Polymerise our new atomic structure from the 'resdef' forward and back link definititions
 		for(int ir = resdef.size()-1; ir > 0; ir--)
 		{
-			int iBackAtom = newmol.findParticle(ir-1,resdef[ir]->backname.c_str());
-			int iFrwdAtom = newmol.findParticle(ir,resdef[ir-1]->frwdname.c_str());
+			int iBackAtom = newmol.findParticle(ir-1,resdef[ir]->backName);
+			int iFrwdAtom = newmol.findParticle(ir,resdef[ir-1]->frwdName);
 
-			if(iBackAtom < 0){
+			if(iBackAtom < 0)
+            {
 				printf("\nERROR: Cannot find BackLink Atom in previous residue of residue %d\n", ir);
 				return -1;
 			}
-			if(iFrwdAtom < 0) {
+			if(iFrwdAtom < 0)
+            {
 				printf("\nERROR: Cannot find Forward Link Atom in next residue of residue %d\n", ir);
 				return -1;
 			}
+
 			dvector resoffset;
 			matrix3x3 resrot;
-
 			superimpose(
 				newmol.atom[iBackAtom].pos(),
 				resdef[ir-1]->frwdpos,

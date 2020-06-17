@@ -13,13 +13,12 @@ class PD_API WorkSpaceOperatorBase
 public:		
 	WorkSpaceOperatorBase(WorkSpace &_wspace): m_WSpace( &_wspace){}
 
-	WorkSpace       &getWSpace() const { return *m_WSpace; }
+	WorkSpace &getWSpace() const { return *m_WSpace; }
 
 private:
 	/// internal pointer to keep the workspace pointer. Once created this cannot be changed.
 	WorkSpace *m_WSpace;
 };
-
 
 
 //-------------------------------------------------
